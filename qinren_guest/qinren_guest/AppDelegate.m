@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [NSThread sleepForTimeInterval:3.0]; // 设置启动页面停留时间
+    //NSLog(@"启动页停留3秒");
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]; //设置窗口初始化
+    
+    self.window.rootViewController = [[MainTabBarController alloc]init];//设置根控制器主tabbar
+    
+    [self.window makeKeyAndVisible];//接受主窗口和可见
+
+    
     return YES;
 }
 
