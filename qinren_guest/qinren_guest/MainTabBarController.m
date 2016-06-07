@@ -30,7 +30,21 @@
     
     vc1.tabBarItem.title = @"主页";
     
-    vc1.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_index_select"];
+    vc1.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_index_noselect"];
+    
+    vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_index_select"];
+    
+    NSMutableDictionary *v1attrs = [NSMutableDictionary dictionary];
+    
+    v1attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    [vc1.tabBarItem setTitleTextAttributes:v1attrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *v1SelectAttrs = [NSMutableDictionary dictionary];
+    
+    v1SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    
+    [vc1.tabBarItem setTitleTextAttributes:v1SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav1];
     
@@ -47,7 +61,21 @@
     
     vc2.tabBarItem.title = @"交流群";
     
-    vc2.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_exchange_select"];
+    vc2.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_exchange_noselect"];
+    
+    vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_exchange_select"];
+    
+    NSMutableDictionary *v2attrs = [NSMutableDictionary dictionary];
+    
+    v2attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    [vc2.tabBarItem setTitleTextAttributes:v2attrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *v2SelectAttrs = [NSMutableDictionary dictionary];
+    
+    v2SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    
+    [vc2.tabBarItem setTitleTextAttributes:v2SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav2];
     
@@ -62,10 +90,23 @@
     
     vc3.navigationItem.title = @"购物车";
     
-    
-    vc3.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_shopcar_select"];
-    
     vc3.tabBarItem.title = @"购物车";
+    
+    vc3.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_shopcar_noselect"];
+    
+    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_shopcar_select"];
+
+    NSMutableDictionary *vc3attrs = [NSMutableDictionary dictionary];
+    
+    vc3attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    [vc3.tabBarItem setTitleTextAttributes:vc3attrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *vc3SelectAttrs = [NSMutableDictionary dictionary];
+    
+    vc3SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    
+    [vc3.tabBarItem setTitleTextAttributes:vc3SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav3];
     
@@ -80,10 +121,23 @@
     
     vc4.navigationItem.title = @"我的";
     
-    
-    vc4.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_my_select"];
-    
     vc4.tabBarItem.title = @"我的";
+    
+    vc4.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_my_noselect"];
+    
+    vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_my_select"];
+    
+    NSMutableDictionary *vc4attrs = [NSMutableDictionary dictionary];
+    
+    vc4attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    [vc3.tabBarItem setTitleTextAttributes:vc4attrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *vc4SelectAttrs = [NSMutableDictionary dictionary];
+    
+    vc4SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    
+    [vc4.tabBarItem setTitleTextAttributes:vc3SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav4];
     
