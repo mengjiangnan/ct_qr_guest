@@ -34,17 +34,17 @@
     
     vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_index_select"];
     
-    NSMutableDictionary *v1attrs = [NSMutableDictionary dictionary];
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     
-    v1attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     
-    [vc1.tabBarItem setTitleTextAttributes:v1attrs forState:UIControlStateNormal];
+    [vc1.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
-    NSMutableDictionary *v1SelectAttrs = [NSMutableDictionary dictionary];
+    NSMutableDictionary *SelectAttrs = [NSMutableDictionary dictionary];
     
-    v1SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
     
-    [vc1.tabBarItem setTitleTextAttributes:v1SelectAttrs forState:UIControlStateSelected];
+    [vc1.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav1];
     
@@ -65,17 +65,9 @@
     
     vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_exchange_select"];
     
-    NSMutableDictionary *v2attrs = [NSMutableDictionary dictionary];
+    [vc2.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
-    v2attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    
-    [vc2.tabBarItem setTitleTextAttributes:v2attrs forState:UIControlStateNormal];
-    
-    NSMutableDictionary *v2SelectAttrs = [NSMutableDictionary dictionary];
-    
-    v2SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
-    
-    [vc2.tabBarItem setTitleTextAttributes:v2SelectAttrs forState:UIControlStateSelected];
+    [vc2.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav2];
     
@@ -95,18 +87,10 @@
     vc3.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_shopcar_noselect"];
     
     vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_shopcar_select"];
-
-    NSMutableDictionary *vc3attrs = [NSMutableDictionary dictionary];
     
-    vc3attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    [vc3.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
-    [vc3.tabBarItem setTitleTextAttributes:vc3attrs forState:UIControlStateNormal];
-    
-    NSMutableDictionary *vc3SelectAttrs = [NSMutableDictionary dictionary];
-    
-    vc3SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
-    
-    [vc3.tabBarItem setTitleTextAttributes:vc3SelectAttrs forState:UIControlStateSelected];
+    [vc3.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav3];
     
@@ -127,17 +111,9 @@
     
     vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_my_select"];
     
-    NSMutableDictionary *vc4attrs = [NSMutableDictionary dictionary];
+    [vc4.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
-    vc4attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    
-    [vc3.tabBarItem setTitleTextAttributes:vc4attrs forState:UIControlStateNormal];
-    
-    NSMutableDictionary *vc4SelectAttrs = [NSMutableDictionary dictionary];
-    
-    vc4SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
-    
-    [vc4.tabBarItem setTitleTextAttributes:vc3SelectAttrs forState:UIControlStateSelected];
+    [vc4.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav4];
     
