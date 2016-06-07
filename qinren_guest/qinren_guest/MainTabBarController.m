@@ -18,6 +18,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    
+    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    
+    NSMutableDictionary *SelectAttrs = [NSMutableDictionary dictionary];
+    
+    SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
+    
+    UITabBarItem *item;
+    item= [UITabBarItem appearance];
+    
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    
+    [item setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
+    
     UIViewController *vc1;
     vc1= [[UIViewController alloc]init];
     
@@ -33,18 +48,6 @@
     vc1.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_index_noselect"];
     
     vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_index_select"];
-    
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    
-    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    
-    [vc1.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    NSMutableDictionary *SelectAttrs = [NSMutableDictionary dictionary];
-    
-    SelectAttrs[NSForegroundColorAttributeName] = [UIColor greenColor];
-    
-    [vc1.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav1];
     
@@ -65,10 +68,6 @@
     
     vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_exchange_select"];
     
-    [vc2.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    [vc2.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
-    
     [self addChildViewController:nav2];
     
     
@@ -88,10 +87,6 @@
     
     vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_shopcar_select"];
     
-    [vc3.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    [vc3.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
-    
     [self addChildViewController:nav3];
     
     
@@ -110,10 +105,6 @@
     vc4.tabBarItem.image = [UIImage imageNamed:@"tab_bar_Image_my_noselect"];
     
     vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_bar_Image_my_select"];
-    
-    [vc4.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    [vc4.tabBarItem setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
     [self addChildViewController:nav4];
     
