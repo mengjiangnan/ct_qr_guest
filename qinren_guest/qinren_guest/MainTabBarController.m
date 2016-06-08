@@ -20,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /*批量设置uitabbaritem文字颜色*/
+    
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     
     attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
@@ -34,6 +36,9 @@
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
     [item setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
+    
+    
+    /*用封装方法设置子视图*/
     
     [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_index_noselect" setSelectImage:@"tab_bar_Image_index_select" setTitle:@"主页"];
     
