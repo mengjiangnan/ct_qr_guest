@@ -6,13 +6,13 @@
 //  Copyright © 2016年 qiren. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "IndexViewController.h"
 
-@interface ViewController ()
+@interface IndexViewController ()
 
 @end
 
-@implementation ViewController
+@implementation IndexViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarController.h"
+#import "IndexViewController.h"
 
 @interface MainTabBarController ()
 
@@ -17,7 +18,9 @@
 @implementation MainTabBarController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
     /*批量设置uitabbaritem文字颜色*/
@@ -40,7 +43,7 @@
     
     /*用封装方法设置子视图*/
     
-    [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_index_noselect" setSelectImage:@"tab_bar_Image_index_select" setTitle:@"主页"];
+    [self setUpVc:[[IndexViewController alloc]init] setImage:@"tab_bar_Image_index_noselect" setSelectImage:@"tab_bar_Image_index_select" setTitle:@"主页"];
     
     [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_exchange_noselect" setSelectImage:@"tab_bar_Image_exchange_select" setTitle:@"交流群"];
     
