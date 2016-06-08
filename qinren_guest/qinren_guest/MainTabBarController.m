@@ -8,6 +8,9 @@
 
 #import "MainTabBarController.h"
 #import "IndexViewController.h"
+#import "ExchangeViewController.h"
+#import "MyViewController.h"
+#import "ShopcarViewController.h"
 
 @interface MainTabBarController ()
 
@@ -45,11 +48,11 @@
     
     [self setUpVc:[[IndexViewController alloc]init] setImage:@"tab_bar_Image_index_noselect" setSelectImage:@"tab_bar_Image_index_select" setTitle:@"主页"];
     
-    [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_exchange_noselect" setSelectImage:@"tab_bar_Image_exchange_select" setTitle:@"交流群"];
+    [self setUpVc:[[ExchangeViewController alloc]init] setImage:@"tab_bar_Image_exchange_noselect" setSelectImage:@"tab_bar_Image_exchange_select" setTitle:@"交流群"];
     
-    [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
+    [self setUpVc:[[ShopcarViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
     
-    [self setUpVc:[[UIViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
+    [self setUpVc:[[MyViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
     
   }
 
