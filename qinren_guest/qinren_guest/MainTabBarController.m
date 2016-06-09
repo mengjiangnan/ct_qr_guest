@@ -54,11 +54,8 @@
     [self setUpVc:[[ShopcarViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
     
     [self setUpVc:[[MyViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
-    
-    UITabBar *custombar;
-    custombar= [[CustomTabBar alloc]init];
-    
-    [self.tabBar setValue:custombar forKey:@"tabBar"];
+        
+    [self setValue:[[CustomTabBar alloc]init] forKey:@"tabBar"];
         
   }
 
