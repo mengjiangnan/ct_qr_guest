@@ -16,6 +16,8 @@
 
 @implementation CustomTabBar
 
+/*初始化tabbar中间按钮*/
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -37,6 +39,8 @@
     
     return self;
 }
+
+/*重新布局子视图(uitabbar隐藏性属tabbarbuttton)，调整中间按钮正确位置*/
 
 - (void) layoutSubviews
 

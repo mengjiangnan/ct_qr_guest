@@ -54,7 +54,8 @@
     [self setUpVc:[[ShopcarViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
     
     [self setUpVc:[[MyViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
-        
+    
+    /*重写tabbar.(tabbar是只读属性，所以用kvc赋值)*/
     [self setValue:[[CustomTabBar alloc]init] forKey:@"tabBar"];
         
   }
