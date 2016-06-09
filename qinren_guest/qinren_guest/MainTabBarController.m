@@ -59,8 +59,7 @@
     custombar= [[CustomTabBar alloc]init];
     
     [self.tabBar setValue:custombar forKey:@"tabBar"];
-    
-    
+        
   }
 
 - (void)didReceiveMemoryWarning {
