@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7400591D0922CE000D9E15 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7400581D0922CE000D9E15 /* CustomTabBar.m */; };
 		9B48065D1D065817002B2175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065C1D065817002B2175 /* main.m */; };
 		9B4806601D065817002B2175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065F1D065817002B2175 /* AppDelegate.m */; };
 		9B4806631D065817002B2175 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806621D065817002B2175 /* IndexViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F7400571D0922CE000D9E15 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
+		2F7400581D0922CE000D9E15 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
 		9B4806581D065817002B2175 /* qinren_guest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qinren_guest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B48065C1D065817002B2175 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B48065E1D065817002B2175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				9B68D45A1D07BA8200BCD0ED /* MyViewController.m */,
 				9B68D45C1D07BB6300BCD0ED /* ShopcarViewController.h */,
 				9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */,
+				2F7400571D0922CE000D9E15 /* CustomTabBar.h */,
+				2F7400581D0922CE000D9E15 /* CustomTabBar.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -290,6 +295,7 @@
 				9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */,
 				9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */,
 				9B4806691D065817002B2175 /* qinren_guest.xcdatamodeld in Sources */,
+				2F7400591D0922CE000D9E15 /* CustomTabBar.m in Sources */,
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
 				9B48065D1D065817002B2175 /* main.m in Sources */,
 				9B68D45B1D07BA8200BCD0ED /* MyViewController.m in Sources */,
