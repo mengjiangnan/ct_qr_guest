@@ -81,7 +81,7 @@
 -(void)setUpVc:(UIViewController *)vc setImage:(NSString *)normal setSelectImage:(NSString *)select setTitle:(NSString *)title
 
 {
-    vc.tabBarItem.title = title;
+    vc.title = title;
     
     vc.tabBarItem.image = [UIImage imageNamed:normal];
     
@@ -89,7 +89,10 @@
     
     vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
     
-    [self addChildViewController:vc];
+    UINavigationController *nav;
+    nav= [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    [self addChildViewController:nav];
     
 }
 
