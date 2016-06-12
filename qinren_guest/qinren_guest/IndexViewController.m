@@ -7,8 +7,9 @@
 //
 
 #import "IndexViewController.h"
+#import "SDCycleScrollView.h"
 
-@interface IndexViewController ()
+@interface IndexViewController ()<SDCycleScrollViewDelegate>
 
 @end
 
@@ -16,13 +17,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    //准备封装代码
-}
+    
+    UIScrollView *demoContainerView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    demoContainerView.contentSize = CGSizeMake(self.view.frame.size.width, 1200);
+    [self.view addSubview:demoContainerView];
+    
+    self.title = @"轮播Demo";
+    
+    // 情景一：采用本地图片实现
+    NSArray *imageNames;
+    imageNames= @[          @"h1.jpg",
+                            @"h2.jpg",
+                            @"h3.jpg",
+                            @"h4.jpg",
+                            
+                            ];
+    
+    CGFloat w;
+    w = self.view.bounds.size.width;
+    
+    // 本地加载 --- 创建不带标题的图片轮播器
+    
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 64, w, 180) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+    cycleScrollView.delegate = self;
+    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+    [demoContainerView addSubview:cycleScrollView];
+    cycleScrollView.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
+    //         --- 轮播时间间隔，默认1.0秒，可自定义
+    
+    //cycleScrollView.autoScrollTimeInterval = 4.0;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
 @end

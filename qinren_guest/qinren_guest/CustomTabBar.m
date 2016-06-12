@@ -30,7 +30,7 @@
         [nbtn setBackgroundImage:[UIImage imageNamed:@"tab_bar_Image_share_noselect"] forState:UIControlStateNormal];
         
         [nbtn setBackgroundImage:[UIImage imageNamed:@"tab_bar_Image_share_select"] forState:UIControlStateHighlighted];
-                
+        
         [self addSubview:nbtn];
         
         self.nbtn = nbtn;
