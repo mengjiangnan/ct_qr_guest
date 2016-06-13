@@ -18,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    //添加全屏子控件scrollview
     
     UIScrollView *mainview;
     
@@ -65,16 +67,83 @@
     //健康管家版块
     
     UIView *health_manager_left_view;
+        
+    CGRect health_manager_left_view_frame = CGRectMake(0, 181, w*0.497, 180);
     
-    //CGRect health_manager_left_frame = CGRectMake(0, 245, w*0.497, 180);
+    health_manager_left_view = [[UIView alloc]initWithFrame:health_manager_left_view_frame];
     
-    CGRect health_manager_left_frame = CGRectMake(0, 181, w*0.497, 180);
-    
-    health_manager_left_view = [[UIView alloc]initWithFrame:health_manager_left_frame];
-    
-    health_manager_left_view.backgroundColor = [UIColor lightGrayColor];
+    health_manager_left_view.backgroundColor = [UIColor whiteColor];
     
     [mainview addSubview:health_manager_left_view];
+    
+    
+    UILabel *health_manager_left_label;
+    
+    CGRect health_manager_left_label_frame = CGRectMake(health_manager_left_view.frame.size.width*0.3, 0, 100, health_manager_left_view.frame.size.height/3);
+    
+    health_manager_left_label = [[UILabel alloc]initWithFrame:health_manager_left_label_frame];
+    
+    health_manager_left_label.text = @"健康管家";
+    
+    [health_manager_left_view addSubview:health_manager_left_label];
+    
+    //打电话按钮
+    
+    UIImage *health_manager_left_tel_img;
+    
+    health_manager_left_tel_img = [UIImage imageNamed:@"Index_call_icon"];
+    
+    UIButton *health_manager_left_tel_btn;
+    
+    health_manager_left_tel_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [health_manager_left_tel_btn setBackgroundImage:health_manager_left_tel_img forState:UIControlStateNormal];
+    
+    health_manager_left_tel_btn.frame = CGRectMake(health_manager_left_view.frame.size.width*0.2, health_manager_left_view.frame.size.height/2, health_manager_left_tel_img.size.width,
+                                                   health_manager_left_tel_img.size.height);
+    
+    [health_manager_left_tel_btn setTitle:@"打电话" forState:UIControlStateNormal];
+    
+    health_manager_left_tel_btn.titleLabel.font = [UIFont systemFontOfSize:8.0];
+    
+    [health_manager_left_tel_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_manager_left_tel_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_manager_left_tel_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    health_manager_left_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_left_tel_img.size.height+20, 0, 0, 0);
+    
+    [health_manager_left_view addSubview:health_manager_left_tel_btn];
+    
+    //在线交流按钮
+    
+    UIImage *health_manager_left_chat_img;
+    
+    health_manager_left_chat_img = [UIImage imageNamed:@"Index_chat_icon"];
+    
+    UIButton *health_manager_left_chat_btn;
+    
+    health_manager_left_chat_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [health_manager_left_chat_btn setBackgroundImage:health_manager_left_chat_img forState:UIControlStateNormal];
+    
+    health_manager_left_chat_btn.frame = CGRectMake(health_manager_left_view.frame.size.width*0.6, health_manager_left_view.frame.size.height/2, health_manager_left_chat_img.size.width,
+                                                    health_manager_left_chat_img.size.height);
+    
+    [health_manager_left_chat_btn setTitle:@"在线交流" forState:UIControlStateNormal];
+    
+    health_manager_left_chat_btn.titleLabel.font = [UIFont systemFontOfSize:8.0];
+    
+    [health_manager_left_chat_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_manager_left_chat_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_manager_left_chat_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    health_manager_left_chat_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_left_chat_img.size.height+20, -2.5, 0, -2.5);
+    
+    [health_manager_left_view addSubview:health_manager_left_chat_btn];
 
     
     //健康管理师版块
@@ -85,9 +154,79 @@
     
     health_manager_teacher_right_view = [[UIView alloc]initWithFrame:health_manager_teacher_right_frame];
     
-    health_manager_teacher_right_view.backgroundColor = [UIColor lightGrayColor];
+    health_manager_teacher_right_view.backgroundColor = [UIColor whiteColor];
     
     [mainview addSubview:health_manager_teacher_right_view];
+    
+    
+    UILabel *health_manager_right_label;
+    
+    CGRect health_manager_right_label_frame = CGRectMake(health_manager_left_view.frame.size.width/4, 0, 100, health_manager_left_view.frame.size.height/3);
+    
+    health_manager_right_label = [[UILabel alloc]initWithFrame:health_manager_right_label_frame];
+    
+    health_manager_right_label.text = @"健康管理师";
+    
+    [health_manager_teacher_right_view addSubview:health_manager_right_label];
+    
+    //打电话按钮
+    
+    UIImage *health_manager_right_tel_img;
+    
+    health_manager_right_tel_img = [UIImage imageNamed:@"Index_call_icon"];
+    
+    UIButton *health_manager_right_tel_btn;
+    
+    health_manager_right_tel_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [health_manager_right_tel_btn setBackgroundImage:health_manager_right_tel_img forState:UIControlStateNormal];
+    
+    health_manager_right_tel_btn.frame = CGRectMake(health_manager_teacher_right_view.frame.size.width/5, health_manager_teacher_right_view.frame.size.height/2, health_manager_right_tel_img.size.width,
+                                                   health_manager_right_tel_img.size.height);
+    
+    [health_manager_right_tel_btn setTitle:@"打电话" forState:UIControlStateNormal];
+    
+    health_manager_right_tel_btn.titleLabel.font = [UIFont systemFontOfSize:8.0];
+    
+    [health_manager_right_tel_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_manager_right_tel_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_manager_right_tel_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    health_manager_right_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_right_tel_img.size.height+20, 0, 0, 0);
+    
+    [health_manager_teacher_right_view addSubview:health_manager_right_tel_btn];
+
+    //在线交流按钮
+    
+    UIImage *health_manager_right_chat_img;
+    
+    health_manager_right_chat_img = [UIImage imageNamed:@"Index_chat_icon"];
+    
+    UIButton *health_manager_right_chat_btn;
+    
+    health_manager_right_chat_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [health_manager_right_chat_btn setBackgroundImage:health_manager_right_chat_img forState:UIControlStateNormal];
+    
+    health_manager_right_chat_btn.frame = CGRectMake(health_manager_teacher_right_view.frame.size.width*0.6, health_manager_teacher_right_view.frame.size.height/2, health_manager_right_chat_img.size.
+                                                     width,health_manager_right_chat_img.size.height);
+    
+    [health_manager_right_chat_btn setTitle:@"在线交流" forState:UIControlStateNormal];
+    
+    health_manager_right_chat_btn.titleLabel.font = [UIFont systemFontOfSize:8.0];
+    
+    [health_manager_right_chat_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_manager_right_chat_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_manager_right_chat_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    health_manager_right_chat_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_right_chat_img.size.height+20, -2.5, 0, -2.5);
+    
+    [health_manager_teacher_right_view addSubview:health_manager_right_chat_btn];
+
     
     
     //今日任务按钮
