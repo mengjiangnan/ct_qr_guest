@@ -20,12 +20,19 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
+    UIScrollView *mainview;
+    
+    mainview = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+49);
+    
+    [self.view addSubview:mainview];
+    
     //加载uiscrollview控件
     
     UIScrollView *demoContainerView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     demoContainerView.contentSize = CGSizeMake(self.view.frame.size.width, 180);
-    demoContainerView.showsVerticalScrollIndicator = FALSE;
-    [self.view addSubview:demoContainerView];
+    [mainview addSubview:demoContainerView];
     
     //self.title = @"轮播Demo";
     
@@ -49,7 +56,7 @@
     
     //     －－－水平滚动－－－
     
-    cycleScrollView.scrollDirection =UICollectionViewScrollDirectionHorizontal;
+    //cycleScrollView.scrollDirection =UICollectionViewScrollDirectionHorizontal;
     
     //         --- 轮播时间间隔，默认1.0秒，可自定义
     
@@ -59,26 +66,28 @@
     
     UIView *health_manager_left_view;
     
-    CGRect health_manager_left_frame = CGRectMake(0, 245, w*0.497, 180);
+    //CGRect health_manager_left_frame = CGRectMake(0, 245, w*0.497, 180);
+    
+    CGRect health_manager_left_frame = CGRectMake(0, 181, w*0.497, 180);
     
     health_manager_left_view = [[UIView alloc]initWithFrame:health_manager_left_frame];
     
     health_manager_left_view.backgroundColor = [UIColor lightGrayColor];
     
-    [self.view addSubview:health_manager_left_view];
+    [mainview addSubview:health_manager_left_view];
 
     
     //健康管理师版块
 
     UIView *health_manager_teacher_right_view;
     
-    CGRect health_manager_teacher_right_frame = CGRectMake(w*0.503, 245, w*0.497, 180);
+    CGRect health_manager_teacher_right_frame = CGRectMake(w*0.503, 181, w*0.497, 180);
     
     health_manager_teacher_right_view = [[UIView alloc]initWithFrame:health_manager_teacher_right_frame];
     
     health_manager_teacher_right_view.backgroundColor = [UIColor lightGrayColor];
     
-    [self.view addSubview:health_manager_teacher_right_view];
+    [mainview addSubview:health_manager_teacher_right_view];
     
     
     //今日任务按钮
@@ -87,11 +96,11 @@
     
     today_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    today_btn.frame = CGRectMake(0, 427, w*0.497, 40);
+    today_btn.frame = CGRectMake(0, 363, w*0.497, 40);
     
     today_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:today_btn];
+    [mainview addSubview:today_btn];
     
     
     //服务预约按钮
@@ -100,11 +109,11 @@
     
     service_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    service_btn.frame = CGRectMake(w*0.503, 427, w*0.497, 40);
+    service_btn.frame = CGRectMake(w*0.503, 363, w*0.497, 40);
     
     service_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:service_btn];
+    [mainview addSubview:service_btn];
     
     
     //健康检测按钮
@@ -113,11 +122,11 @@
     
     health_check_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    health_check_btn.frame = CGRectMake(0, 469, w*0.497, 40);
+    health_check_btn.frame = CGRectMake(0, 405, w*0.497, 40);
     
     health_check_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:health_check_btn];
+    [mainview addSubview:health_check_btn];
     
     
     //我的方案按钮
@@ -126,11 +135,11 @@
     
     my_scheme_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    my_scheme_btn.frame = CGRectMake(w*0.503, 469, w*0.497, 40);
+    my_scheme_btn.frame = CGRectMake(w*0.503, 405, w*0.497, 40);
     
     my_scheme_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:my_scheme_btn];
+    [mainview addSubview:my_scheme_btn];
     
     
     //健康商城按钮
@@ -139,11 +148,11 @@
     
     health_shop_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    health_shop_btn.frame = CGRectMake(0, 511, w*0.497, 40);
+    health_shop_btn.frame = CGRectMake(0, 447, w*0.497, 40);
     
     health_shop_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:health_shop_btn];
+    [mainview addSubview:health_shop_btn];
     
     
     //社区团购按钮
@@ -152,11 +161,11 @@
     
     group_shopping_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    group_shopping_btn.frame = CGRectMake(w*0.503, 511, w*0.497, 40);
+    group_shopping_btn.frame = CGRectMake(w*0.503, 447, w*0.497, 40);
     
     group_shopping_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:group_shopping_btn];
+    [mainview addSubview:group_shopping_btn];
     
     
     //我的积分按钮
@@ -165,11 +174,11 @@
     
     my_ntegral_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    my_ntegral_btn.frame = CGRectMake(0, 553, w*0.497, 40);
+    my_ntegral_btn.frame = CGRectMake(0, 489, w*0.497, 40);
     
     my_ntegral_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:my_ntegral_btn];
+    [mainview addSubview:my_ntegral_btn];
     
     
     //我要加盟按钮
@@ -178,11 +187,11 @@
     
     my_join_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    my_join_btn.frame = CGRectMake(w*0.503, 553, w*0.497, 40);
+    my_join_btn.frame = CGRectMake(w*0.503, 489, w*0.497, 40);
     
     my_join_btn.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:my_join_btn];
+    [mainview addSubview:my_join_btn];
 
 
     
