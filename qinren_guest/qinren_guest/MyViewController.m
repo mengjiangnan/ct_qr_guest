@@ -83,8 +83,7 @@
     pwd_field.placeholder = @"请输入您的密码";
     
     [self.view addSubview:pwd_field];
-   
-    
+       
 }
 
 
