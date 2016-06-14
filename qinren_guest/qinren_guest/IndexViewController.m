@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:182.0/255 green:182.0/255 blue:182.0/255 alpha:1.0];
     
     //添加全屏子控件scrollview
     
@@ -76,7 +76,7 @@
     
     health_manager_left_view = [[UIView alloc]initWithFrame:health_manager_left_view_frame];
     
-    health_manager_left_view.backgroundColor = [UIColor whiteColor];
+    health_manager_left_view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
     
     [mainview addSubview:health_manager_left_view];
     
@@ -158,7 +158,7 @@
     
     health_manager_teacher_right_view = [[UIView alloc]initWithFrame:health_manager_teacher_right_frame];
     
-    health_manager_teacher_right_view.backgroundColor = [UIColor whiteColor];
+    health_manager_teacher_right_view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
     
     [mainview addSubview:health_manager_teacher_right_view];
     
