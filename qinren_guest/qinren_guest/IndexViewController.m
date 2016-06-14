@@ -83,7 +83,7 @@
     
     UILabel *health_manager_left_label;
     
-    CGRect health_manager_left_label_frame = CGRectMake(health_manager_left_view.frame.size.width*0.3, 0, 100, health_manager_left_view.frame.size.height/3);
+    CGRect health_manager_left_label_frame = CGRectMake(health_manager_left_view.frame.size.width*0.33, 0, 100, health_manager_left_view.frame.size.height/3);
     
     health_manager_left_label = [[UILabel alloc]initWithFrame:health_manager_left_label_frame];
     
@@ -132,7 +132,7 @@
     
     [health_manager_left_chat_btn setBackgroundImage:health_manager_left_chat_img forState:UIControlStateNormal];
     
-    health_manager_left_chat_btn.frame = CGRectMake(health_manager_left_view.frame.size.width*0.6, health_manager_left_view.frame.size.height/2, health_manager_left_chat_img.size.width,
+    health_manager_left_chat_btn.frame = CGRectMake(health_manager_left_view.frame.size.width*0.65, health_manager_left_view.frame.size.height/2, health_manager_left_chat_img.size.width,
                                                     health_manager_left_chat_img.size.height);
     
     [health_manager_left_chat_btn setTitle:@"在线交流" forState:UIControlStateNormal];
@@ -165,7 +165,7 @@
     
     UILabel *health_manager_right_label;
     
-    CGRect health_manager_right_label_frame = CGRectMake(health_manager_left_view.frame.size.width/4, 0, 100, health_manager_left_view.frame.size.height/3);
+    CGRect health_manager_right_label_frame = CGRectMake(health_manager_left_view.frame.size.width*0.26, 0, 100, health_manager_left_view.frame.size.height/3);
     
     health_manager_right_label = [[UILabel alloc]initWithFrame:health_manager_right_label_frame];
     
@@ -214,7 +214,7 @@
     
     [health_manager_right_chat_btn setBackgroundImage:health_manager_right_chat_img forState:UIControlStateNormal];
     
-    health_manager_right_chat_btn.frame = CGRectMake(health_manager_teacher_right_view.frame.size.width*0.6, health_manager_teacher_right_view.frame.size.height/2, health_manager_right_chat_img.size.
+    health_manager_right_chat_btn.frame = CGRectMake(health_manager_teacher_right_view.frame.size.width*0.65, health_manager_teacher_right_view.frame.size.height/2, health_manager_right_chat_img.size.
                                                      width,health_manager_right_chat_img.size.height);
     
     [health_manager_right_chat_btn setTitle:@"在线交流" forState:UIControlStateNormal];
@@ -243,6 +243,24 @@
     
     today_btn.backgroundColor = [UIColor whiteColor];
     
+    UIImage *today_btn_image;
+    
+    today_btn_image = [UIImage imageNamed:@"Index_tody_session_icon"];
+    
+    [today_btn setImage:today_btn_image forState:UIControlStateNormal];
+    
+    today_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, today_btn.frame.size.width * 0.2);
+    
+    [today_btn setTitle:@"今日任务" forState:UIControlStateNormal];
+    
+    today_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [today_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [today_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    today_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
     [mainview addSubview:today_btn];
     
     
@@ -255,6 +273,24 @@
     service_btn.frame = CGRectMake(w*0.503, 363, w*0.497, 40);
     
     service_btn.backgroundColor = [UIColor whiteColor];
+    
+    UIImage *service_btn_image;
+    
+    service_btn_image = [UIImage imageNamed:@"Index_service_reservation_icon"];
+    
+    [service_btn setImage:service_btn_image forState:UIControlStateNormal];
+    
+    service_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, service_btn.frame.size.width * 0.2);
+    
+    [service_btn setTitle:@"服务预约" forState:UIControlStateNormal];
+    
+    service_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [service_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [service_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    service_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
     [mainview addSubview:service_btn];
     
@@ -269,6 +305,24 @@
     
     health_check_btn.backgroundColor = [UIColor whiteColor];
     
+    UIImage *health_check_btn_image;
+    
+    health_check_btn_image = [UIImage imageNamed:@"Index_health_check_icon"];
+    
+    [health_check_btn setImage:health_check_btn_image forState:UIControlStateNormal];
+    
+    health_check_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, health_check_btn.frame.size.width * 0.2);
+    
+    [health_check_btn setTitle:@"健康检测" forState:UIControlStateNormal];
+    
+    health_check_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [health_check_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_check_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_check_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
     [mainview addSubview:health_check_btn];
     
     
@@ -281,6 +335,25 @@
     my_scheme_btn.frame = CGRectMake(w*0.503, 405, w*0.497, 40);
     
     my_scheme_btn.backgroundColor = [UIColor whiteColor];
+    
+    UIImage *my_scheme_btn_image;
+    
+    my_scheme_btn_image = [UIImage imageNamed:@"Index_my_scheme_icon"];
+    
+    [my_scheme_btn setImage:my_scheme_btn_image forState:UIControlStateNormal];
+    
+    my_scheme_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_scheme_btn.frame.size.width * 0.2);
+    
+    [my_scheme_btn setTitle:@"方案按钮" forState:UIControlStateNormal];
+    
+    my_scheme_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [my_scheme_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_scheme_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_scheme_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+
     
     [mainview addSubview:my_scheme_btn];
     
@@ -295,6 +368,24 @@
     
     health_shop_btn.backgroundColor = [UIColor whiteColor];
     
+    UIImage *health_shop_btn_image;
+    
+    health_shop_btn_image = [UIImage imageNamed:@"Index_my_scheme_icon"];
+    
+    [health_shop_btn setImage:health_shop_btn_image forState:UIControlStateNormal];
+    
+    health_shop_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, health_shop_btn.frame.size.width * 0.2);
+    
+    [health_shop_btn setTitle:@"方案按钮" forState:UIControlStateNormal];
+    
+    health_shop_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [health_shop_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [health_shop_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    health_shop_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
     [mainview addSubview:health_shop_btn];
     
     
@@ -307,6 +398,24 @@
     group_shopping_btn.frame = CGRectMake(w*0.503, 447, w*0.497, 40);
     
     group_shopping_btn.backgroundColor = [UIColor whiteColor];
+    
+    UIImage *group_shopping_btn_image;
+    
+    group_shopping_btn_image = [UIImage imageNamed:@"Index_ community_group_icon"];
+    
+    [group_shopping_btn setImage:group_shopping_btn_image forState:UIControlStateNormal];
+    
+    group_shopping_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, group_shopping_btn.frame.size.width * 0.2);
+    
+    [group_shopping_btn setTitle:@"社区团购" forState:UIControlStateNormal];
+    
+    group_shopping_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [group_shopping_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [group_shopping_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    group_shopping_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
     [mainview addSubview:group_shopping_btn];
     
@@ -321,6 +430,24 @@
     
     my_ntegral_btn.backgroundColor = [UIColor whiteColor];
     
+    UIImage *my_ntegral_btn_image;
+    
+    my_ntegral_btn_image = [UIImage imageNamed:@"Index_my_integral_icon"];
+    
+    [my_ntegral_btn setImage:my_ntegral_btn_image forState:UIControlStateNormal];
+    
+    my_ntegral_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_ntegral_btn.frame.size.width * 0.2);
+    
+    [my_ntegral_btn setTitle:@"我的积分" forState:UIControlStateNormal];
+    
+    my_ntegral_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [my_ntegral_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_ntegral_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_ntegral_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
     [mainview addSubview:my_ntegral_btn];
     
     
@@ -334,19 +461,25 @@
     
     my_join_btn.backgroundColor = [UIColor whiteColor];
     
+    UIImage *my_join_btn_image;
+    
+    my_join_btn_image = [UIImage imageNamed:@"Index_my_join_icon"];
+    
+    [my_join_btn setImage:my_join_btn_image forState:UIControlStateNormal];
+    
+    my_join_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_join_btn.frame.size.width * 0.2);
+    
+    [my_join_btn setTitle:@"我要加盟" forState:UIControlStateNormal];
+    
+    my_join_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [my_join_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_join_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_join_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
     [mainview addSubview:my_join_btn];
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 
