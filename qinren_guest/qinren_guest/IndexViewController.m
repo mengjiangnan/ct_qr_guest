@@ -26,7 +26,11 @@
     
     mainview = [[UIScrollView alloc] initWithFrame:self.view.frame];
     
-    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+49);
+    CGFloat mainview_height = 180 + 181 +(40 * 4)+(2*5);
+    
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, mainview_height);
+    
+    //mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+49);
     
     [self.view addSubview:mainview];
     
