@@ -8,7 +8,17 @@
 
 #import "MyViewController.h"
 
-@interface MyViewController ()
+@interface MyViewController ()<UITextFieldDelegate>
+
+@property (nonatomic,weak) UITextField *my_username_field;
+
+@property (nonatomic,weak) UITextField *my_pwd_field;
+
+@property (nonatomic,weak) UIButton *my_login_btn;
+
+@property (nonatomic,weak) UIButton *my_reg_btn;
+
+@property (nonatomic,weak) UIButton *my_forget_forget_pwd_btn;
 
 @end
 
@@ -64,7 +74,15 @@
     
     username_field.placeholder = @"请输入手机号码";
     
-    [self.view addSubview:username_field];
+    username_field.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    
+    username_field.returnKeyType = UIReturnKeyNext;
+    
+    username_field.tintColor = [UIColor greenColor];
+    
+    self.my_username_field = username_field;
+    
+    [self.view addSubview:self.my_username_field];
     
     //密码输入框
     
@@ -82,10 +100,166 @@
     
     pwd_field.placeholder = @"请输入您的密码";
     
-    [self.view addSubview:pwd_field];
+    pwd_field.secureTextEntry = YES;
+    
+    pwd_field.tintColor = [UIColor greenColor];
+    
+    self.my_pwd_field = pwd_field;
+    
+    [self.view addSubview:self.my_pwd_field];
+    
+    
+    
+    username_field.delegate = self;
+    
+    pwd_field.delegate = self;
+    
+    //登陆按钮
+    
+    UIButton *login_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    login_btn.layer.cornerRadius = 5.0;
+    
+    CGFloat login_btn_x = username_field_x;
+    
+    CGFloat login_btn_y = pwd_field_y + pwd_field_height + 25;
+    
+    CGFloat login_btn_width = pwd_field_width*0.4;
+    
+    CGFloat login_btn_height = pwd_field_height;
+    
+    login_btn.frame = CGRectMake(login_btn_x, login_btn_y, login_btn_width, login_btn_height);
+    
+    [login_btn setTitle:@"登录" forState:UIControlStateNormal];
+    
+    [login_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [login_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    login_btn.backgroundColor = [UIColor greenColor];
+    
+    self.my_login_btn = login_btn;
+    
+    [self.my_login_btn addTarget:self action:@selector(mylogin) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.my_login_btn];
+    
+    //注册按钮
+    
+    UIButton *reg_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    reg_btn.layer.cornerRadius = 5.0;
+    
+    CGFloat reg_btn_x = username_field_x + login_btn_width + self.view.frame.size.width * 0.15;
+    
+    CGFloat reg_btn_y = pwd_field_y + pwd_field_height + 25;
+    
+    CGFloat reg_btn_width = pwd_field_width*0.4;
+    
+    CGFloat reg_btn_height = pwd_field_height;
+    
+    reg_btn.frame = CGRectMake(reg_btn_x, reg_btn_y, reg_btn_width, reg_btn_height);
+    
+    [reg_btn setTitle:@"注册" forState:UIControlStateNormal];
+    
+    [reg_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [reg_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    reg_btn.backgroundColor = [UIColor whiteColor];
+    
+    self.my_reg_btn = reg_btn;
+    
+    [self.my_reg_btn addTarget:self action:@selector(myreg) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.my_reg_btn];
+
+    //忘记密码按钮
+    
+    UIButton *forget_pwd_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    CGFloat forget_pwd_btn_x = (username_field_x + username_field_width) * 0.8;
+    
+    CGFloat forget_pwd_btn_y = username_field_y - 20;
+    
+    CGFloat forget_pwd_btn_width = 60;
+    
+    CGFloat forget_pwd_btn_height = 15;
+    
+    forget_pwd_btn.frame = CGRectMake(forget_pwd_btn_x, forget_pwd_btn_y, forget_pwd_btn_width, forget_pwd_btn_height);
+    
+    forget_pwd_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    [forget_pwd_btn setTitle:@"忘记密码?" forState:UIControlStateNormal];
+    
+    [forget_pwd_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [forget_pwd_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    self.my_forget_forget_pwd_btn = forget_pwd_btn;
+    
+    [self.my_forget_forget_pwd_btn addTarget:self action:@selector(myforget) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.my_forget_forget_pwd_btn];
     
     
 }
 
+// textfield 代理方法 实现return键，键盘隐藏。
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+     if (textField == self.my_username_field) {
+    
+       [self.my_username_field resignFirstResponder];
+         
+       [self.my_pwd_field becomeFirstResponder];
+         
+     } else if(textField == self.my_pwd_field){
+         
+       [self.my_pwd_field resignFirstResponder];
+         
+       [self.my_login_btn sendActionsForControlEvents:UIControlEventTouchUpInside];
+         
+         }
+     
+    
+    return YES;
+    
+    
+}
+
+-(void)mylogin
+
+{
+    
+    NSLog(@"login btn");
+
+
+}
+
+
+-(void)myreg
+
+{
+    
+    NSLog(@"reg btn");
+    
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    [self.view endEditing:YES];
+    
+}
+
+-(void)myforget
+
+{
+    NSLog(@"forget btn");
+
+}
 
 @end
