@@ -16,6 +16,7 @@
 		9B4806791D065817002B2175 /* qinren_guestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806781D065817002B2175 /* qinren_guestTests.m */; };
 		9B4806841D065817002B2175 /* qinren_guestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806831D065817002B2175 /* qinren_guestUITests.m */; };
 		9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806991D066DC3002B2175 /* MainTabBarController.m */; };
+		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
 		9B68D45B1D07BA8200BCD0ED /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* MyViewController.m */; };
 		9B68D45E1D07BB6300BCD0ED /* ShopcarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */; };
@@ -81,6 +82,8 @@
 		9B4806851D065817002B2175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B4806981D066DC3002B2175 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		9B4806991D066DC3002B2175 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
 		9B68D4591D07BA8200BCD0ED /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */,
 				2F7400571D0922CE000D9E15 /* CustomTabBar.h */,
 				2F7400581D0922CE000D9E15 /* CustomTabBar.m */,
+				9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */,
+				9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -454,6 +459,7 @@
 				9BE4195F1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
 				9BE4195A1D0D09D0008C5396 /* SDWebImagePrefetcher.m in Sources */,
+				9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */,
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,

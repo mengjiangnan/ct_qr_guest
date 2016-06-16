@@ -8,6 +8,8 @@
 
 #import "MyViewController.h"
 
+#import "RegisterViewController.h"
+
 @interface MyViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UITextField *my_username_field;
@@ -72,7 +74,7 @@
     
     [username_field setBorderStyle:UITextBorderStyleRoundedRect];
     
-    username_field.placeholder = @"请输入手机号码";
+    username_field.placeholder = @"请输入您的帐号";
     
     username_field.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     
@@ -242,9 +244,13 @@
 -(void)myreg
 
 {
+    self.hidesBottomBarWhenPushed=YES;
     
-    NSLog(@"reg btn");
+    UIViewController *regvc = [[RegisterViewController alloc]init];
     
+    [self.navigationController pushViewController:regvc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
     
 }
 
