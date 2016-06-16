@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Qin Ren Security Questions</key>
+	<array>
+		<string>我的出生地？</string>
+		<string>我的生日？</string>
+		<string>我父亲的姓名？</string>
+		<string>我母亲的姓名？</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
