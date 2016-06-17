@@ -16,6 +16,8 @@
 
 @property (nonatomic,weak) UITextField *my_birthday_textfield;
 
+@property (nonatomic,weak) UITextField *my_identity_card_num_textfield;
+
 @property (nonatomic,strong) NSArray *my_security_question_list_array;
 
 @property (nonatomic,weak) UIDatePicker *mydatepicker;
@@ -137,6 +139,8 @@
     
     member_accounts_textfield.placeholder = @"手机号/用户名/会员卡号";
     
+    member_accounts_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
     [self.view addSubview:member_accounts_textfield];
     
     //昵称标签
@@ -174,6 +178,8 @@
     CGRect  nickname_textfield_rect = CGRectMake(nickname_textfield_x, nickname_textfield_y, nickname_textfield_width, nickname_textfield_height);
     
     UITextField *nickname_textfield = [[UITextField alloc]initWithFrame:nickname_textfield_rect];
+    
+    nickname_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [self.view addSubview:nickname_textfield];
     
@@ -214,6 +220,8 @@
     
     UITextField *sex_textfield = [[UITextField alloc]initWithFrame:sex_textfield_rect];
     
+    sex_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
     [self.view addSubview:sex_textfield];
     
     //密码标签
@@ -252,6 +260,8 @@
     
     UITextField *pwd_textfield = [[UITextField alloc]initWithFrame:pwd_textfield_rect];
     
+    pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
     [self.view addSubview:pwd_textfield];
     
     //确认密码标签
@@ -289,6 +299,8 @@
     CGRect confirm_pwd_textfield_rect = CGRectMake(confirm_pwd_textfield_x, confirm_pwd_textfield_y, confirm_pwd_textfield_width, confirm_pwd_textfield_height);
     
     UITextField *confirm_pwd_textfield = [[UITextField alloc]initWithFrame:confirm_pwd_textfield_rect];
+    
+    confirm_pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [self.view addSubview:confirm_pwd_textfield];
     
@@ -334,6 +346,8 @@
     
     security_question_textfield.inputView = self.mypickview;
     
+    security_question_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
     self.my_security_question_textfield = security_question_textfield;
     
     [self.view addSubview:self.my_security_question_textfield];
@@ -374,6 +388,8 @@
     
     UITextField *security_answer_textfield = [[UITextField alloc]initWithFrame:security_answer_textfield_rect];
     
+    security_answer_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
     [self.view addSubview:security_answer_textfield];
     
     //出生日期标签
@@ -412,11 +428,102 @@
     
     UITextField *birthday_textfield = [[UITextField alloc]initWithFrame:birthday_textfield_rect];
     
+    birthday_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    birthday_textfield.placeholder = @"请选择";
+    
     birthday_textfield.inputView = self.mydatepicker;
     
     self.my_birthday_textfield = birthday_textfield;
     
     [self.view addSubview:birthday_textfield];
+    
+    //真实姓名标签
+    
+    CGFloat real_name_label_x = label_x;
+    
+    CGFloat real_name_label_y = birthday_label_y + birthday_label.frame.size.height + space_height;
+    
+    CGFloat real_name_label_width = 0;
+    
+    CGFloat real_name_label_height = 0;
+    
+    CGRect real_name_label_rect = CGRectMake(real_name_label_x, real_name_label_y, real_name_label_width, real_name_label_height);
+    
+    UILabel *real_name_label = [[UILabel alloc]initWithFrame:real_name_label_rect];
+    
+    real_name_label.text = @"真实姓名:";
+    
+    real_name_label.numberOfLines = 0;
+    
+    [real_name_label sizeToFit];
+    
+    [self.view addSubview:real_name_label];
+    
+    //真实姓名输入框
+    
+    CGFloat real_name_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat real_name_textfield_y = real_name_label_y;
+    
+    CGFloat real_name_textfield_width = textfield_width;
+    
+    CGFloat real_name_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect real_name_textfield_rect = CGRectMake(real_name_textfield_x, real_name_textfield_y, real_name_textfield_width, real_name_textfield_height);
+    
+    UITextField *real_name_textfield = [[UITextField alloc]initWithFrame:real_name_textfield_rect];
+    
+    real_name_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    [self.view addSubview:real_name_textfield];
+    
+    //身份证号标签
+    
+    CGFloat identity_card_num_label_x = label_x;
+    
+    CGFloat identity_card_num_label_y = real_name_label_y + real_name_label.frame.size.height + space_height;
+    
+    CGFloat identity_card_num_label_width = 0;
+    
+    CGFloat identity_card_num_label_height = 0;
+    
+    CGRect identity_card_num_label_rect = CGRectMake(identity_card_num_label_x, identity_card_num_label_y, identity_card_num_label_width, identity_card_num_label_height);
+    
+    UILabel *identity_card_num_label = [[UILabel alloc]initWithFrame:identity_card_num_label_rect];
+    
+    identity_card_num_label.text = @"身份证号:";
+    
+    identity_card_num_label.numberOfLines = 0;
+    
+    [identity_card_num_label sizeToFit];
+    
+    [self.view addSubview:identity_card_num_label];
+    
+    //身份证号输入框
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkCardInfoInput) userInfo:nil repeats:YES];
+    
+    CGFloat identity_card_num_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat identity_card_num_textfield_y = identity_card_num_label_y;
+    
+    CGFloat identity_card_num_textfield_width = textfield_width;
+    
+    CGFloat identity_card_num_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect identity_card_num_textfield_rect = CGRectMake(identity_card_num_textfield_x, identity_card_num_textfield_y, identity_card_num_textfield_width, identity_card_num_textfield_height);
+    
+    UITextField *identity_card_num_textfield = [[UITextField alloc]initWithFrame:identity_card_num_textfield_rect];
+    
+    identity_card_num_textfield.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    
+    identity_card_num_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    self.my_identity_card_num_textfield = identity_card_num_textfield;
+    
+    [self.view addSubview:self.my_identity_card_num_textfield];
+
 
 
 
@@ -475,11 +582,12 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 
 {
-
-    self.my_security_question_textfield.text = @"我的出生地?";
-
-
+  self.my_security_question_textfield.text = @"我的出生地?";
+   
 }
+
+/*点击文本框，结束编辑以后。验证身份证号码是不是15位或18位*/
+
 
 /*点击日期控件时，将选中的日期填写到文本框中*/
 
@@ -499,5 +607,26 @@
     self.my_birthday_textfield.text = str;
 
 }
+
+-(void)checkCardInfoInput
+{
+    BOOL isValid = YES;
+    
+    if ((self.my_identity_card_num_textfield.text.length == 15)||(self.my_identity_card_num_textfield.text.length == 18)){
+        
+        self.my_identity_card_num_textfield.textColor = [UIColor blackColor];
+        
+        self.my_identity_card_num_textfield.text?[self.my_identity_card_num_textfield.text substringWithRange:NSMakeRange(0, 15)]:[self.my_identity_card_num_textfield.text substringWithRange:NSMakeRange(0, 18)];
+    
+       }
+    
+    else{
+        
+        self.my_identity_card_num_textfield.textColor = [UIColor redColor];
+        
+        isValid = NO;
+    }
+}
+
 
 @end
