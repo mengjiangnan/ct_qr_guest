@@ -24,9 +24,36 @@
     
     [super viewDidLoad];
     
-    self.mypickview.delegate = self;
+    NSString *q1 = [NSString stringWithFormat:@"我的出生地?"];
     
-    self.mypickview.dataSource = self;
+    NSString *q2 = [NSString stringWithFormat:@"我的生日?"];
+    
+    NSString *q3 = [NSString stringWithFormat:@"我父亲的姓名?"];
+    
+    NSString *q4 = [NSString stringWithFormat:@"我母亲的姓名?"];
+    
+    NSArray *questions = [[NSArray alloc]initWithObjects:q1,q2,q3,q4, nil];
+    
+    self.my_security_question_list_array = questions;
+    
+    CGFloat pickview_x = 0;
+    
+    CGFloat pickview_y = 0;
+    
+    CGFloat pickview_widht = 100;
+    
+    CGFloat pickview_height = 100;
+    
+    CGRect pickview_rect = CGRectMake(pickview_x, pickview_y, pickview_widht, pickview_height);
+    
+    UIPickerView *pickview = [[UIPickerView alloc]initWithFrame:pickview_rect];
+    
+    pickview.delegate = self;
+    
+    pickview.dataSource = self;
+    
+    self.mypickview = pickview;
+    
     
     CGFloat textfield_width = self.view.frame.size.width * 0.5;
     
@@ -274,14 +301,11 @@
     
     security_question_textfield.placeholder = @"请选择";
     
+    security_question_textfield.inputView = self.mypickview;
+    
     self.my_security_question_textfield = security_question_textfield;
     
     [self.view addSubview:self.my_security_question_textfield];
-    
-    NSString *path =[[NSBundle mainBundle]pathForResource:@"Qin Ren Security Questions" ofType:@"plist"];
-    
-    NSLog(@"%@",path); //null???
-
 
 }
 
@@ -297,6 +321,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    
     return self.my_security_question_list_array.count;
 
 }
@@ -305,49 +330,30 @@
 
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    
-    NSArray *countArray = self.my_security_question_list_array[component];
-    
-     NSString *rowString =countArray[row];
+        
+     NSString *rowString =self.my_security_question_list_array[row];
     
     return rowString;
 
 }
 
-//选中UIPickerView中的哪行哪列,通过这个方法,可以将选中的数据赋值给UILabel上,让其显示出来(void) -- 无返回值.当你只要一滑动UIPickerView,就会调用这个方法;
+//选中UIPickerView中的哪行哪列,通过这个方法,可以将选中的数据赋值给UItextfield上,让其显示出来(void) -- 无返回值.当你只要一滑动UIPickerView,就会调用这个方法;
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     
-    self.my_security_question_textfield = self.my_security_question_list_array[component][row];
+    
+    self.my_security_question_textfield.text = self.my_security_question_list_array[row];
 
 
 }
 
--(NSArray *)security_question_list_array
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 
 {
-    if (self.my_security_question_list_array == nil) {
-        
-        NSString *path =[[NSBundle mainBundle]pathForResource:@"Qin Ren Security Questions" ofType:@"plist"];
-        
-        NSLog(@"%@",path);//null???
-        
-        self.my_security_question_list_array=[NSArray arrayWithContentsOfFile:path];
-        
-    }
+    [self.view endEditing:YES];
     
-    return self.my_security_question_list_array;
 }
-
-
-
-
-
-
-
-
-
-
 
 @end
