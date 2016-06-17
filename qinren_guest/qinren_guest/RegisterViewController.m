@@ -14,6 +14,8 @@
 
 @property (nonatomic,weak) UITextField *my_security_question_textfield;
 
+@property (nonatomic,weak) UITextField *my_birthday_textfield;
+
 @property (nonatomic,strong) NSArray *my_security_question_list_array;
 
 @property (nonatomic,weak) UIDatePicker *mydatepicker;
@@ -26,11 +28,17 @@
     
     [super viewDidLoad];
     
+    //初始化UIDatePicker
+    
     UIDatePicker *datepicker = [[UIDatePicker alloc]init];
     
     datepicker.datePickerMode = UIDatePickerModeDate;
     
+    [datepicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
+    
     self.mydatepicker = datepicker;
+    
+    //初始化密保问题选项数组
     
     NSString *q1 = [NSString stringWithFormat:@"我的出生地?"];
     
@@ -43,6 +51,8 @@
     NSArray *questions = [[NSArray alloc]initWithObjects:q1,q2,q3,q4, nil];
     
     self.my_security_question_list_array = questions;
+    
+    //初始化UIDatePicker
     
     CGFloat pickview_x = 0;
     
@@ -62,18 +72,29 @@
     
     self.mypickview = pickview;
     
+    //文本框的固定宽
     
     CGFloat textfield_width = self.view.frame.size.width * 0.5;
     
+    //文本框之间的固定间距
+    
     CGFloat space_height = 20;
+    
+    //标签与文本框之间的固定间距
     
     CGFloat space_width = 5;
     
+    //标签的固定x坐标
+    
     CGFloat label_x = self.view.frame.size.width * 0.1;
+    
+    //导航栏的标题
     
     self.navigationItem.title = @"注册";
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    //导航栏左右按钮的颜色
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
@@ -393,6 +414,8 @@
     
     birthday_textfield.inputView = self.mydatepicker;
     
+    self.my_birthday_textfield = birthday_textfield;
+    
     [self.view addSubview:birthday_textfield];
 
 
@@ -438,6 +461,7 @@
 
 }
 
+/*点击空白处，收起输入控件*/
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 
@@ -446,6 +470,7 @@
     
 }
 
+/*点击文本框，开始编辑时，文本框的内容改成“我的出生地”*/
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 
@@ -456,6 +481,23 @@
 
 }
 
+/*点击日期控件时，将选中的日期填写到文本框中*/
 
+-(void)dateChanged:(id)sender
+
+{
+    self.mydatepicker = (UIDatePicker*)sender;
+    
+    NSDate* date = self.mydatepicker.date;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    
+    [df setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString* str = [df stringFromDate:date];
+    
+    self.my_birthday_textfield.text = str;
+
+}
 
 @end
