@@ -502,6 +502,7 @@
     
     //身份证号输入框
     
+    /*每隔0.1秒验证身份证输入框*/
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkCardInfoInput) userInfo:nil repeats:YES];
     
     CGFloat identity_card_num_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
@@ -607,6 +608,8 @@
     self.my_birthday_textfield.text = str;
 
 }
+
+/*验证身份证号码是否为15或18位，如果不是输入的号码将变成红色*/
 
 -(void)checkCardInfoInput
 {
