@@ -8,13 +8,15 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
+@interface RegisterViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 
 @property (nonatomic,weak) UIPickerView *mypickview;
 
 @property (nonatomic,weak) UITextField *my_security_question_textfield;
 
 @property (nonatomic,strong) NSArray *my_security_question_list_array;
+
+@property (nonatomic,weak) UIDatePicker *mydatepicker;
 
 @end
 
@@ -23,6 +25,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    UIDatePicker *datepicker = [[UIDatePicker alloc]init];
+    
+    datepicker.datePickerMode = UIDatePickerModeDate;
+    
+    self.mydatepicker = datepicker;
     
     NSString *q1 = [NSString stringWithFormat:@"我的出生地?"];
     
@@ -42,7 +50,7 @@
     
     CGFloat pickview_widht = 100;
     
-    CGFloat pickview_height = 100;
+    CGFloat pickview_height =100;
     
     CGRect pickview_rect = CGRectMake(pickview_x, pickview_y, pickview_widht, pickview_height);
     
@@ -299,6 +307,8 @@
     
     UITextField *security_question_textfield = [[UITextField alloc]initWithFrame:security_question_textfield_rect];
     
+    security_question_textfield.delegate = self;
+    
     security_question_textfield.placeholder = @"请选择";
     
     security_question_textfield.inputView = self.mypickview;
@@ -306,6 +316,86 @@
     self.my_security_question_textfield = security_question_textfield;
     
     [self.view addSubview:self.my_security_question_textfield];
+    
+    //密保答案标签
+    
+    CGFloat security_answer_label_x = label_x;
+    
+    CGFloat security_answer_label_y = security_question_label_y + security_question_label.frame.size.height + space_height;
+    
+    CGFloat security_answer_label_width = 0;
+    
+    CGFloat security_answer_label_height = 0;
+    
+    CGRect security_answer_label_rect = CGRectMake(security_answer_label_x, security_answer_label_y, security_answer_label_width, security_answer_label_height);
+    
+    UILabel *security_answer_label = [[UILabel alloc]initWithFrame:security_answer_label_rect];
+    
+    security_answer_label.text = @"密保答案:";
+    
+    security_answer_label.numberOfLines = 0;
+    
+    [security_answer_label sizeToFit];
+    
+    [self.view addSubview:security_answer_label];
+    
+    //密保答案输入框
+    
+    CGFloat security_answer_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat security_answer_textfield_y = security_answer_label_y;
+    
+    CGFloat security_answer_textfield_width = textfield_width;
+    
+    CGFloat security_answer_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect security_answer_textfield_rect = CGRectMake(security_answer_textfield_x, security_answer_textfield_y, security_answer_textfield_width, security_answer_textfield_height);
+    
+    UITextField *security_answer_textfield = [[UITextField alloc]initWithFrame:security_answer_textfield_rect];
+    
+    [self.view addSubview:security_answer_textfield];
+    
+    //出生日期标签
+    
+    CGFloat birthday_label_x = label_x;
+    
+    CGFloat birthday_label_y = security_answer_label_y + security_answer_label.frame.size.height + space_height;
+    
+    CGFloat birthday_label_width = 0;
+    
+    CGFloat birthday_label_height = 0;
+    
+    CGRect birthday_label_rect = CGRectMake(birthday_label_x, birthday_label_y, birthday_label_width, birthday_label_height);
+    
+    UILabel *birthday_label = [[UILabel alloc]initWithFrame:birthday_label_rect];
+    
+    birthday_label.text = @"出生日期:";
+    
+    birthday_label.numberOfLines = 0;
+    
+    [birthday_label sizeToFit];
+    
+    [self.view addSubview:birthday_label];
+    
+    //出生日期输入框
+    
+    CGFloat birthday_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat birthday_textfield_y = birthday_label_y;
+    
+    CGFloat birthday_textfield_width = textfield_width;
+    
+    CGFloat birthday_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect birthday_textfield_rect = CGRectMake(birthday_textfield_x, birthday_textfield_y, birthday_textfield_width, birthday_textfield_height);
+    
+    UITextField *birthday_textfield = [[UITextField alloc]initWithFrame:birthday_textfield_rect];
+    
+    birthday_textfield.inputView = self.mydatepicker;
+    
+    [self.view addSubview:birthday_textfield];
+
+
 
 }
 
@@ -355,5 +445,17 @@
     [self.view endEditing:YES];
     
 }
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+
+{
+
+    self.my_security_question_textfield.text = @"我的出生地?";
+
+
+}
+
+
 
 @end
