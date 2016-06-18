@@ -524,6 +524,114 @@
     self.my_identity_card_num_textfield = identity_card_num_textfield;
     
     [self.view addSubview:self.my_identity_card_num_textfield];
+    
+    //联系电话标签
+    
+    CGFloat contact_phone_label_x = label_x;
+    
+    CGFloat contact_phone_label_y = identity_card_num_label_y + identity_card_num_label.frame.size.height + space_height;
+    
+    CGFloat contact_phone_label_width = 0;
+    
+    CGFloat contact_phone_label_height = 0;
+    
+    CGRect contact_phone_label_rect = CGRectMake(contact_phone_label_x, contact_phone_label_y, contact_phone_label_width, contact_phone_label_height);
+    
+    UILabel *contact_phone_label = [[UILabel alloc]initWithFrame:contact_phone_label_rect];
+    
+    contact_phone_label.text = @"联系电话:";
+    
+    contact_phone_label.numberOfLines = 0;
+    
+    [contact_phone_label sizeToFit];
+    
+    [self.view addSubview:contact_phone_label];
+    
+    //联系电话输入框
+    
+    CGFloat contact_phone_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat contact_phone_textfield_y = contact_phone_label_y;
+    
+    CGFloat contact_phone_textfield_width = textfield_width;
+    
+    CGFloat contact_phone_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect contact_phone_textfield_rect = CGRectMake(contact_phone_textfield_x, contact_phone_textfield_y, contact_phone_textfield_width,
+                                                     contact_phone_textfield_height);
+    
+    UITextField *contact_phone_textfield = [[UITextField alloc]initWithFrame:contact_phone_textfield_rect];
+    
+    contact_phone_textfield.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    
+    contact_phone_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    [self.view addSubview:contact_phone_textfield];
+    
+    //健康管家标签
+    
+    CGFloat health_manager_label_x = label_x;
+    
+    CGFloat health_manager_label_y = contact_phone_label_y + contact_phone_label.frame.size.height + space_height;
+    
+    CGFloat health_manager_label_width = 0;
+    
+    CGFloat health_manager_label_height = 0;
+    
+    CGRect health_manager_label_rect = CGRectMake(health_manager_label_x, health_manager_label_y, health_manager_label_width,
+                                                  health_manager_label_height);
+    
+    UILabel *health_manager_label = [[UILabel alloc]initWithFrame:health_manager_label_rect];
+    
+    health_manager_label.text = @"健康管家:";
+    
+    health_manager_label.numberOfLines = 0;
+    
+    [health_manager_label sizeToFit];
+    
+    [self.view addSubview:health_manager_label];
+    
+    //健康管家输入框
+    
+    CGFloat health_manager_textfield_x = label_x + member_accounts_label.frame.size.width + space_width;
+    
+    CGFloat health_manager_textfield_y = health_manager_label_y;
+    
+    CGFloat health_manager_textfield_width = textfield_width;
+    
+    CGFloat health_manager_textfield_height = member_accounts_label.frame.size.height;
+    
+    CGRect health_manager_textfield_rect = CGRectMake(health_manager_textfield_x, health_manager_textfield_y, health_manager_textfield_width,
+                                                      health_manager_textfield_height);
+    
+    UITextField *health_manager_textfield = [[UITextField alloc]initWithFrame:health_manager_textfield_rect];
+    
+    health_manager_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    [self.view addSubview:health_manager_textfield];
+    
+    //我的健康管理项目标签
+    
+    CGFloat my_health_manager_item_label_x = label_x;
+    
+    CGFloat my_health_manager_item_label_y = health_manager_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat my_health_manager_item_label_width = 0;
+    
+    CGFloat my_health_manager_item_label_height = 0;
+    
+    CGRect my_health_manager_item_label_rect = CGRectMake(my_health_manager_item_label_x, my_health_manager_item_label_y,
+                                                          my_health_manager_item_label_width,my_health_manager_item_label_height);
+    
+    UILabel *my_health_manager_item_label = [[UILabel alloc]initWithFrame:my_health_manager_item_label_rect];
+    
+    my_health_manager_item_label.text = @"我的健康管理项目:";
+    
+    my_health_manager_item_label.numberOfLines = 0;
+    
+    [my_health_manager_item_label sizeToFit];
+    
+    [self.view addSubview:my_health_manager_item_label];
 
 
 
