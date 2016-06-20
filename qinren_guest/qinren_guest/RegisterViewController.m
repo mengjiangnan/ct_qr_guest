@@ -30,6 +30,8 @@
     
     [super viewDidLoad];
     
+    UISwitch *myswitch = [[UISwitch alloc]init];
+    
     //初始化UIDatePicker
     
     UIDatePicker *datepicker = [[UIDatePicker alloc]init];
@@ -100,6 +102,16 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
+    //添加全屏子控件scrollview
+    
+    UIScrollView *mainview;
+    
+    mainview = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 50);
+    
+    [self.view addSubview:mainview];
+    
     //会员帐号标签
     
     CGFloat member_accounts_label_x = label_x;
@@ -120,7 +132,7 @@
     
     [member_accounts_label sizeToFit];
     
-    [self.view addSubview:member_accounts_label];
+    [mainview addSubview:member_accounts_label];
     
     //会员帐号输入框
     
@@ -141,7 +153,7 @@
     
     member_accounts_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:member_accounts_textfield];
+    [mainview addSubview:member_accounts_textfield];
     
     //昵称标签
     
@@ -163,7 +175,7 @@
     
     [nickname_label sizeToFit];
     
-    [self.view addSubview:nickname_label];
+    [mainview addSubview:nickname_label];
     
     //昵称输入框
     
@@ -181,7 +193,7 @@
     
     nickname_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:nickname_textfield];
+    [mainview addSubview:nickname_textfield];
     
     
     //性别标签
@@ -204,7 +216,7 @@
     
     [sex_label sizeToFit];
     
-    [self.view addSubview:sex_label];
+    [mainview addSubview:sex_label];
     
     //性别输入框
     
@@ -222,7 +234,7 @@
     
     sex_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:sex_textfield];
+    [mainview addSubview:sex_textfield];
     
     //密码标签
     
@@ -244,7 +256,7 @@
     
     [pwd_label sizeToFit];
     
-    [self.view addSubview:pwd_label];
+    [mainview addSubview:pwd_label];
     
     //密码输入框
     
@@ -262,7 +274,7 @@
     
     pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:pwd_textfield];
+    [mainview addSubview:pwd_textfield];
     
     //确认密码标签
     
@@ -284,7 +296,7 @@
     
     [confirm_pwd_label sizeToFit];
     
-    [self.view addSubview:confirm_pwd_label];
+    [mainview addSubview:confirm_pwd_label];
     
     //确认密码输入框
     
@@ -302,7 +314,7 @@
     
     confirm_pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:confirm_pwd_textfield];
+    [mainview addSubview:confirm_pwd_textfield];
     
     //密保问题标签
     
@@ -324,7 +336,7 @@
     
     [security_question_label sizeToFit];
     
-    [self.view addSubview:security_question_label];
+    [mainview addSubview:security_question_label];
     
     //密保问题选择输入框
     
@@ -350,7 +362,7 @@
     
     self.my_security_question_textfield = security_question_textfield;
     
-    [self.view addSubview:self.my_security_question_textfield];
+    [mainview addSubview:self.my_security_question_textfield];
     
     //密保答案标签
     
@@ -372,7 +384,7 @@
     
     [security_answer_label sizeToFit];
     
-    [self.view addSubview:security_answer_label];
+    [mainview addSubview:security_answer_label];
     
     //密保答案输入框
     
@@ -390,7 +402,7 @@
     
     security_answer_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:security_answer_textfield];
+    [mainview addSubview:security_answer_textfield];
     
     //出生日期标签
     
@@ -412,7 +424,7 @@
     
     [birthday_label sizeToFit];
     
-    [self.view addSubview:birthday_label];
+    [mainview addSubview:birthday_label];
     
     //出生日期输入框
     
@@ -436,7 +448,7 @@
     
     self.my_birthday_textfield = birthday_textfield;
     
-    [self.view addSubview:birthday_textfield];
+    [mainview addSubview:birthday_textfield];
     
     //真实姓名标签
     
@@ -458,7 +470,7 @@
     
     [real_name_label sizeToFit];
     
-    [self.view addSubview:real_name_label];
+    [mainview addSubview:real_name_label];
     
     //真实姓名输入框
     
@@ -476,7 +488,7 @@
     
     real_name_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:real_name_textfield];
+    [mainview addSubview:real_name_textfield];
     
     //身份证号标签
     
@@ -498,7 +510,7 @@
     
     [identity_card_num_label sizeToFit];
     
-    [self.view addSubview:identity_card_num_label];
+    [mainview addSubview:identity_card_num_label];
     
     //身份证号输入框
     
@@ -523,7 +535,7 @@
     
     self.my_identity_card_num_textfield = identity_card_num_textfield;
     
-    [self.view addSubview:self.my_identity_card_num_textfield];
+    [mainview addSubview:self.my_identity_card_num_textfield];
     
     //联系电话标签
     
@@ -545,7 +557,7 @@
     
     [contact_phone_label sizeToFit];
     
-    [self.view addSubview:contact_phone_label];
+    [mainview addSubview:contact_phone_label];
     
     //联系电话输入框
     
@@ -566,7 +578,7 @@
     
     contact_phone_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:contact_phone_textfield];
+    [mainview addSubview:contact_phone_textfield];
     
     //健康管家标签
     
@@ -589,7 +601,7 @@
     
     [health_manager_label sizeToFit];
     
-    [self.view addSubview:health_manager_label];
+    [mainview addSubview:health_manager_label];
     
     //健康管家输入框
     
@@ -608,7 +620,7 @@
     
     health_manager_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    [self.view addSubview:health_manager_textfield];
+    [mainview addSubview:health_manager_textfield];
     
     //我的健康管理项目标签
     
@@ -631,9 +643,127 @@
     
     [my_health_manager_item_label sizeToFit];
     
-    [self.view addSubview:my_health_manager_item_label];
-
-
+    [mainview addSubview:my_health_manager_item_label];
+    
+    //高血压标签
+    
+    CGFloat hypertension_label_x = label_x;
+    
+    CGFloat hypertension_label_y = my_health_manager_item_label_y + my_health_manager_item_label.frame.size.height + space_height;
+    
+    CGFloat hypertension_label_width = 0;
+    
+    CGFloat hypertension_label_height = 0;
+    
+    CGRect hypertension_label_rect = CGRectMake(hypertension_label_x, hypertension_label_y,
+                                                          hypertension_label_width,hypertension_label_height);
+    
+    UILabel *hypertension_label = [[UILabel alloc]initWithFrame:hypertension_label_rect];
+    
+    hypertension_label.text = @"高血压";
+    
+   hypertension_label.numberOfLines = 0;
+    
+    [hypertension_label sizeToFit];
+    
+    [mainview addSubview:hypertension_label];
+    
+    //高血压单选按钮
+    
+    CGFloat hypertension_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat hypertension_switch_btn_y = hypertension_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat hypertension_switch_btn_width = 0;
+    
+    CGFloat hypertension_switch_btn_height = 0;
+    
+    CGRect hypertension_switch_btn_rect = CGRectMake(hypertension_switch_btn_x, hypertension_switch_btn_y,
+                                                hypertension_switch_btn_width,hypertension_switch_btn_height);
+    
+    UISwitch *hypertension_switch = [[UISwitch alloc]initWithFrame:hypertension_switch_btn_rect];
+    
+    [mainview addSubview:hypertension_switch];
+    
+    //血脂异常标签
+    
+    CGFloat dyslipidemia_label_x = label_x;
+    
+    CGFloat dyslipidemia_label_y = hypertension_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat dyslipidemia_label_width = 0;
+    
+    CGFloat dyslipidemia_label_height = 0;
+    
+    CGRect dyslipidemia_label_rect = CGRectMake(dyslipidemia_label_x, dyslipidemia_label_y,
+                                                dyslipidemia_label_width,dyslipidemia_label_height);
+    
+    UILabel *dyslipidemia_label = [[UILabel alloc]initWithFrame:dyslipidemia_label_rect];
+    
+    dyslipidemia_label.text = @"血脂异常";
+    
+    dyslipidemia_label.numberOfLines = 0;
+    
+    [dyslipidemia_label sizeToFit];
+    
+    [mainview addSubview:dyslipidemia_label];
+    
+    //血脂异常单选按钮
+    
+    CGFloat dyslipidemia_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat dyslipidemia_switch_btn_y = dyslipidemia_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat dyslipidemia_switch_btn_width = 0;
+    
+    CGFloat dyslipidemia_switch_btn_height = 0;
+    
+    CGRect dyslipidemia_switch_btn_rect = CGRectMake(dyslipidemia_switch_btn_x, dyslipidemia_switch_btn_y,
+                                                     dyslipidemia_switch_btn_width,dyslipidemia_switch_btn_height);
+    
+    UISwitch *dyslipidemia_switch = [[UISwitch alloc]initWithFrame:dyslipidemia_switch_btn_rect];
+    
+    [mainview addSubview:dyslipidemia_switch];
+    
+    //糖尿病标签
+    
+    CGFloat diabetes_label_x = label_x;
+    
+    CGFloat diabetes_label_y = dyslipidemia_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat diabetes_label_width = 0;
+    
+    CGFloat diabetes_label_height = 0;
+    
+    CGRect diabetes_label_rect = CGRectMake(diabetes_label_x, diabetes_label_y,
+                                                diabetes_label_width,diabetes_label_height);
+    
+    UILabel *diabetes_label = [[UILabel alloc]initWithFrame:diabetes_label_rect];
+    
+    diabetes_label.text = @"糖尿病";
+    
+    diabetes_label.numberOfLines = 0;
+    
+    [diabetes_label sizeToFit];
+    
+    [mainview addSubview:diabetes_label];
+    
+    //糖尿病单选按钮
+    
+    CGFloat diabetes_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat diabetes_switch_btn_y = diabetes_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat diabetes_switch_btn_width = 0;
+    
+    CGFloat diabetes_switch_btn_height = 0;
+    
+    CGRect diabetes_switch_btn_rect = CGRectMake(diabetes_switch_btn_x, diabetes_switch_btn_y,
+                                                     diabetes_switch_btn_width,diabetes_switch_btn_height);
+    
+    UISwitch *diabetes_switch = [[UISwitch alloc]initWithFrame:diabetes_switch_btn_rect];
+    
+    [mainview addSubview:diabetes_switch];
 
 
 }
