@@ -108,7 +108,7 @@
     
     mainview = [[UIScrollView alloc] initWithFrame:self.view.frame];
     
-    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 50);
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 500);
     
     [self.view addSubview:mainview];
     
@@ -764,6 +764,209 @@
     UISwitch *diabetes_switch = [[UISwitch alloc]initWithFrame:diabetes_switch_btn_rect];
     
     [mainview addSubview:diabetes_switch];
+    
+    //肥胖症标签
+    
+    CGFloat obesity_label_x = label_x;
+    
+    CGFloat obesity_label_y = diabetes_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat obesity_label_width = 0;
+    
+    CGFloat obesity_label_height = 0;
+    
+    CGRect obesity_label_rect = CGRectMake(obesity_label_x, obesity_label_y,
+                                            obesity_label_width,obesity_label_height);
+    
+    UILabel *obesity_label = [[UILabel alloc]initWithFrame:obesity_label_rect];
+    
+    obesity_label.text = @"肥胖症";
+    
+    obesity_label.numberOfLines = 0;
+    
+    [obesity_label sizeToFit];
+    
+    [mainview addSubview:obesity_label];
+    
+    //肥胖症单选按钮
+    
+    CGFloat obesity_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat obesity_switch_btn_y = obesity_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat obesity_switch_btn_width = 0;
+    
+    CGFloat obesity_switch_btn_height = 0;
+    
+    CGRect obesity_switch_btn_rect = CGRectMake(obesity_switch_btn_x, obesity_switch_btn_y,
+                                                 obesity_switch_btn_width,obesity_switch_btn_height);
+    
+    UISwitch *obesity_switch = [[UISwitch alloc]initWithFrame:obesity_switch_btn_rect];
+    
+    [mainview addSubview:obesity_switch];
+    
+    //肺癌标签
+    
+    CGFloat lung_cancer_label_x = label_x;
+    
+    CGFloat lung_cancer_label_y = obesity_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat lung_cancer_label_width = 0;
+    
+    CGFloat lung_cancer_label_height = 0;
+    
+    CGRect lung_cancer_label_rect = CGRectMake(lung_cancer_label_x, lung_cancer_label_y,
+                                           lung_cancer_label_width,lung_cancer_label_height);
+    
+    UILabel *lung_cancer_label = [[UILabel alloc]initWithFrame:lung_cancer_label_rect];
+    
+    lung_cancer_label.text = @"肺癌";
+    
+    lung_cancer_label.numberOfLines = 0;
+    
+    [lung_cancer_label sizeToFit];
+    
+    [mainview addSubview:lung_cancer_label];
+    
+    //肺癌单选按钮
+    
+    CGFloat lung_cancer_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat lung_cancer_switch_btn_y = lung_cancer_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat lung_cancer_switch_btn_width = 0;
+    
+    CGFloat lung_cancer_switch_btn_height = 0;
+    
+    CGRect lung_cancer_switch_btn_rect = CGRectMake(lung_cancer_switch_btn_x, lung_cancer_switch_btn_y,
+                                                lung_cancer_switch_btn_width,lung_cancer_switch_btn_height);
+    
+    UISwitch *lung_cancer_switch = [[UISwitch alloc]initWithFrame:lung_cancer_switch_btn_rect];
+    
+    [mainview addSubview:lung_cancer_switch];
+    
+    //缺血性心血管标签
+    
+    CGFloat ischaemic_heart_disease_label_x = label_x;
+    
+    CGFloat ischaemic_heart_disease_label_y = lung_cancer_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat ischaemic_heart_disease_label_width = 0;
+    
+    CGFloat ischaemic_heart_disease_label_height = 0;
+    
+    CGRect ischaemic_heart_disease_label_rect = CGRectMake(ischaemic_heart_disease_label_x, ischaemic_heart_disease_label_y,
+                                               ischaemic_heart_disease_label_width,ischaemic_heart_disease_label_height);
+    
+    UILabel *ischaemic_heart_disease_label = [[UILabel alloc]initWithFrame:ischaemic_heart_disease_label_rect];
+    
+    ischaemic_heart_disease_label.text = @"缺血性心血管";
+    
+    ischaemic_heart_disease_label.numberOfLines = 0;
+    
+    [ischaemic_heart_disease_label sizeToFit];
+    
+    [mainview addSubview:ischaemic_heart_disease_label];
+    
+    //缺血性心血管单选按钮
+    
+    CGFloat ischaemic_heart_disease_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat ischaemic_heart_disease_switch_btn_y = ischaemic_heart_disease_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat ischaemic_heart_disease_switch_btn_width = 0;
+    
+    CGFloat ischaemic_heart_disease_switch_btn_height = 0;
+    
+    CGRect ischaemic_heart_disease_switch_btn_rect = CGRectMake(ischaemic_heart_disease_switch_btn_x, ischaemic_heart_disease_switch_btn_y,
+                                                    ischaemic_heart_disease_switch_btn_width,ischaemic_heart_disease_switch_btn_height);
+    
+    UISwitch *ischaemic_heart_disease_switch = [[UISwitch alloc]initWithFrame:ischaemic_heart_disease_switch_btn_rect];
+    
+    [mainview addSubview:ischaemic_heart_disease_switch];
+    
+    //骨质疏松症标签
+    
+    CGFloat Osteoporosis_label_x = label_x;
+    
+    CGFloat Osteoporosis_label_y = ischaemic_heart_disease_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat Osteoporosis_label_width = 0;
+    
+    CGFloat Osteoporosis_label_height = 0;
+    
+    CGRect Osteoporosis_label_rect = CGRectMake(Osteoporosis_label_x, Osteoporosis_label_y,
+                                                           Osteoporosis_label_width,Osteoporosis_label_height);
+    
+    UILabel *Osteoporosis_label = [[UILabel alloc]initWithFrame:Osteoporosis_label_rect];
+    
+    Osteoporosis_label.text = @"骨质疏松症";
+    
+    Osteoporosis_label.numberOfLines = 0;
+    
+    [Osteoporosis_label sizeToFit];
+    
+    [mainview addSubview:Osteoporosis_label];
+    
+    //骨质疏松症单选按钮
+    
+    CGFloat Osteoporosis_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat Osteoporosis_switch_btn_y = Osteoporosis_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat Osteoporosis_switch_btn_width = 0;
+    
+    CGFloat Osteoporosis_switch_btn_height = 0;
+    
+    CGRect Osteoporosis_switch_btn_rect = CGRectMake(Osteoporosis_switch_btn_x, Osteoporosis_switch_btn_y,
+                                                                Osteoporosis_switch_btn_width,Osteoporosis_switch_btn_height);
+    
+    UISwitch *Osteoporosis_switch = [[UISwitch alloc]initWithFrame:Osteoporosis_switch_btn_rect];
+    
+    [mainview addSubview:Osteoporosis_switch];
+    
+    //乳腺癌标签
+    
+    CGFloat breast_cancer_label_x = label_x;
+    
+    CGFloat breast_cancer_label_y = Osteoporosis_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat breast_cancer_label_width = 0;
+    
+    CGFloat breast_cancer_label_height = 0;
+    
+    CGRect breast_cancer_label_rect = CGRectMake(breast_cancer_label_x, breast_cancer_label_y,
+                                                breast_cancer_label_width,breast_cancer_label_height);
+    
+    UILabel *breast_cancer_label = [[UILabel alloc]initWithFrame:breast_cancer_label_rect];
+    
+    breast_cancer_label.text = @"乳腺癌";
+    
+    breast_cancer_label.numberOfLines = 0;
+    
+    [breast_cancer_label sizeToFit];
+    
+    [mainview addSubview:breast_cancer_label];
+    
+    //乳腺癌单选按钮
+    
+    CGFloat breast_cancer_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat breast_cancer_switch_btn_y = breast_cancer_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat breast_cancer_switch_btn_width = 0;
+    
+    CGFloat breast_cancer_switch_btn_height = 0;
+    
+    CGRect breast_cancer_switch_btn_rect = CGRectMake(breast_cancer_switch_btn_x, breast_cancer_switch_btn_y,
+                                                     breast_cancer_switch_btn_width,breast_cancer_switch_btn_height);
+    
+    UISwitch *breast_cancer_switch = [[UISwitch alloc]initWithFrame:breast_cancer_switch_btn_rect];
+    
+    [mainview addSubview:breast_cancer_switch];
+
+
+
 
 
 }
