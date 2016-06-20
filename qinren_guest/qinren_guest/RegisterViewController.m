@@ -106,9 +106,19 @@
     
     UIScrollView *mainview;
     
-    mainview = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    CGFloat mainview_x = 0;
     
-    mainview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 500);
+    CGFloat mainview_y = -64;
+    
+    CGFloat mainview_width = self.view.frame.size.width;
+    
+    CGFloat mainview_height = self.view.frame.size.height;
+    
+    CGRect  mainview_rect = CGRectMake(mainview_x, mainview_y, mainview_width, mainview_height);
+    
+    mainview = [[UIScrollView alloc] initWithFrame:mainview_rect];
+    
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, space_height*72);
     
     [self.view addSubview:mainview];
     
@@ -964,12 +974,498 @@
     UISwitch *breast_cancer_switch = [[UISwitch alloc]initWithFrame:breast_cancer_switch_btn_rect];
     
     [mainview addSubview:breast_cancer_switch];
+    
+    //前列腺癌标签
+    
+    CGFloat prostate_cancer_label_x = label_x;
+    
+    CGFloat prostate_cancer_label_y = breast_cancer_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat prostate_cancer_label_width = 0;
+    
+    CGFloat prostate_cancer_label_height = 0;
+    
+    CGRect prostate_cancer_label_rect = CGRectMake(prostate_cancer_label_x, prostate_cancer_label_y,
+                                                 prostate_cancer_label_width,prostate_cancer_label_height);
+    
+    UILabel *prostate_cancer_label = [[UILabel alloc]initWithFrame:prostate_cancer_label_rect];
+    
+    prostate_cancer_label.text = @"前列腺癌";
+    
+    prostate_cancer_label.numberOfLines = 0;
+    
+    [prostate_cancer_label sizeToFit];
+    
+    [mainview addSubview:prostate_cancer_label];
+    
+    //前列腺癌单选按钮
+    
+    CGFloat prostate_cancer_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat prostate_cancer_switch_btn_y = prostate_cancer_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat prostate_cancer_switch_btn_width = 0;
+    
+    CGFloat prostate_cancer_switch_btn_height = 0;
+    
+    CGRect prostate_cancer_switch_btn_rect = CGRectMake(prostate_cancer_switch_btn_x, prostate_cancer_switch_btn_y,
+                                                      prostate_cancer_switch_btn_width,prostate_cancer_switch_btn_height);
+    
+    UISwitch *prostate_cancer_switch = [[UISwitch alloc]initWithFrame:prostate_cancer_switch_btn_rect];
+    
+    [mainview addSubview:prostate_cancer_switch];
+    
+    //代谢综合症标签
+    
+    CGFloat metabolic_syndrome_label_x = label_x;
+    
+    CGFloat metabolic_syndrome_label_y = prostate_cancer_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat metabolic_syndrome_label_width = 0;
+    
+    CGFloat metabolic_syndrome_label_height = 0;
+    
+    CGRect metabolic_syndrome_label_rect = CGRectMake(metabolic_syndrome_label_x, metabolic_syndrome_label_y,
+                                                   metabolic_syndrome_label_width,metabolic_syndrome_label_height);
+    
+    UILabel *metabolic_syndrome_label = [[UILabel alloc]initWithFrame:metabolic_syndrome_label_rect];
+    
+    metabolic_syndrome_label.text = @"代谢综合症";
+    
+    metabolic_syndrome_label.numberOfLines = 0;
+    
+    [metabolic_syndrome_label sizeToFit];
+    
+    [mainview addSubview:metabolic_syndrome_label];
+    
+    //代谢综合症单选按钮
+    
+    CGFloat metabolic_syndrome_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat metabolic_syndrome_switch_btn_y = metabolic_syndrome_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat metabolic_syndrome_switch_btn_width = 0;
+    
+    CGFloat metabolic_syndrome_switch_btn_height = 0;
+    
+    CGRect metabolic_syndrome_switch_btn_rect = CGRectMake(metabolic_syndrome_switch_btn_x, metabolic_syndrome_switch_btn_y,
+                                                        metabolic_syndrome_switch_btn_width,metabolic_syndrome_switch_btn_height);
+    
+    UISwitch *metabolic_syndrome_switch = [[UISwitch alloc]initWithFrame:metabolic_syndrome_switch_btn_rect];
+    
+    [mainview addSubview:metabolic_syndrome_switch];
+    
+    //尼古丁成瘾标签
+    
+    CGFloat nicotine_addiction_label_x = label_x;
+    
+    CGFloat nicotine_addiction_label_y = metabolic_syndrome_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat nicotine_addiction_label_width = 0;
+    
+    CGFloat nicotine_addiction_label_height = 0;
+    
+    CGRect nicotine_addiction_label_rect = CGRectMake(nicotine_addiction_label_x, nicotine_addiction_label_y,
+                                                      nicotine_addiction_label_width,nicotine_addiction_label_height);
+    
+    UILabel *nicotine_addiction_label = [[UILabel alloc]initWithFrame:nicotine_addiction_label_rect];
+    
+    nicotine_addiction_label.text = @"尼古丁成瘾";
+    
+    nicotine_addiction_label.numberOfLines = 0;
+    
+    [nicotine_addiction_label sizeToFit];
+    
+    [mainview addSubview:nicotine_addiction_label];
+    
+    //尼古丁成瘾单选按钮
+    
+    CGFloat nicotine_addiction_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat nicotine_addiction_switch_btn_y = nicotine_addiction_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat nicotine_addiction_switch_btn_width = 0;
+    
+    CGFloat nicotine_addiction_switch_btn_height = 0;
+    
+    CGRect nicotine_addiction_switch_btn_rect = CGRectMake(nicotine_addiction_switch_btn_x, nicotine_addiction_switch_btn_y,
+                                                           nicotine_addiction_switch_btn_width,nicotine_addiction_switch_btn_height);
+    
+    UISwitch *nicotine_addiction_switch = [[UISwitch alloc]initWithFrame:nicotine_addiction_switch_btn_rect];
+    
+    [mainview addSubview:nicotine_addiction_switch];
+    
+    //心血管疾病标签
+    
+    CGFloat CVD_label_x = label_x;
+    
+    CGFloat CVD_label_y = nicotine_addiction_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat CVD_label_width = 0;
+    
+    CGFloat CVD_label_height = 0;
+    
+    CGRect CVD_label_rect = CGRectMake(CVD_label_x, CVD_label_y,CVD_label_width,CVD_label_height);
+    
+    UILabel *CVD_label = [[UILabel alloc]initWithFrame:CVD_label_rect];
+    
+    CVD_label.text = @"心血管疾病";
+    
+    CVD_label.numberOfLines = 0;
+    
+    [CVD_label sizeToFit];
+    
+    [mainview addSubview:CVD_label];
+    
+    //心血管疾病单选按钮
+    
+    CGFloat CVD_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat CVD_switch_btn_y = CVD_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat CVD_switch_btn_width = 0;
+    
+    CGFloat CVD_switch_btn_height = 0;
+    
+    CGRect CVD_switch_btn_rect = CGRectMake(CVD_switch_btn_x, CVD_switch_btn_y,CVD_switch_btn_width,CVD_switch_btn_height);
+    
+    UISwitch *CVD_switch = [[UISwitch alloc]initWithFrame:CVD_switch_btn_rect];
+    
+    [mainview addSubview:CVD_switch];
+    
+    //女性更年期标签
+    
+    CGFloat menopause_label_x = label_x;
+    
+    CGFloat menopause_label_y = CVD_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat menopause_label_width = 0;
+    
+    CGFloat menopause_label_height = 0;
+    
+    CGRect menopause_label_rect = CGRectMake(menopause_label_x, menopause_label_y,menopause_label_width,menopause_label_height);
+    
+    UILabel *menopause_label = [[UILabel alloc]initWithFrame:menopause_label_rect];
+    
+    menopause_label.text = @"女性更年期";
+    
+    menopause_label.numberOfLines = 0;
+    
+    [menopause_label sizeToFit];
+    
+    [mainview addSubview:menopause_label];
+    
+    //女性更年期单选按钮
+    
+    CGFloat menopause_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat menopause_switch_btn_y = menopause_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat menopause_switch_btn_width = 0;
+    
+    CGFloat menopause_switch_btn_height = 0;
+    
+    CGRect menopause_switch_btn_rect = CGRectMake(menopause_switch_btn_x, menopause_switch_btn_y,menopause_switch_btn_width,menopause_switch_btn_height);
+    
+    UISwitch *menopause_switch = [[UISwitch alloc]initWithFrame:menopause_switch_btn_rect];
+    
+    [mainview addSubview:menopause_switch];
+    
+    //老年痴呆标签
+    
+    CGFloat senile_dementia_label_x = label_x;
+    
+    CGFloat senile_dementia_label_y = menopause_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat senile_dementia_label_width = 0;
+    
+    CGFloat senile_dementia_label_height = 0;
+    
+    CGRect senile_dementia_label_rect = CGRectMake(senile_dementia_label_x, senile_dementia_label_y,senile_dementia_label_width,senile_dementia_label_height);
+    
+    UILabel *senile_dementia_label = [[UILabel alloc]initWithFrame:senile_dementia_label_rect];
+    
+    senile_dementia_label.text = @"老年痴呆";
+    
+    senile_dementia_label.numberOfLines = 0;
+    
+    [senile_dementia_label sizeToFit];
+    
+    [mainview addSubview:senile_dementia_label];
+    
+    //老年痴呆单选按钮
+    
+    CGFloat senile_dementia_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat senile_dementia_switch_btn_y = senile_dementia_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat senile_dementia_switch_btn_width = 0;
+    
+    CGFloat senile_dementia_switch_btn_height = 0;
+    
+    CGRect senile_dementia_switch_btn_rect = CGRectMake(senile_dementia_switch_btn_x, senile_dementia_switch_btn_y,senile_dementia_switch_btn_width,senile_dementia_switch_btn_height);
+    
+    UISwitch *senile_dementia_switch = [[UISwitch alloc]initWithFrame:senile_dementia_switch_btn_rect];
+    
+    [mainview addSubview:senile_dementia_switch];
+    
+    //眼科疾病标签
+    
+    CGFloat eye_disorders_label_x = label_x;
+    
+    CGFloat eye_disorders_label_y = senile_dementia_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat eye_disorders_label_width = 0;
+    
+    CGFloat eye_disorders_label_height = 0;
+    
+    CGRect eye_disorders_label_rect = CGRectMake(eye_disorders_label_x, eye_disorders_label_y,eye_disorders_label_width,eye_disorders_label_height);
+    
+    UILabel *eye_disorders_label = [[UILabel alloc]initWithFrame:eye_disorders_label_rect];
+    
+    eye_disorders_label.text = @"眼科疾病";
+    
+    eye_disorders_label.numberOfLines = 0;
+    
+    [eye_disorders_label sizeToFit];
+    
+    [mainview addSubview:eye_disorders_label];
+    
+    //眼科疾病单选按钮
+    
+    CGFloat eye_disorders_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat eye_disorders_switch_btn_y = eye_disorders_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat eye_disorders_switch_btn_width = 0;
+    
+    CGFloat eye_disorders_switch_btn_height = 0;
+    
+    CGRect eye_disorders_switch_btn_rect = CGRectMake(eye_disorders_switch_btn_x, eye_disorders_switch_btn_y,eye_disorders_switch_btn_width,eye_disorders_switch_btn_height);
+    
+    UISwitch *eye_disorders_switch = [[UISwitch alloc]initWithFrame:eye_disorders_switch_btn_rect];
+    
+    [mainview addSubview:eye_disorders_switch];
+    
+    //肠胃疾病标签
+    
+    CGFloat stomach_disease_label_x = label_x;
+    
+    CGFloat stomach_disease_label_y = eye_disorders_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat stomach_disease_label_width = 0;
+    
+    CGFloat stomach_disease_label_height = 0;
+    
+    CGRect stomach_disease_label_rect = CGRectMake(stomach_disease_label_x, stomach_disease_label_y,stomach_disease_label_width,stomach_disease_label_height);
+    
+    UILabel *stomach_disease_label = [[UILabel alloc]initWithFrame:stomach_disease_label_rect];
+    
+    stomach_disease_label.text = @"肠胃疾病";
+    
+    stomach_disease_label.numberOfLines = 0;
+    
+    [stomach_disease_label sizeToFit];
+    
+    [mainview addSubview:stomach_disease_label];
+    
+    //肠胃疾病单选按钮
+    
+    CGFloat stomach_disease_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat stomach_disease_switch_btn_y = stomach_disease_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat stomach_disease_switch_btn_width = 0;
+    
+    CGFloat stomach_disease_switch_btn_height = 0;
+    
+    CGRect stomach_disease_switch_btn_rect = CGRectMake(stomach_disease_switch_btn_x, stomach_disease_switch_btn_y,stomach_disease_switch_btn_width,stomach_disease_switch_btn_height);
+    
+    UISwitch *stomach_disease_switch = [[UISwitch alloc]initWithFrame:stomach_disease_switch_btn_rect];
+    
+    [mainview addSubview:stomach_disease_switch];
+    
+    //失眠抑郁标签
+    
+    CGFloat depression_label_x = label_x;
+    
+    CGFloat depression_label_y = stomach_disease_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat depression_label_width = 0;
+    
+    CGFloat depression_label_height = 0;
+    
+    CGRect depression_label_rect = CGRectMake(depression_label_x, depression_label_y,depression_label_width,depression_label_height);
+    
+    UILabel *depression_label = [[UILabel alloc]initWithFrame:depression_label_rect];
+    
+    depression_label.text = @"失眠抑郁";
+    
+    depression_label.numberOfLines = 0;
+    
+    [depression_label sizeToFit];
+    
+    [mainview addSubview:depression_label];
+    
+    //失眠抑郁单选按钮
+    
+    CGFloat depression_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat depression_switch_btn_y = depression_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat depression_switch_btn_width = 0;
+    
+    CGFloat depression_switch_btn_height = 0;
+    
+    CGRect depression_switch_btn_rect = CGRectMake(depression_switch_btn_x, depression_switch_btn_y,depression_switch_btn_width,depression_switch_btn_height);
+    
+    UISwitch *depression_switch = [[UISwitch alloc]initWithFrame:depression_switch_btn_rect];
+    
+    [mainview addSubview:depression_switch];
+    
+    //肝胆疾病标签
+    
+    CGFloat ALT_label_x = label_x;
+    
+    CGFloat ALT_label_y = depression_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat ALT_label_width = 0;
+    
+    CGFloat ALT_label_height = 0;
+    
+    CGRect ALT_label_rect = CGRectMake(ALT_label_x, ALT_label_y,ALT_label_width,ALT_label_height);
+    
+    UILabel *ALT_label = [[UILabel alloc]initWithFrame:ALT_label_rect];
+    
+    ALT_label.text = @"肝胆疾病";
+    
+    ALT_label.numberOfLines = 0;
+    
+    [ALT_label sizeToFit];
+    
+    [mainview addSubview:ALT_label];
+    
+    //肝胆疾病单选按钮
+    
+    CGFloat ALT_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat ALT_switch_btn_y = ALT_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat ALT_switch_btn_width = 0;
+    
+    CGFloat ALT_switch_btn_height = 0;
+    
+    CGRect ALT_switch_btn_rect = CGRectMake(ALT_switch_btn_x, ALT_switch_btn_y,ALT_switch_btn_width,ALT_switch_btn_height);
+    
+    UISwitch *ALT_switch = [[UISwitch alloc]initWithFrame:ALT_switch_btn_rect];
+    
+    [mainview addSubview:ALT_switch];
+    
+    //慢性肺塞性肺炎标签
+    
+    CGFloat obstructive_pulmonary_emphysema_label_x = label_x;
+    
+    CGFloat obstructive_pulmonary_emphysema_label_y = ALT_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat obstructive_pulmonary_emphysema_label_width = 0;
+    
+    CGFloat obstructive_pulmonary_emphysema_label_height = 0;
+    
+    CGRect obstructive_pulmonary_emphysema_label_rect = CGRectMake(obstructive_pulmonary_emphysema_label_x, obstructive_pulmonary_emphysema_label_y,obstructive_pulmonary_emphysema_label_width,
+                                                                   obstructive_pulmonary_emphysema_label_height);
+    
+    UILabel *obstructive_pulmonary_emphysema_label = [[UILabel alloc]initWithFrame:obstructive_pulmonary_emphysema_label_rect];
+    
+    obstructive_pulmonary_emphysema_label.text = @"慢性肺塞性肺炎";
+    
+    obstructive_pulmonary_emphysema_label.numberOfLines = 0;
+    
+    [obstructive_pulmonary_emphysema_label sizeToFit];
+    
+    [mainview addSubview:obstructive_pulmonary_emphysema_label];
+    
+    //慢性肺塞性肺炎单选按钮
+    
+    CGFloat obstructive_pulmonary_emphysema_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat obstructive_pulmonary_emphysema_switch_btn_y = obstructive_pulmonary_emphysema_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat obstructive_pulmonary_emphysema_switch_btn_width = 0;
+    
+    CGFloat obstructive_pulmonary_emphysema_switch_btn_height = 0;
+    
+    CGRect obstructive_pulmonary_emphysema_switch_btn_rect = CGRectMake(obstructive_pulmonary_emphysema_switch_btn_x, obstructive_pulmonary_emphysema_switch_btn_y,
+                                                                        obstructive_pulmonary_emphysema_switch_btn_width,obstructive_pulmonary_emphysema_switch_btn_height);
+    
+    UISwitch *obstructive_pulmonary_emphysema_switch = [[UISwitch alloc]initWithFrame:obstructive_pulmonary_emphysema_switch_btn_rect];
+    
+    [mainview addSubview:obstructive_pulmonary_emphysema_switch];
+    
+    //138食疗计划标签
+    
+    CGFloat diet_label_x = label_x;
+    
+    CGFloat diet_label_y = obstructive_pulmonary_emphysema_label_y + health_manager_label.frame.size.height + space_height;
+    
+    CGFloat diet_label_width = 0;
+    
+    CGFloat diet_label_height = 0;
+    
+    CGRect diet_label_rect = CGRectMake(diet_label_x, diet_label_y,diet_label_width,diet_label_height);
+    
+    UILabel *diet_label = [[UILabel alloc]initWithFrame:diet_label_rect];
+    
+    diet_label.text = @"138食疗计划";
+    
+    diet_label.numberOfLines = 0;
+    
+    [diet_label sizeToFit];
+    
+    [mainview addSubview:diet_label];
+    
+    //138食疗计划单选按钮
+    
+    CGFloat diet_switch_btn_x = self.view.frame.size.width - myswitch.frame.size.width - label_x;
+    
+    CGFloat diet_switch_btn_y = diet_label_y - member_accounts_label.frame.size.height * 0.25;
+    
+    CGFloat diet_switch_btn_width = 0;
+    
+    CGFloat diet_switch_btn_height = 0;
+    
+    CGRect diet_switch_btn_rect = CGRectMake(diet_switch_btn_x, diet_switch_btn_y,diet_switch_btn_width,diet_switch_btn_height);
+    
+    UISwitch *diet_switch = [[UISwitch alloc]initWithFrame:diet_switch_btn_rect];
+    
+    [mainview addSubview:diet_switch];
+    
+    //提交注册按钮
+    
+    UIButton *reg_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    CGFloat reg_btn_x = self.view.frame.size.width * 0.25;
+    
+    CGFloat reg_btn_y = self.view.frame.size.height - 50;
+    
+    CGFloat reg_btn_width = self.view.frame.size.width * 0.5;
+    
+    CGFloat reg_btn_height = 30;
+    
+    CGRect reg_btn_rect = CGRectMake(reg_btn_x, reg_btn_y, reg_btn_width, reg_btn_height);
+    
+    reg_btn = [[UIButton alloc]initWithFrame:reg_btn_rect];
+    
+    reg_btn.backgroundColor = [UIColor greenColor];
+    
+    [reg_btn setTitle:@"提交注册" forState:UIControlStateNormal];
+    
+    [reg_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [reg_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [self.view addSubview:reg_btn];
 
-
-
-
-
-}
+  }
 
 //为了说明,在UIPickerView中有多少列
 
