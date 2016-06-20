@@ -10,6 +10,8 @@
 
 #import "RegisterViewController.h"
 
+#import "ForgetPasswordViewController.h"
+
 @interface MyViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UITextField *my_username_field;
@@ -246,9 +248,9 @@
 {
     self.hidesBottomBarWhenPushed=YES;
     
-    UIViewController *regvc = [[RegisterViewController alloc]init];
+    UIViewController *reg_vc = [[RegisterViewController alloc]init];
     
-    [self.navigationController pushViewController:regvc animated:YES];
+    [self.navigationController pushViewController:reg_vc animated:YES];
     
     self.hidesBottomBarWhenPushed=NO;
     
@@ -264,7 +266,13 @@
 -(void)myforget
 
 {
-    NSLog(@"forget btn");
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *forget_pwd_vc = [[ForgetPasswordViewController alloc]init];
+    
+    [self.navigationController pushViewController:forget_pwd_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
 
 }
 

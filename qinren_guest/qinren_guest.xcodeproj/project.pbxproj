@@ -23,6 +23,7 @@
 		9B4806791D065817002B2175 /* qinren_guestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806781D065817002B2175 /* qinren_guestTests.m */; };
 		9B4806841D065817002B2175 /* qinren_guestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806831D065817002B2175 /* qinren_guestUITests.m */; };
 		9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806991D066DC3002B2175 /* MainTabBarController.m */; };
+		9B49730F1D17E60B00BF2109 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */; };
 		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
 		9B68D45B1D07BA8200BCD0ED /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* MyViewController.m */; };
@@ -96,6 +97,8 @@
 		9B4806851D065817002B2175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B4806981D066DC3002B2175 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		9B4806991D066DC3002B2175 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		9B49730D1D17E60B00BF2109 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				2F7400581D0922CE000D9E15 /* CustomTabBar.m */,
 				9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */,
 				9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */,
+				9B49730D1D17E60B00BF2109 /* ForgetPasswordViewController.h */,
+				9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -461,6 +466,7 @@
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,
+				9B49730F1D17E60B00BF2109 /* ForgetPasswordViewController.m in Sources */,
 				2FFC003A1D154FA800616FC8 /* TAAbstractDotView.m in Sources */,
 				9BE419521D0D09D0008C5396 /* MKAnnotationView+WebCache.m in Sources */,
 				2FFC00301D154F6D00616FC8 /* SDCycleScrollView.m in Sources */,
