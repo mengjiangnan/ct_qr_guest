@@ -2,43 +2,43 @@
 //  MyViewController.m
 //  qinren_guest
 //
-//  Created by qin_ren on 8/6/16.
+//  Created by qin_ren on 21/6/16.
 //  Copyright © 2016年 qiren. All rights reserved.
 //
 
 #import "MyViewController.h"
 
-#import "RegisterViewController.h"
+@interface MyViewController ()
 
-#import "ForgetPasswordViewController.h"
 
-@interface MyViewController ()<UITextFieldDelegate>
-
-@property (nonatomic,weak) UITextField *my_username_field;
-
-@property (nonatomic,weak) UITextField *my_pwd_field;
-
-@property (nonatomic,weak) UIButton *my_login_btn;
-
-@property (nonatomic,weak) UIButton *my_reg_btn;
-
-@property (nonatomic,weak) UIButton *my_forget_forget_pwd_btn;
 
 @end
 
 @implementation MyViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"我的信息";
     
-    self.navigationItem.title = @"登录";
+    //设置整个项目的item状态
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    //设置item普通状态
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    
+    attrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain
+                                                                             target:self action:@selector(set_btn)];
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
     
     //圆形按钮
     
-    CGFloat myhead_btn_x = self.view.frame.size.width * 0.5 -60;
+    CGFloat myhead_btn_x = self.view.frame.size.width *0.5 -60;
     
     CGFloat myhead_btn_y = 84;
     
@@ -62,218 +62,172 @@
     
     [self.view addSubview:myhead_btn];
     
-    //用户名登录框
+    //我的收藏按钮
     
-    CGFloat username_field_x = self.view.frame.size.width * 0.5 - (self.view.frame.size.width * 0.8 * 0.5);
+    UIButton *mycollect_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    CGFloat username_field_y = myhead_btn_y + myhead_btn.frame.size.height + 25;
+    mycollect_btn = [[UIButton alloc]initWithFrame:CGRectMake(0, myhead_btn_y + myhead_btn.frame.size.height + 20, self.view.frame.size.width*0.497, 60)];
     
-    CGFloat username_field_width = self.view.frame.size.width * 0.8;
+    [mycollect_btn setImage:[UIImage imageNamed:@"Index_my_integral_icon"] forState:UIControlStateNormal];
     
-    CGFloat username_field_height = 35;
+    [mycollect_btn setBackgroundColor:[UIColor whiteColor]];
     
-    UITextField *username_field = [[UITextField alloc]initWithFrame:CGRectMake(username_field_x, username_field_y, username_field_width, username_field_height)];
+    [mycollect_btn setTitle:@"我的收藏" forState:UIControlStateNormal];
     
-    [username_field setBorderStyle:UITextBorderStyleRoundedRect];
+    mycollect_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
     
-    username_field.placeholder = @"请输入您的帐号";
+    [mycollect_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    username_field.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    [mycollect_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
-    username_field.returnKeyType = UIReturnKeyNext;
+    mycollect_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    username_field.tintColor = [UIColor greenColor];
-    
-    self.my_username_field = username_field;
-    
-    [self.view addSubview:self.my_username_field];
-    
-    //密码输入框
-    
-    CGFloat pwd_field_x = self.view.frame.size.width * 0.5 - (self.view.frame.size.width * 0.8 * 0.5);
-    
-    CGFloat pwd_field_y = myhead_btn_y + myhead_btn.frame.size.height + 25 + username_field.frame.size.height + 12.5;
-    
-    CGFloat pwd_field_width = self.view.frame.size.width * 0.8;
-    
-    CGFloat pwd_field_height = 35;
-    
-    UITextField *pwd_field = [[UITextField alloc]initWithFrame:CGRectMake(pwd_field_x, pwd_field_y, pwd_field_width, pwd_field_height)];
-    
-    [pwd_field setBorderStyle:UITextBorderStyleRoundedRect];
-    
-    pwd_field.placeholder = @"请输入您的密码";
-    
-    pwd_field.secureTextEntry = YES;
-    
-    pwd_field.tintColor = [UIColor greenColor];
-    
-    self.my_pwd_field = pwd_field;
-    
-    [self.view addSubview:self.my_pwd_field];
-    
-    
-    
-    username_field.delegate = self;
-    
-    pwd_field.delegate = self;
-    
-    //登陆按钮
-    
-    UIButton *login_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    login_btn.layer.cornerRadius = 5.0;
-    
-    CGFloat login_btn_x = username_field_x;
-    
-    CGFloat login_btn_y = pwd_field_y + pwd_field_height + 25;
-    
-    CGFloat login_btn_width = pwd_field_width*0.4;
-    
-    CGFloat login_btn_height = pwd_field_height;
-    
-    login_btn.frame = CGRectMake(login_btn_x, login_btn_y, login_btn_width, login_btn_height);
-    
-    [login_btn setTitle:@"登录" forState:UIControlStateNormal];
-    
-    [login_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [login_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    login_btn.backgroundColor = [UIColor greenColor];
-    
-    self.my_login_btn = login_btn;
-    
-    [self.my_login_btn addTarget:self action:@selector(mylogin) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:self.my_login_btn];
-    
-    //注册按钮
-    
-    UIButton *reg_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    reg_btn.layer.cornerRadius = 5.0;
-    
-    CGFloat reg_btn_x = username_field_x + login_btn_width + self.view.frame.size.width * 0.15;
-    
-    CGFloat reg_btn_y = pwd_field_y + pwd_field_height + 25;
-    
-    CGFloat reg_btn_width = pwd_field_width*0.4;
-    
-    CGFloat reg_btn_height = pwd_field_height;
-    
-    reg_btn.frame = CGRectMake(reg_btn_x, reg_btn_y, reg_btn_width, reg_btn_height);
-    
-    [reg_btn setTitle:@"注册" forState:UIControlStateNormal];
-    
-    [reg_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [reg_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    reg_btn.backgroundColor = [UIColor whiteColor];
-    
-    self.my_reg_btn = reg_btn;
-    
-    [self.my_reg_btn addTarget:self action:@selector(myreg) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:self.my_reg_btn];
+    [self.view addSubview:mycollect_btn];
 
-    //忘记密码按钮
+    //我的积分按钮
     
-    UIButton *forget_pwd_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *myintegral_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
-    CGFloat forget_pwd_btn_x = (username_field_x + username_field_width) * 0.8;
+    myintegral_btn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.503, myhead_btn_y + myhead_btn.frame.size.height + 20, self.view.frame.size.width*0.497, 60)];
     
-    CGFloat forget_pwd_btn_y = username_field_y - 20;
+    [myintegral_btn setImage:[UIImage imageNamed:@"Index_my_integral_icon"] forState:UIControlStateNormal];
     
-    CGFloat forget_pwd_btn_width = 60;
+    [myintegral_btn setBackgroundColor:[UIColor whiteColor]];
     
-    CGFloat forget_pwd_btn_height = 15;
+    [myintegral_btn setTitle:@"我的积分" forState:UIControlStateNormal];
     
-    forget_pwd_btn.frame = CGRectMake(forget_pwd_btn_x, forget_pwd_btn_y, forget_pwd_btn_width, forget_pwd_btn_height);
+    myintegral_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
     
-    forget_pwd_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [myintegral_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    [forget_pwd_btn setTitle:@"忘记密码?" forState:UIControlStateNormal];
+    [myintegral_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
-    [forget_pwd_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [forget_pwd_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    self.my_forget_forget_pwd_btn = forget_pwd_btn;
-    
-    [self.my_forget_forget_pwd_btn addTarget:self action:@selector(myforget) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:self.my_forget_forget_pwd_btn];
-    
-    
-}
+    myintegral_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
-// textfield 代理方法 实现return键，键盘隐藏。
+    [self.view addSubview:myintegral_btn];
+    
+    //全部订单标签
+    
+    UILabel *all_order_label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width *0.1, 84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height +10, 0, 0)];
+    
+    all_order_label.text = @"全部订单";
+    
+    all_order_label.numberOfLines = 0;
+    
+    [all_order_label sizeToFit];
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-     if (textField == self.my_username_field) {
+    [self.view addSubview:all_order_label];
     
-       [self.my_username_field resignFirstResponder];
-         
-       [self.my_pwd_field becomeFirstResponder];
-         
-     } else if(textField == self.my_pwd_field){
-         
-       [self.my_pwd_field resignFirstResponder];
-         
-       [self.my_login_btn sendActionsForControlEvents:UIControlEventTouchUpInside];
-         
-         }
-     
+    //待付款按钮
     
-    return YES;
+    UIButton *wait_pay_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
+    wait_pay_btn = [[UIButton alloc]initWithFrame:CGRectMake(0,84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20, self.view.frame.size.width * 0.24, 80)];
     
-}
+    [wait_pay_btn setImage:[UIImage imageNamed:@"my_wait_pay_icon"] forState:UIControlStateNormal];
+    
+    [wait_pay_btn setImage:[UIImage imageNamed:@"my_wait_pay_gray_icon"] forState:UIControlStateHighlighted];
+    
+    [wait_pay_btn setBackgroundColor:[UIColor whiteColor]];
+    
+    [wait_pay_btn setTitle:@"待付款" forState:UIControlStateNormal];
+    
+    wait_pay_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [wait_pay_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [wait_pay_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    wait_pay_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:wait_pay_btn];
+    
+    //待发货按钮
+    
+    UIButton *wait_sip_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    wait_sip_btn = [[UIButton alloc]initWithFrame:CGRectMake(wait_pay_btn.frame.size.width+ self.view.frame.size.width * 0.015,84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20, self.view.frame.size.width * 0.24, 80)];
+    
+    [wait_sip_btn setImage:[UIImage imageNamed:@"my_wait_sip_icon"] forState:UIControlStateNormal];
+    
+    [wait_sip_btn setImage:[UIImage imageNamed:@"my_wait_sip_gray_icon"] forState:UIControlStateHighlighted];
+    
+    [wait_sip_btn setBackgroundColor:[UIColor whiteColor]];
+    
+    [wait_sip_btn setTitle:@"待发货" forState:UIControlStateNormal];
+    
+    wait_sip_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [wait_sip_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [wait_sip_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    wait_sip_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:wait_sip_btn];
+    
+    //待收货按钮
+    
+    UIButton *wait_receipt_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    wait_receipt_btn = [[UIButton alloc]initWithFrame:CGRectMake(wait_sip_btn.frame.size.width*2 + self.view.frame.size.width * 0.03 ,84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20, self.view.frame.size.width * 0.24, 80)];
+    
+    [wait_receipt_btn setImage:[UIImage imageNamed:@"my_wait_receipt_icon"] forState:UIControlStateNormal];
+    
+    [wait_receipt_btn setImage:[UIImage imageNamed:@"my_wait_receipt_gray_icon"] forState:UIControlStateHighlighted];
+    
+    [wait_receipt_btn setBackgroundColor:[UIColor whiteColor]];
+    
+    [wait_receipt_btn setTitle:@"待收货" forState:UIControlStateNormal];
+    
+    wait_receipt_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [wait_receipt_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [wait_receipt_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    wait_receipt_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:wait_receipt_btn];
+    
+    //待评价按钮
+    
+    UIButton *wait_appraise_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    wait_appraise_btn = [[UIButton alloc]initWithFrame:CGRectMake(wait_receipt_btn.frame.size.width*3 + self.view.frame.size.width * 0.045 ,84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20, self.view.frame.size.width * 0.24, 80)];
+    
+    [wait_appraise_btn setImage:[UIImage imageNamed:@"my_wait_appraise_icon"] forState:UIControlStateNormal];
+    
+    [wait_appraise_btn setImage:[UIImage imageNamed:@"my_wait_appraise_gray_icon"] forState:UIControlStateHighlighted];
+    
+    [wait_appraise_btn setBackgroundColor:[UIColor whiteColor]];
+    
+    [wait_appraise_btn setTitle:@"待评价" forState:UIControlStateNormal];
+    
+    wait_appraise_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [wait_appraise_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [wait_appraise_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    wait_appraise_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:wait_appraise_btn];
 
--(void)mylogin
 
-{
-    
-    NSLog(@"login btn");
 
 
 }
 
-
--(void)myreg
-
-{
-    self.hidesBottomBarWhenPushed=YES;
-    
-    UIViewController *reg_vc = [[RegisterViewController alloc]init];
-    
-    [self.navigationController pushViewController:reg_vc animated:YES];
-    
-    self.hidesBottomBarWhenPushed=NO;
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-
+-(void)set_btn
 {
-    [self.view endEditing:YES];
-    
-}
 
--(void)myforget
-
-{
-    self.hidesBottomBarWhenPushed=YES;
-    
-    UIViewController *forget_pwd_vc = [[ForgetPasswordViewController alloc]init];
-    
-    [self.navigationController pushViewController:forget_pwd_vc animated:YES];
-    
-    self.hidesBottomBarWhenPushed=NO;
-
+    NSLog(@"set_btn");
 }
 
 @end

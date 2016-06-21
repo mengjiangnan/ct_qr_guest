@@ -24,9 +24,10 @@
 		9B4806841D065817002B2175 /* qinren_guestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806831D065817002B2175 /* qinren_guestUITests.m */; };
 		9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806991D066DC3002B2175 /* MainTabBarController.m */; };
 		9B49730F1D17E60B00BF2109 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */; };
+		9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C48001D18C9E4006E50D5 /* MyViewController.m */; };
 		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
-		9B68D45B1D07BA8200BCD0ED /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* MyViewController.m */; };
+		9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* LoginViewController.m */; };
 		9B68D45E1D07BB6300BCD0ED /* ShopcarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */; };
 		9BE419521D0D09D0008C5396 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE419321D0D09D0008C5396 /* MKAnnotationView+WebCache.m */; };
 		9BE419531D0D09D0008C5396 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE419341D0D09D0008C5396 /* NSData+ImageContentType.m */; };
@@ -99,12 +100,14 @@
 		9B4806991D066DC3002B2175 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		9B49730D1D17E60B00BF2109 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		9B5C47FF1D18C9E4006E50D5 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		9B5C48001D18C9E4006E50D5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
-		9B68D4591D07BA8200BCD0ED /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		9B68D45A1D07BA8200BCD0ED /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		9B68D4591D07BA8200BCD0ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9B68D45A1D07BA8200BCD0ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9B68D45C1D07BB6300BCD0ED /* ShopcarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopcarViewController.h; sourceTree = "<group>"; };
 		9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopcarViewController.m; sourceTree = "<group>"; };
 		9BE419311D0D09D0008C5396 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -200,8 +203,8 @@
 				9B4806621D065817002B2175 /* IndexViewController.m */,
 				9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */,
 				9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */,
-				9B68D4591D07BA8200BCD0ED /* MyViewController.h */,
-				9B68D45A1D07BA8200BCD0ED /* MyViewController.m */,
+				9B68D4591D07BA8200BCD0ED /* LoginViewController.h */,
+				9B68D45A1D07BA8200BCD0ED /* LoginViewController.m */,
 				9B68D45C1D07BB6300BCD0ED /* ShopcarViewController.h */,
 				9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */,
 				2F7400571D0922CE000D9E15 /* CustomTabBar.h */,
@@ -210,6 +213,8 @@
 				9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */,
 				9B49730D1D17E60B00BF2109 /* ForgetPasswordViewController.h */,
 				9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */,
+				9B5C47FF1D18C9E4006E50D5 /* MyViewController.h */,
+				9B5C48001D18C9E4006E50D5 /* MyViewController.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -475,7 +480,8 @@
 				9BE419611D0D09D0008C5396 /* UIView+WebCacheOperation.m in Sources */,
 				9BE419551D0D09D0008C5396 /* SDWebImageCompat.m in Sources */,
 				9B48065D1D065817002B2175 /* main.m in Sources */,
-				9B68D45B1D07BA8200BCD0ED /* MyViewController.m in Sources */,
+				9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */,
+				9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
