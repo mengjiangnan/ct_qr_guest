@@ -8,6 +8,8 @@
 
 #import "MyViewController.h"
 
+#import "PersonInformationViewController.h"
+
 @interface MyViewController ()
 
 
@@ -20,6 +22,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的信息";
+    
+    //添加全屏子控件scrollview
+    
+    UIScrollView *mainview;
+    
+    CGFloat mainview_x = 0;
+    
+    CGFloat mainview_y = -49;
+    
+    CGFloat mainview_width = self.view.frame.size.width;
+    
+    CGFloat mainview_height = self.view.frame.size.height;
+    
+    CGRect  mainview_rect = CGRectMake(mainview_x, mainview_y, mainview_width, mainview_height);
+    
+    mainview = [[UIScrollView alloc] initWithFrame:mainview_rect];
+    
+    mainview.contentSize = CGSizeMake(self.view.frame.size.width, 20*36);
+    
+    [self.view addSubview:mainview];
+
     
     //设置整个项目的item状态
     UIBarButtonItem *item = [UIBarButtonItem appearance];
@@ -60,7 +83,7 @@
     
     [myhead_btn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
     
-    [self.view addSubview:myhead_btn];
+    [mainview addSubview:myhead_btn];
     
     //我的收藏按钮
     
@@ -82,7 +105,7 @@
     
     mycollect_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.view addSubview:mycollect_btn];
+    [mainview addSubview:mycollect_btn];
 
     //我的积分按钮
     
@@ -104,7 +127,7 @@
     
     myintegral_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
-    [self.view addSubview:myintegral_btn];
+    [mainview addSubview:myintegral_btn];
     
     //全部订单标签
     
@@ -116,7 +139,7 @@
     
     [all_order_label sizeToFit];
 
-    [self.view addSubview:all_order_label];
+    [mainview addSubview:all_order_label];
     
     //待付款按钮
     
@@ -140,7 +163,7 @@
     
     wait_pay_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.view addSubview:wait_pay_btn];
+    [mainview addSubview:wait_pay_btn];
     
     //待发货按钮
     
@@ -164,7 +187,7 @@
     
     wait_sip_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.view addSubview:wait_sip_btn];
+    [mainview addSubview:wait_sip_btn];
     
     //待收货按钮
     
@@ -188,7 +211,7 @@
     
     wait_receipt_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.view addSubview:wait_receipt_btn];
+    [mainview addSubview:wait_receipt_btn];
     
     //待评价按钮
     
@@ -212,11 +235,103 @@
     
     wait_appraise_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.view addSubview:wait_appraise_btn];
-
-
-
-
+    [mainview addSubview:wait_appraise_btn];
+    
+    //我的设备按钮
+    
+    UIButton *my_device_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    my_device_btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20 + wait_pay_btn.frame.size.height + 5, self.view.frame.size.width, self.view.frame.size.height * 0.10)];
+    
+    [my_device_btn setImage:[UIImage imageNamed:@"my_mydevice_icon"] forState:UIControlStateNormal];
+    
+    [my_device_btn setImage:[UIImage imageNamed:@"my_mydevice_gray_icon"] forState:UIControlStateHighlighted];
+    
+    my_device_btn.backgroundColor = [UIColor whiteColor];
+    
+    [my_device_btn setTitle:@"我的设备" forState:UIControlStateNormal];
+    
+    my_device_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [my_device_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_device_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_device_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [mainview addSubview:my_device_btn];
+    
+    //我的方案按钮
+    
+    UIButton *my_scheme_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    my_scheme_btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20 + wait_pay_btn.frame.size.height + 5 + my_device_btn.frame.size.height + 5, self.view.frame.size.width, self.view.frame.size.height * 0.10)];
+    
+    [my_scheme_btn setImage:[UIImage imageNamed:@"my_mydevice_icon"] forState:UIControlStateNormal];
+    
+    [my_scheme_btn setImage:[UIImage imageNamed:@"my_mydevice_gray_icon"] forState:UIControlStateHighlighted];
+    
+    my_scheme_btn.backgroundColor = [UIColor whiteColor];
+    
+    [my_scheme_btn setTitle:@"我的方案" forState:UIControlStateNormal];
+    
+    my_scheme_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [my_scheme_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_scheme_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_scheme_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [mainview addSubview:my_scheme_btn];
+    
+    //会员卡按钮
+    
+    UIButton *my_member_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    my_member_btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20 + wait_pay_btn.frame.size.height + 5 + my_device_btn.frame.size.height + 5 + my_scheme_btn.frame.size.height + 5, self.view.frame.size.width, self.view.frame.size.height * 0.10)];
+    
+    [my_member_btn setImage:[UIImage imageNamed:@"my_mydevice_icon"] forState:UIControlStateNormal];
+    
+    [my_member_btn setImage:[UIImage imageNamed:@"my_mydevice_gray_icon"] forState:UIControlStateHighlighted];
+    
+    my_member_btn.backgroundColor = [UIColor whiteColor];
+    
+    [my_member_btn setTitle:@"我的方案" forState:UIControlStateNormal];
+    
+    my_member_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [my_member_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_member_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_member_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [mainview addSubview:my_member_btn];
+    
+    //我的健康管理项目按钮
+    
+    UIButton *my_health_manager_item_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    my_health_manager_item_btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 84 + myhead_btn.frame.size.height + 20 + myintegral_btn.frame.size.height + 10 + all_order_label.frame.size.height + 20 + wait_pay_btn.frame.size.height + 5 + my_device_btn.frame.size.height + 5 + my_scheme_btn.frame.size.height + 5 + my_member_btn.frame.size.height + 5, self.view.frame.size.width, self.view.frame.size.height * 0.10)];
+    
+    [my_health_manager_item_btn setImage:[UIImage imageNamed:@"my_mydevice_icon"] forState:UIControlStateNormal];
+    
+    [my_health_manager_item_btn setImage:[UIImage imageNamed:@"my_mydevice_gray_icon"] forState:UIControlStateHighlighted];
+    
+    my_health_manager_item_btn.backgroundColor = [UIColor whiteColor];
+    
+    [my_health_manager_item_btn setTitle:@"我的健康管理项目按钮" forState:UIControlStateNormal];
+    
+    my_health_manager_item_btn.titleLabel.font = [UIFont systemFontOfSize:10.0];
+    
+    [my_health_manager_item_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [my_health_manager_item_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    my_health_manager_item_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [mainview addSubview:my_health_manager_item_btn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -227,7 +342,14 @@
 -(void)set_btn
 {
 
-    NSLog(@"set_btn");
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *person_vc = [[PersonInformationViewController alloc]init];
+    
+    [self.navigationController pushViewController:person_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
+
 }
 
 @end
