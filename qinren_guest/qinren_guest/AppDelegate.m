@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //友盟appkey
+    [UMSocialData setAppKey:@"57707df5e0f55a7941005441"];
+    
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wx2596039e58a4124c" appSecret:@"a1f248d77bfe7787e79fd9073a0650e2" url:@"http://www.qrgs360.com"];
+    
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"531687298"
+                                              secret:@"d34d5a3e56992c1c48b28973c6fb2425"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     [NSThread sleepForTimeInterval:3.0]; // 设置启动页面停留时间
     //NSLog(@"启动页停留3秒");
@@ -54,6 +68,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+//友盟系统回调
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 
 #pragma mark - Core Data stack

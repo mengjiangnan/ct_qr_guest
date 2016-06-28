@@ -8,7 +8,9 @@
 
 #import "CustomTabBar.h"
 
-@interface CustomTabBar()
+#import "UMSocial.h"
+
+@interface CustomTabBar()<UMSocialUIDelegate>
 
 @property (nonatomic,weak) UIButton *nbtn;
 
@@ -31,6 +33,8 @@
         
         [nbtn setBackgroundImage:[UIImage imageNamed:@"tab_bar_Image_share_select"] forState:UIControlStateHighlighted];
         
+        [nbtn addTarget:self action:@selector(mybtn) forControlEvents:UIControlEventTouchUpInside];
+        
         [self addSubview:nbtn];
         
         self.nbtn = nbtn;
@@ -46,7 +50,6 @@
 
 {
     [super layoutSubviews];
-    
     
     self.nbtn.frame = CGRectMake(0, 0, self.nbtn.currentBackgroundImage.size.width, self.nbtn.currentBackgroundImage.size.height);
     
@@ -71,10 +74,60 @@
         index++;
         
     }
+ 
+}
+
+-(void)mybtn
+{
     
+    [UMSocialData defaultData].extConfig.title = @"分享的title";
     
+    [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+    
+    [UMSocialSnsService presentSnsIconSheetView:[self getCurrentVC]
+     
+                                         appKey:@"507fcab25270157b37000010"
+     
+                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social"
+     
+                                     shareImage:[UIImage imageNamed:@"icon"]
+     
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone]
+     
+                                       delegate:self];
 
 
+
+}
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
 }
 
 /*

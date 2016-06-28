@@ -57,7 +57,7 @@
     
     /*重写tabbar.(tabbar是只读属性，所以用kvc赋值)*/
     [self setValue:[[CustomTabBar alloc]init] forKey:@"tabBar"];
-        
+    
   }
 
 - (void)didReceiveMemoryWarning {
