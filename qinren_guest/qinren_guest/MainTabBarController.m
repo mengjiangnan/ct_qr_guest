@@ -11,6 +11,7 @@
 #import "ExchangeViewController.h"
 #import "MyViewController.h"
 #import "ShopcarViewController.h"
+#import "LZCartViewController.h"
 #import "CustomTabBar.h"
 
 @interface MainTabBarController ()
@@ -51,7 +52,9 @@
     
     [self setUpVc:[[ExchangeViewController alloc]init] setImage:@"tab_bar_Image_exchange_noselect" setSelectImage:@"tab_bar_Image_exchange_select" setTitle:@"交流群"];
     
-    [self setUpVc:[[ShopcarViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
+    //[self setUpVc:[[ShopcarViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
+    
+    [self setUpVc:[[LZCartViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
     
     [self setUpVc:[[MyViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
     

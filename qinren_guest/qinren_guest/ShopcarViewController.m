@@ -21,6 +21,21 @@
     self.navigationItem.title = @"购物车";
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
+    
+    CGFloat shop_table_view_x = 0;
+    
+    CGFloat shop_table_view_y = 0;
+    
+    CGFloat shop_table_view_width = self.view.frame.size.width;
+    
+    CGFloat shop_table_view_height = self.view.frame.size.height + 30;
+    
+    CGRect shop_table_view_rect = CGRectMake(shop_table_view_x, shop_table_view_y, shop_table_view_width, shop_table_view_height);
+    
+    UITableView *shop_table_view = [[UITableView alloc]initWithFrame:shop_table_view_rect style:UITableViewStylePlain];
+    
+    [self.view addSubview:shop_table_view];
+
 
 }
 

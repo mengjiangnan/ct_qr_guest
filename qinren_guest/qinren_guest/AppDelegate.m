@@ -21,8 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    
+        
     //友盟appkey
     [UMSocialData setAppKey:@"57707df5e0f55a7941005441"];
     
