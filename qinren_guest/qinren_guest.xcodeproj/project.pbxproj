@@ -15,7 +15,6 @@
 		2FFC003B1D154FA800616FC8 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC00351D154FA800616FC8 /* TAAnimatedDotView.m */; };
 		2FFC003C1D154FA800616FC8 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC00371D154FA800616FC8 /* TADotView.m */; };
 		2FFC003D1D154FA800616FC8 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC00391D154FA800616FC8 /* TAPageControl.m */; };
-		9B01B2F91D222329002AA2EF /* ShopCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B01B2F81D222329002AA2EF /* ShopCarTableViewCell.m */; };
 		9B01B3901D22605B002AA2EF /* aaa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B01B36C1D22605B002AA2EF /* aaa.jpg */; };
 		9B01B3911D22605B002AA2EF /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B01B36E1D22605B002AA2EF /* UIViewExt.m */; };
 		9B01B3921D22605B002AA2EF /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B01B3711D22605B002AA2EF /* back_button@2x.png */; };
@@ -137,8 +136,6 @@
 		2FFC00371D154FA800616FC8 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
 		2FFC00381D154FA800616FC8 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
 		2FFC00391D154FA800616FC8 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
-		9B01B2F71D222329002AA2EF /* ShopCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarTableViewCell.h; sourceTree = "<group>"; };
-		9B01B2F81D222329002AA2EF /* ShopCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarTableViewCell.m; sourceTree = "<group>"; };
 		9B01B36C1D22605B002AA2EF /* aaa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aaa.jpg; sourceTree = "<group>"; };
 		9B01B36D1D22605B002AA2EF /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		9B01B36E1D22605B002AA2EF /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
@@ -589,8 +586,6 @@
 				9B5C48001D18C9E4006E50D5 /* MyViewController.m */,
 				9B5547BA1D1B6F480088D40E /* PersonInformationViewController.h */,
 				9B5547BB1D1B6F480088D40E /* PersonInformationViewController.m */,
-				9B01B2F71D222329002AA2EF /* ShopCarTableViewCell.h */,
-				9B01B2F81D222329002AA2EF /* ShopCarTableViewCell.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -876,7 +871,6 @@
 				2F7400591D0922CE000D9E15 /* CustomTabBar.m in Sources */,
 				9BE419601D0D09D0008C5396 /* UIImageView+WebCache.m in Sources */,
 				9B01B39B1D22605B002AA2EF /* LZCartModel.m in Sources */,
-				9B01B2F91D222329002AA2EF /* ShopCarTableViewCell.m in Sources */,
 				2FFC002F1D154F6D00616FC8 /* SDCollectionViewCell.m in Sources */,
 				9BE4195F1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
