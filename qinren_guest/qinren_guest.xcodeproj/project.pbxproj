@@ -28,6 +28,9 @@
 		9B01B39A1D22605B002AA2EF /* LZCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B01B37B1D22605B002AA2EF /* LZCartTableViewCell.m */; };
 		9B01B39B1D22605B002AA2EF /* LZCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B01B37E1D22605B002AA2EF /* LZCartModel.m */; };
 		9B01B39C1D22605B002AA2EF /* LZCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B01B3811D22605B002AA2EF /* LZCartViewController.m */; };
+		9B084E951D25F566004B7C98 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B084E931D25F566004B7C98 /* GTMBase64.m */; };
+		9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */; };
+		9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */; };
 		9B2FCEAF1D20BD4C00687390 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE6A1D20BD4C00687390 /* UMSocialLocalizable.strings */; };
 		9B2FCEB01D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCE781D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a */; };
 		9B2FCEB11D20BD4C00687390 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE7A1D20BD4C00687390 /* UMSCommentDetailController.xib */; };
@@ -154,6 +157,13 @@
 		9B01B37E1D22605B002AA2EF /* LZCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZCartModel.m; sourceTree = "<group>"; };
 		9B01B3801D22605B002AA2EF /* LZCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZCartViewController.h; sourceTree = "<group>"; };
 		9B01B3811D22605B002AA2EF /* LZCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZCartViewController.m; sourceTree = "<group>"; };
+		9B084E921D25F566004B7C98 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		9B084E931D25F566004B7C98 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		9B084E941D25F566004B7C98 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		9B10871D1D235586006023B8 /* HousekeeperExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousekeeperExchangeViewController.h; sourceTree = "<group>"; };
+		9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousekeeperExchangeViewController.m; sourceTree = "<group>"; };
+		9B1087201D23560A006023B8 /* AdministratorExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdministratorExchangeViewController.h; sourceTree = "<group>"; };
+		9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdministratorExchangeViewController.m; sourceTree = "<group>"; };
 		9B2FCE6B1D20BD4C00687390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		9B2FCE6D1D20BD4C00687390 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		9B2FCE6E1D20BD4C00687390 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -397,6 +407,16 @@
 			path = "../../../../Downloads/CartDemo-master-2/LZCartViewController/LZCartViewController";
 			sourceTree = "<group>";
 		};
+		9B084E911D25F566004B7C98 /* gtmbase64 */ = {
+			isa = PBXGroup;
+			children = (
+				9B084E921D25F566004B7C98 /* GTMBase64.h */,
+				9B084E931D25F566004B7C98 /* GTMBase64.m */,
+				9B084E941D25F566004B7C98 /* GTMDefines.h */,
+			);
+			path = gtmbase64;
+			sourceTree = "<group>";
+		};
 		9B2FCE681D20BD4C00687390 /* umeng_ios_social_sdk_5.2.1_arm64_custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +580,7 @@
 		9B48065A1D065817002B2175 /* qinren_guest */ = {
 			isa = PBXGroup;
 			children = (
+				9B084E911D25F566004B7C98 /* gtmbase64 */,
 				9B01B38F1D22605B002AA2EF /* LZCartViewController */,
 				9B2FCE681D20BD4C00687390 /* umeng_ios_social_sdk_5.2.1_arm64_custom */,
 				9BE419301D0D0987008C5396 /* SDWebImage */,
@@ -586,6 +607,10 @@
 				9B5C48001D18C9E4006E50D5 /* MyViewController.m */,
 				9B5547BA1D1B6F480088D40E /* PersonInformationViewController.h */,
 				9B5547BB1D1B6F480088D40E /* PersonInformationViewController.m */,
+				9B10871D1D235586006023B8 /* HousekeeperExchangeViewController.h */,
+				9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */,
+				9B1087201D23560A006023B8 /* AdministratorExchangeViewController.h */,
+				9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -757,6 +782,7 @@
 				TargetAttributes = {
 					9B4806571D065817002B2175 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Z84NUME3EJ;
 					};
 					9B4806731D065817002B2175 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -872,6 +898,7 @@
 				9BE419601D0D09D0008C5396 /* UIImageView+WebCache.m in Sources */,
 				9B01B39B1D22605B002AA2EF /* LZCartModel.m in Sources */,
 				2FFC002F1D154F6D00616FC8 /* SDCollectionViewCell.m in Sources */,
+				9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */,
 				9BE4195F1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
 				9B01B39C1D22605B002AA2EF /* LZCartViewController.m in Sources */,
@@ -893,6 +920,8 @@
 				9B48065D1D065817002B2175 /* main.m in Sources */,
 				9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */,
 				9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */,
+				9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */,
+				9B084E951D25F566004B7C98 /* GTMBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1058,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/qinren_guest/umeng_ios_social_sdk_5.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1047,6 +1078,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qirenjiankoang.qinren-guest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1057,6 +1089,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/qinren_guest/umeng_ios_social_sdk_5.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1075,6 +1109,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qirenjiankoang.qinren-guest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

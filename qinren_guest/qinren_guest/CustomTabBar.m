@@ -80,7 +80,7 @@
 -(void)mybtn
 {
     
-    [UMSocialData defaultData].extConfig.title = @"分享的title";
+    [UMSocialData defaultData].extConfig.title = @"亲仁健康管理";
     
     [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
     
@@ -88,9 +88,9 @@
      
                                          appKey:@"507fcab25270157b37000010"
      
-                                      shareText:@"友盟社会化分享让您快速实现分享等社会化功能，http://umeng.com/social"
+                                      shareText:@"将软件分享到您的社交平台，您就可以获得亲仁公社赠送的消费积分，有惊喜哟!"
      
-                                     shareImage:[UIImage imageNamed:@"icon"]
+                                     shareImage:[UIImage imageNamed:@"share_icon"]
      
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone]
      

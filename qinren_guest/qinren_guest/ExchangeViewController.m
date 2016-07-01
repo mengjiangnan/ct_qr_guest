@@ -8,7 +8,11 @@
 
 #import "ExchangeViewController.h"
 
-@interface ExchangeViewController ()
+#import "HousekeeperExchangeViewController.h"
+
+#import "AdministratorExchangeViewController.h"
+
+@interface ExchangeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -16,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"交流";
@@ -32,7 +37,11 @@
     
     CGRect shop_table_view_rect = CGRectMake(shop_table_view_x, shop_table_view_y, shop_table_view_width, shop_table_view_height);
     
-    UITableView *shop_table_view = [[UITableView alloc]initWithFrame:shop_table_view_rect style:UITableViewStylePlain];
+    UITableView *shop_table_view = [[UITableView alloc]initWithFrame:shop_table_view_rect style:UITableViewStyleGrouped];
+    
+    shop_table_view.dataSource = self;
+    
+    shop_table_view.delegate = self;
     
     [self.view addSubview:shop_table_view];
 
@@ -43,6 +52,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+
+
+    return 2;
+
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"张力及健康管理师群";
+    }else if (indexPath.row == 1){
+    
+        cell.textLabel.text = @"陈思波健康管家群";
+    }
+    
+    
+    
+    cell.imageView.image = [UIImage imageNamed:@"easemob_default_head_img"];
+    
+    return cell;
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    if (indexPath.row == 0) {
+        
+        self.hidesBottomBarWhenPushed=YES;
+        
+        UIViewController *administrator_exchange_vc = [[AdministratorExchangeViewController alloc]init];
+        
+        [self.navigationController pushViewController:administrator_exchange_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+        
+    
+    }else if (indexPath.row == 1){
+        
+        self.hidesBottomBarWhenPushed=YES;
+        
+        UIViewController *housekeeper_exchange_vc = [[HousekeeperExchangeViewController alloc]init];
+        
+        [self.navigationController pushViewController:housekeeper_exchange_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+    
+    
+    }
+}
 /*
 #pragma mark - Navigation
 
