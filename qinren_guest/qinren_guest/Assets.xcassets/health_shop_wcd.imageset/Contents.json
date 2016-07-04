@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "shop_wcd.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "shop_wcd.png",
       "scale" : "2x"
     },
     {

@@ -28,15 +28,19 @@
     
     [self.view addSubview:topview];
     
+    //高血压按钮
+    
     UIButton *gxy_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    gxy_btn.frame = CGRectMake(10, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    gxy_btn.frame = CGRectMake(0, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
     
     [gxy_btn setImage:[UIImage imageNamed:@"health_shop_gxy"] forState:UIControlStateNormal];
     
     gxy_btn.backgroundColor = [UIColor whiteColor];
     
     [topview addSubview:gxy_btn];
+    
+    //高血压按钮标签
     
     UILabel *gxy_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
     
@@ -47,6 +51,274 @@
     gxy_lab.textAlignment = NSTextAlignmentCenter;
     
     [gxy_btn addSubview:gxy_lab];
+    
+    //糖尿病按钮
+    
+    UIButton *tnb_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    tnb_btn.frame = CGRectMake(gxy_btn.frame.size.width, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [tnb_btn setImage:[UIImage imageNamed:@"health_shop_tnb"] forState:UIControlStateNormal];
+    
+    tnb_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:tnb_btn];
+    
+    //糖尿病按钮标签
+    
+    UILabel *tnb_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    tnb_lab.text = @"糖尿病";
+    
+    tnb_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    tnb_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [tnb_btn addSubview:tnb_lab];
+    
+    //高血脂按钮
+    
+    UIButton *gxz_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    gxz_btn.frame = CGRectMake(gxy_btn.frame.size.width *2, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [gxz_btn setImage:[UIImage imageNamed:@"health_shop_gxz"] forState:UIControlStateNormal];
+    
+    gxz_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:gxz_btn];
+    
+    //高血脂按钮标签
+    
+    UILabel *gxz_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    gxz_lab.text = @"高血脂";
+    
+    gxz_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    gxz_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [gxz_btn addSubview:gxz_lab];
+    
+    //骨关节按钮
+    
+    UIButton *ggj_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    ggj_btn.frame = CGRectMake(gxy_btn.frame.size.width *3, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [ggj_btn setImage:[UIImage imageNamed:@"health_shop_ggj"] forState:UIControlStateNormal];
+    
+    ggj_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:ggj_btn];
+    
+    //骨关节按钮标签
+    
+    UILabel *ggj_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    ggj_lab.text = @"骨关节";
+    
+    ggj_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    ggj_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [ggj_btn addSubview:ggj_lab];
+    
+    //抗衰老按钮
+    
+    UIButton *ksl_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    ksl_btn.frame = CGRectMake(gxy_btn.frame.size.width *4, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [ksl_btn setImage:[UIImage imageNamed:@"health_shop_ksl"] forState:UIControlStateNormal];
+    
+    ksl_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:ksl_btn];
+    
+    //抗衰老按钮标签
+    
+    UILabel *ksl_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    ksl_lab.text = @"抗衰老";
+    
+    ksl_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    ksl_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [ksl_btn addSubview:ksl_lab];
+    
+    //减肥按钮
+    
+    UIButton *jf_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    jf_btn.frame = CGRectMake(gxy_btn.frame.size.width *5, 0, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [jf_btn setImage:[UIImage imageNamed:@"health_shop_jf"] forState:UIControlStateNormal];
+    
+    jf_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:jf_btn];
+    
+    //减肥按钮标签
+    
+    UILabel *jf_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    jf_lab.text = @"减肥";
+    
+    jf_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    jf_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [jf_btn addSubview:jf_lab];
+    
+    //失眠按钮
+    
+    UIButton *sm_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    sm_btn.frame = CGRectMake(0, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [sm_btn setImage:[UIImage imageNamed:@"health_shop_sm"] forState:UIControlStateNormal];
+    
+    sm_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:sm_btn];
+    
+    //失眠按钮标签
+    
+    UILabel *sm_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    sm_lab.text = @"失眠";
+    
+    sm_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    sm_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [sm_btn addSubview:sm_lab];
+    
+    //抑郁按钮
+    
+    UIButton *yy_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    yy_btn.frame = CGRectMake(gxy_btn.frame.size.width, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [yy_btn setImage:[UIImage imageNamed:@"health_shop_yy"] forState:UIControlStateNormal];
+    
+    yy_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:yy_btn];
+    
+    //抑郁按钮标签
+    
+    UILabel *yy_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    yy_lab.text = @"抑郁";
+    
+    yy_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    yy_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [yy_btn addSubview:yy_lab];
+    
+    //免疫力按钮
+    
+    UIButton *myl_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    myl_btn.frame = CGRectMake(gxy_btn.frame.size.width *2, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [myl_btn setImage:[UIImage imageNamed:@"health_shop_myl"] forState:UIControlStateNormal];
+    
+    myl_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:myl_btn];
+    
+    //免疫力按钮标签
+    
+    UILabel *myl_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    myl_lab.text = @"免疫力";
+    
+    myl_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    myl_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [myl_btn addSubview:myl_lab];
+    
+    //视力保护按钮
+    
+    UIButton *slbh_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    slbh_btn.frame = CGRectMake(gxy_btn.frame.size.width *3, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [slbh_btn setImage:[UIImage imageNamed:@"health_shop_slbh"] forState:UIControlStateNormal];
+    
+    slbh_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:slbh_btn];
+    
+    //视力保护按钮标签
+    
+    UILabel *slbh_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    slbh_lab.text = @"视力保护";
+    
+    slbh_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    slbh_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [slbh_btn addSubview:ggj_lab];
+    
+    //胃肠道按钮
+    
+    UIButton *wcd_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    wcd_btn.frame = CGRectMake(gxy_btn.frame.size.width *4, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [wcd_btn setImage:[UIImage imageNamed:@"health_shop_wcd"] forState:UIControlStateNormal];
+    
+    wcd_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:wcd_btn];
+    
+    //胃肠道按钮标签
+    
+    UILabel *wcd_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    wcd_lab.text = @"胃肠道";
+    
+    wcd_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    wcd_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [wcd_btn addSubview:ksl_lab];
+    
+    //慢阻肺按钮
+    
+    UIButton *mzf_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    mzf_btn.frame = CGRectMake(gxy_btn.frame.size.width *5, topview.frame.size.height/2, (topview.frame.size.width - 10)/6, topview.frame.size.height/2);
+    
+    [mzf_btn setImage:[UIImage imageNamed:@"health_shop_mzf"] forState:UIControlStateNormal];
+    
+    mzf_btn.backgroundColor = [UIColor whiteColor];
+    
+    [topview addSubview:mzf_btn];
+    
+    //慢阻肺按钮标签
+    
+    UILabel *mzf_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, gxy_btn.frame.size.width, 10)];
+    
+    mzf_lab.text = @"慢阻肺";
+    
+    mzf_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    mzf_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [mzf_btn addSubview:mzf_lab];
+
+
+
+
 
 }
 
