@@ -22,6 +22,8 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
     
+    //顶部view
+    
     UIView *topview = [[UIView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 180)];
     
     topview.backgroundColor = [UIColor whiteColor];
@@ -266,7 +268,7 @@
     
     slbh_lab.textAlignment = NSTextAlignmentCenter;
     
-    [slbh_btn addSubview:ggj_lab];
+    [slbh_btn addSubview:slbh_lab];
     
     //胃肠道按钮
     
@@ -290,7 +292,7 @@
     
     wcd_lab.textAlignment = NSTextAlignmentCenter;
     
-    [wcd_btn addSubview:ksl_lab];
+    [wcd_btn addSubview:wcd_lab];
     
     //慢阻肺按钮
     
@@ -315,6 +317,135 @@
     mzf_lab.textAlignment = NSTextAlignmentCenter;
     
     [mzf_btn addSubview:mzf_lab];
+    
+    //中间的view
+    
+    UIView *midview = [[UIView alloc]initWithFrame:CGRectMake(0, 64 + topview.frame.size.height+2, self.view.frame.size.width, topview.frame.size.height * 0.65)];
+    
+    midview.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:midview];
+    
+    //健康食品按钮
+    
+    UIButton *jksp_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    jksp_btn.frame = CGRectMake(0, 0, midview.frame.size.width/5, topview.frame.size.height/2);
+    
+    [jksp_btn setImage:[UIImage imageNamed:@"health_shop_jksp"] forState:UIControlStateNormal];
+    
+    jksp_btn.backgroundColor = [UIColor whiteColor];
+    
+    [midview addSubview:jksp_btn];
+    
+    //健康食品按钮标签
+    
+    UILabel *jksp_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, jksp_btn.frame.size.width, 10)];
+    
+    jksp_lab.text = @"健康食品";
+    
+    jksp_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    jksp_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [jksp_btn addSubview:jksp_lab];
+    
+    //健康用品按钮
+    
+    UIButton *jkyp_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    jkyp_btn.frame = CGRectMake(jksp_btn.frame.size.width, 0, midview.frame.size.width/5, topview.frame.size.height/2);
+    
+    [jkyp_btn setImage:[UIImage imageNamed:@"health_shop_jkyp"] forState:UIControlStateNormal];
+    
+    jkyp_btn.backgroundColor = [UIColor whiteColor];
+    
+    [midview addSubview:jkyp_btn];
+    
+    //健康用品按钮标签
+    
+    UILabel *jkyp_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, jksp_btn.frame.size.width, 10)];
+    
+    jkyp_lab.text = @"健康用品";
+    
+    jkyp_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    jkyp_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [jkyp_btn addSubview:jkyp_lab];
+    
+    //健康器材按钮
+    
+    UIButton *jkqc_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    jkqc_btn.frame = CGRectMake(jksp_btn.frame.size.width*2, 0, midview.frame.size.width/5, topview.frame.size.height/2);
+    
+    [jkqc_btn setImage:[UIImage imageNamed:@"health_shop_jkqc"] forState:UIControlStateNormal];
+    
+    jkqc_btn.backgroundColor = [UIColor whiteColor];
+    
+    [midview addSubview:jkqc_btn];
+    
+    //健康器材按钮标签
+    
+    UILabel *jkqc_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, jksp_btn.frame.size.width, 10)];
+    
+    jkqc_lab.text = @"健康器材";
+    
+    jkqc_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    jkqc_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [jkqc_btn addSubview:jkqc_lab];
+    
+    //社区团购按钮
+    
+    UIButton *sqtg_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    sqtg_btn.frame = CGRectMake(jksp_btn.frame.size.width*3, 0, midview.frame.size.width/5, topview.frame.size.height/2);
+    
+    [sqtg_btn setImage:[UIImage imageNamed:@"health_shop_sqtg"] forState:UIControlStateNormal];
+    
+    sqtg_btn.backgroundColor = [UIColor whiteColor];
+    
+    [midview addSubview:sqtg_btn];
+    
+    //社区团购按钮标签
+    
+    UILabel *sqtg_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, jksp_btn.frame.size.width, 10)];
+    
+    sqtg_lab.text = @"社区团购";
+    
+    sqtg_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    sqtg_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [sqtg_btn addSubview:sqtg_lab];
+    
+    //积分商城按钮
+    
+    UIButton *jfsc_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    jfsc_btn.frame = CGRectMake(jksp_btn.frame.size.width*4, 0, midview.frame.size.width/5, topview.frame.size.height/2);
+    
+    [jfsc_btn setImage:[UIImage imageNamed:@"health_shop_jfsc"] forState:UIControlStateNormal];
+    
+    jfsc_btn.backgroundColor = [UIColor whiteColor];
+    
+    [midview addSubview:jfsc_btn];
+    
+    //积分商城按钮标签
+    
+    UILabel *jfsc_lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, jksp_btn.frame.size.width, 10)];
+    
+    jfsc_lab.text = @"积分商城";
+    
+    jfsc_lab.font = [UIFont systemFontOfSize:10.0];
+    
+    jfsc_lab.textAlignment = NSTextAlignmentCenter;
+    
+    [jfsc_btn addSubview:jfsc_lab];
+
 
 
 
