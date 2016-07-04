@@ -82,6 +82,9 @@
 		9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806991D066DC3002B2175 /* MainTabBarController.m */; };
 		9B49730F1D17E60B00BF2109 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */; };
 		9B5547BC1D1B6F480088D40E /* PersonInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5547BB1D1B6F480088D40E /* PersonInformationViewController.m */; };
+		9B5A1BA11D2A0104004F0E21 /* New_Fisrt_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A1BA01D2A0104004F0E21 /* New_Fisrt_ViewController.m */; };
+		9B5A1BA41D2A013F004F0E21 /* New_Second_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A1BA31D2A013F004F0E21 /* New_Second_ViewController.m */; };
+		9B5A1BA71D2A285E004F0E21 /* HealthShopIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */; };
 		9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C48001D18C9E4006E50D5 /* MyViewController.m */; };
 		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
@@ -255,6 +258,12 @@
 		9B49730E1D17E60B00BF2109 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		9B5547BA1D1B6F480088D40E /* PersonInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInformationViewController.h; sourceTree = "<group>"; };
 		9B5547BB1D1B6F480088D40E /* PersonInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInformationViewController.m; sourceTree = "<group>"; };
+		9B5A1B9F1D2A0104004F0E21 /* New_Fisrt_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = New_Fisrt_ViewController.h; sourceTree = "<group>"; };
+		9B5A1BA01D2A0104004F0E21 /* New_Fisrt_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = New_Fisrt_ViewController.m; sourceTree = "<group>"; };
+		9B5A1BA21D2A013F004F0E21 /* New_Second_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = New_Second_ViewController.h; sourceTree = "<group>"; };
+		9B5A1BA31D2A013F004F0E21 /* New_Second_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = New_Second_ViewController.m; sourceTree = "<group>"; };
+		9B5A1BA51D2A285E004F0E21 /* HealthShopIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthShopIndexViewController.h; sourceTree = "<group>"; };
+		9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthShopIndexViewController.m; sourceTree = "<group>"; };
 		9B5C47FF1D18C9E4006E50D5 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		9B5C48001D18C9E4006E50D5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -591,6 +600,10 @@
 				9B4806991D066DC3002B2175 /* MainTabBarController.m */,
 				9B4806611D065817002B2175 /* IndexViewController.h */,
 				9B4806621D065817002B2175 /* IndexViewController.m */,
+				9B5A1B9F1D2A0104004F0E21 /* New_Fisrt_ViewController.h */,
+				9B5A1BA01D2A0104004F0E21 /* New_Fisrt_ViewController.m */,
+				9B5A1BA21D2A013F004F0E21 /* New_Second_ViewController.h */,
+				9B5A1BA31D2A013F004F0E21 /* New_Second_ViewController.m */,
 				9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */,
 				9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */,
 				9B68D4591D07BA8200BCD0ED /* LoginViewController.h */,
@@ -611,6 +624,8 @@
 				9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */,
 				9B1087201D23560A006023B8 /* AdministratorExchangeViewController.h */,
 				9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */,
+				9B5A1BA51D2A285E004F0E21 /* HealthShopIndexViewController.h */,
+				9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -900,6 +915,7 @@
 				2FFC002F1D154F6D00616FC8 /* SDCollectionViewCell.m in Sources */,
 				9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */,
 				9BE4195F1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m in Sources */,
+				9B5A1BA71D2A285E004F0E21 /* HealthShopIndexViewController.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
 				9B01B39C1D22605B002AA2EF /* LZCartViewController.m in Sources */,
 				9BE4195A1D0D09D0008C5396 /* SDWebImagePrefetcher.m in Sources */,
@@ -908,6 +924,7 @@
 				9B01B39A1D22605B002AA2EF /* LZCartTableViewCell.m in Sources */,
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,
+				9B5A1BA41D2A013F004F0E21 /* New_Second_ViewController.m in Sources */,
 				9B49730F1D17E60B00BF2109 /* ForgetPasswordViewController.m in Sources */,
 				2FFC003A1D154FA800616FC8 /* TAAbstractDotView.m in Sources */,
 				9B01B3911D22605B002AA2EF /* UIViewExt.m in Sources */,
@@ -919,6 +936,7 @@
 				9BE419551D0D09D0008C5396 /* SDWebImageCompat.m in Sources */,
 				9B48065D1D065817002B2175 /* main.m in Sources */,
 				9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */,
+				9B5A1BA11D2A0104004F0E21 /* New_Fisrt_ViewController.m in Sources */,
 				9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */,
 				9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */,
 				9B084E951D25F566004B7C98 /* GTMBase64.m in Sources */,

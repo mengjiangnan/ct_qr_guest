@@ -8,6 +8,9 @@
 
 #import "IndexViewController.h"
 #import "SDCycleScrollView.h"
+#import "New_Fisrt_ViewController.h"
+#import "New_Second_ViewController.h"
+#import "HealthShopIndexViewController.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -49,12 +52,26 @@
     CGFloat w;
     w = self.view.bounds.size.width;
     
+    //占位符图片
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    // 情颢二: 采用网络图片实现
+    NSArray *imagesURLStrings;
+    imagesURLStrings =@[@"http://223.4.32.216:8088/Picture/201604/141527453573qy2x_640x300.jpg",
+                        @"http://223.4.32.216:8088/Picture/201604/131633434739qb0q_640x300.jpg",
+                        ];
+    
+    // 网络加载图片的轮播器
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, 180) delegate:self placeholderImage:placeholderImage];
+    cycleScrollView.imageURLStringsGroup = imagesURLStrings;
+    [demoContainerView addSubview:cycleScrollView];
+    
     // 本地加载 --- 创建不带标题的图片轮播器
     
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, 180) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
-    cycleScrollView.delegate = self;
-    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
-    [demoContainerView addSubview:cycleScrollView];
+//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, 180) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+//    cycleScrollView.delegate = self;
+//    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+//    [demoContainerView addSubview:cycleScrollView];
     
     //     －－－垂直滚动－－－
     
@@ -67,6 +84,7 @@
     //         --- 轮播时间间隔，默认1.0秒，可自定义
     
     //cycleScrollView.autoScrollTimeInterval = 4.0;
+    
     
     //健康管家版块
     
@@ -370,13 +388,13 @@
     
     UIImage *health_shop_btn_image;
     
-    health_shop_btn_image = [UIImage imageNamed:@"Index_my_scheme_icon"];
+    health_shop_btn_image = [UIImage imageNamed:@"Index_health_shop_icon"];
     
     [health_shop_btn setImage:health_shop_btn_image forState:UIControlStateNormal];
     
     health_shop_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, health_shop_btn.frame.size.width * 0.2);
     
-    [health_shop_btn setTitle:@"方案按钮" forState:UIControlStateNormal];
+    [health_shop_btn setTitle:@"健康商城" forState:UIControlStateNormal];
     
     health_shop_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -385,6 +403,8 @@
     [health_shop_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     health_shop_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [health_shop_btn addTarget:self action:@selector(myshop) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:health_shop_btn];
     
@@ -481,6 +501,46 @@
     
     [mainview addSubview:my_join_btn];
     
+}
+
+#pragma mark - SDCycleScrollViewDelegate
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    //NSLog(@"---点击了第%ld张图片", (long)index);
+    
+    if ((long)index == 0) {
+        self.hidesBottomBarWhenPushed=YES;
+        
+        UIViewController *new01_vc = [[New_Fisrt_ViewController alloc]init];
+        
+        [self.navigationController pushViewController:new01_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+
+    }else if ((long)index == 1){
+        
+        self.hidesBottomBarWhenPushed=YES;
+        
+        UIViewController *new02_vc = [[New_Second_ViewController alloc]init];
+        
+        [self.navigationController pushViewController:new02_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+
+    }
+    
+    
+}
+
+-(void)myshop
+{
+    UIViewController *shop_index_vc = [[HealthShopIndexViewController alloc]init];
+    
+    [self.navigationController pushViewController:shop_index_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
+
 }
 
 @end
