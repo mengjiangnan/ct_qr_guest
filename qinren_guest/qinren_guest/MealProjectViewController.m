@@ -79,6 +79,13 @@
     [last_third_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     [self.view addSubview:last_third_btn];
+    
+    //左边类别列表
+    
+    UITableView *left_category_list = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + left_first_btn.frame.size.height + 2, left_first_btn.frame.size.width, self.view.frame.size.height) style:
+                                       UITableViewStylePlain];
+    
+    [self.view addSubview:left_category_list];
 
 }
 
