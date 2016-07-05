@@ -535,6 +535,8 @@
 
 -(void)myshop
 {
+    self.hidesBottomBarWhenPushed=YES;
+    
     UIViewController *shop_index_vc = [[HealthShopIndexViewController alloc]init];
     
     [self.navigationController pushViewController:shop_index_vc animated:YES];

@@ -8,7 +8,12 @@
 
 #import "HealthShopIndexViewController.h"
 
+#import "SDWebImageManager.h"
+
+#import "MealProjectViewController.h"
+
 @interface HealthShopIndexViewController ()
+
 
 @end
 
@@ -39,6 +44,8 @@
     [gxy_btn setImage:[UIImage imageNamed:@"health_shop_gxy"] forState:UIControlStateNormal];
     
     gxy_btn.backgroundColor = [UIColor whiteColor];
+    
+    [gxy_btn addTarget:self action:@selector(gxy) forControlEvents:UIControlEventTouchUpInside];
     
     [topview addSubview:gxy_btn];
     
@@ -445,11 +452,40 @@
     jfsc_lab.textAlignment = NSTextAlignmentCenter;
     
     [jfsc_btn addSubview:jfsc_lab];
-
-
-
-
-
+    
+    //底部按钮
+    
+    UIButton *bottom_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    bottom_btn.frame = CGRectMake(0, 64 + topview.frame.size.height + 2 +midview.frame.size.height + 2, self.view.frame.size.width, self.view.frame.size.height - 64 - topview.frame.size.height - midview.frame.size.height);
+    
+    NSURL *bottom_btn_img_url = [[NSURL alloc]initWithString:@"http://223.4.32.216:8088/Picture/201604/202043351116qvey_640x400.jpg"];
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadImageWithURL:bottom_btn_img_url
+                          options:0
+                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                             // progression tracking code
+                         }
+                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                            if (image) {
+                                
+                                // do something with image
+                                
+                                [bottom_btn setBackgroundImage:image  forState:UIControlStateNormal];
+                           
+                            }else{
+                            
+                                [bottom_btn setBackgroundImage:[UIImage imageNamed:@"placeholder"]  forState:UIControlStateNormal];
+                            
+                            }
+                        }];
+    
+    
+    
+    [bottom_btn addTarget:self action:@selector(seckilling) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:bottom_btn];
 
 }
 
@@ -468,4 +504,20 @@
 }
 */
 
+-(void)seckilling {
+    
+    NSLog(@"seckilling");
+
+
+}
+
+-(void)gxy{
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+   
+}
 @end
