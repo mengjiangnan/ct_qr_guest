@@ -8,6 +8,10 @@
 
 #import "MealProjectViewController.h"
 
+#import "GTMBase64.h"
+
+#import <CommonCrypto/CommonCrypto.h>
+
 @interface MealProjectViewController ()
 
 @end
@@ -86,7 +90,29 @@
                                        UITableViewStylePlain];
     
     [self.view addSubview:left_category_list];
-
+    
+    //列表数据网络请求
+    
+    // 快捷方式获得session对象
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:@"http://223.4.32.216:8087/index.aspx?Method=get.goodsclass.list&Params=94D5A18EFA02559A&Sign=1483B6D1CE4822FA47DC27770720F9A2"];
+    // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
+    NSURLSessionTask *task = [session dataTaskWithURL:url
+                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                       
+                                       NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                       
+                                       NSString *keyString = @"SDFL#)@F";
+                                       
+                                       NSString *JIE = [self decryptUseDES:str key:keyString];
+                                       
+                                       NSLog(@"%@",str);
+                                       //NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]);
+                                   }];
+    
+    // 启动任务
+    [task resume];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,5 +129,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//解密
+- (NSString *) decryptUseDES:(NSString*)cipherText key:(NSString*)key
+{
+    NSData* cipherData = [GTMBase64 decodeString:cipherText];
+    unsigned char buffer[1024];
+    memset(buffer, 0, sizeof(char));
+    size_t numBytesDecrypted = 0;
+    Byte iv[] = {1,2,3,4,5,6,7,8};
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
+                                          kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String],
+                                          kCCKeySizeDES,
+                                          iv,
+                                          [cipherData bytes],
+                                          [cipherData length],
+                                          buffer,
+                                          1024,
+                                          &numBytesDecrypted);
+    NSString* plainText = nil;
+    if (cryptStatus == kCCSuccess) {
+        NSData* data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesDecrypted];
+        plainText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    return plainText;
+}
 
 @end

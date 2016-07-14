@@ -11,6 +11,8 @@
 #import "New_Fisrt_ViewController.h"
 #import "New_Second_ViewController.h"
 #import "HealthShopIndexViewController.h"
+#import "NSString+toHexString.h"
+#import "NSData+dataToHexString.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -500,6 +502,26 @@
     my_join_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
     [mainview addSubview:my_join_btn];
+    
+    //test
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:@"http://223.4.32.216:8087/index.aspx?Method=get.bespeak.goodstype&Params=94D5A18EFA02559A&Sign=8AFBF6312A1C36D7EF32019CE8161088"];
+    NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSString *jsonString = [[NSString alloc] initWithData:data
+                                                     encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",jsonString);
+        
+        NSString *new =nil;
+        new = [NSString decryptUseDES:jsonString key:@"SDFL#)@F"];
+        
+         NSLog(@"%@",new);
+        
+    }];
+    
+    // 3.开启网络任务.
+    [task resume];
+
     
 }
 
