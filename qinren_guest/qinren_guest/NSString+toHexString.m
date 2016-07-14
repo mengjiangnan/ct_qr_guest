@@ -98,7 +98,7 @@
     NSString *ciphertext = nil;
     NSData *textData = [plainText dataUsingEncoding:NSUTF8StringEncoding];
     NSUInteger dataLength = [textData length];
-    unsigned char buffer[1024];
+    unsigned char buffer[44096];
     memset(buffer, 0, sizeof(char));
     size_t numBytesEncrypted = 0;
     CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
@@ -135,7 +135,7 @@
          NSData * dataiv = [key dataUsingEncoding:NSUTF8StringEncoding];
          NSString *plaintext = nil;
          NSData *cipherdata = [NSData dataWithHexString:cipherText];
-         unsigned char buffer[1024];
+         unsigned char buffer[44096];
          memset(buffer, 0, sizeof(char));
          size_t numBytesDecrypted = 0;
          CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmDES,
@@ -148,6 +148,8 @@
                                        &numBytesDecrypted);
          if(cryptStatus == kCCSuccess) {
                  NSData *plaindata = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesDecrypted];
+             
+            
                  
              
                  plaintext = [[[NSString alloc]initWithData:plaindata encoding:NSUTF8StringEncoding]stringByRemovingPercentEncoding];

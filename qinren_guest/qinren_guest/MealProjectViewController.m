@@ -12,6 +12,10 @@
 
 #import <CommonCrypto/CommonCrypto.h>
 
+#import "ProgressHUD.h"
+
+#import "NSString+toHexString.h"
+
 @interface MealProjectViewController ()
 
 @end
@@ -22,6 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+        
     self.navigationItem.title = @"项目套餐";
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
@@ -91,6 +96,9 @@
     
     [self.view addSubview:left_category_list];
     
+    //数据模型
+    
+        
     //列表数据网络请求
     
     // 快捷方式获得session对象
@@ -104,10 +112,10 @@
                                        
                                        NSString *keyString = @"SDFL#)@F";
                                        
-                                       NSString *JIE = [self decryptUseDES:str key:keyString];
+                                       NSString *new =nil;
+                                       new = [NSString decryptUseDES:str key:keyString];
                                        
-                                       NSLog(@"%@",str);
-                                       //NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]);
+                                       NSLog(@"%@",new);
                                    }];
     
     // 启动任务
@@ -130,31 +138,5 @@
 }
 */
 
-//解密
-- (NSString *) decryptUseDES:(NSString*)cipherText key:(NSString*)key
-{
-    NSData* cipherData = [GTMBase64 decodeString:cipherText];
-    unsigned char buffer[1024];
-    memset(buffer, 0, sizeof(char));
-    size_t numBytesDecrypted = 0;
-    Byte iv[] = {1,2,3,4,5,6,7,8};
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
-                                          kCCAlgorithmDES,
-                                          kCCOptionPKCS7Padding,
-                                          [key UTF8String],
-                                          kCCKeySizeDES,
-                                          iv,
-                                          [cipherData bytes],
-                                          [cipherData length],
-                                          buffer,
-                                          1024,
-                                          &numBytesDecrypted);
-    NSString* plainText = nil;
-    if (cryptStatus == kCCSuccess) {
-        NSData* data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesDecrypted];
-        plainText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    }
-    return plainText;
-}
 
 @end

@@ -12,6 +12,8 @@
 
 #import "MealProjectViewController.h"
 
+#import "ProgressHUD.h"
+
 @interface HealthShopIndexViewController ()
 
 
@@ -506,12 +508,28 @@
 
 -(void)seckilling {
     
+    
+    
+    
+    
     NSLog(@"seckilling");
+    
+    
+    
+    [ProgressHUD show:@"请稍等..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // time-consuming task
+        [NSThread sleepForTimeInterval:3.0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ProgressHUD dismiss];
+        });
+    });
 
 
 }
 
 -(void)gxy{
+    
     
     self.hidesBottomBarWhenPushed=YES;
     

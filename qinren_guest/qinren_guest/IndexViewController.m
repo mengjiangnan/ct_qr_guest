@@ -510,7 +510,6 @@
         
         NSString *jsonString = [[NSString alloc] initWithData:data
                                                      encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",jsonString);
         
         NSString *new =nil;
         new = [NSString decryptUseDES:jsonString key:@"SDFL#)@F"];
