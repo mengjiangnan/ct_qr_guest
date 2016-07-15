@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  qinren_guest
+//
+//  Created by qin_ren on 15/7/16.
+//  Copyright © 2016年 qiren. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define Baseurl [NSString stringWithFormat:@"http://www.qrgs360.com:8087/index.aspx?"]
+
+#define mykey [NSString stringWithFormat:@"SDFL#)@F"]
+
+#define getgoodsclasslist [NSString stringWithFormat:@"get.goodsclass.list"]
+
+#endif /* PrefixHeader_pch */
+

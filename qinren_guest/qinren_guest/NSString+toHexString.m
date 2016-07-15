@@ -17,6 +17,70 @@
 
 @implementation NSString (toHexString)
 
+//jsonparams获取方法
+
++(NSString *) Key:(NSArray *)keys Value:(NSArray *)values
+
+{
+    NSString *jsonparams = [[NSString alloc]init];
+    
+    NSDictionary *mydic = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    
+    jsonparams = [NSString dictionaryToJson:mydic];
+    
+    return jsonparams;
+    
+}
+
+//拼接url方法
+
++(NSString *)Method:(NSString*)method Params:(NSString *)params
+
+{
+    NSString *urlstr = [[NSString alloc]init];
+    
+    NSString *myparams = [[NSString alloc]init];
+    
+    NSString *mysign = [[NSString alloc]init];
+    
+    if (params==nil) {
+        
+        myparams = nil;
+        
+        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@%@",mykey,method,mykey]];
+        
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Sign=%@",Baseurl,method,mysign];
+    
+        }else{
+    
+        myparams = [NSString encryptUseDES:params key:mykey];
+    
+        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@Params%@%@",mykey,method,params,mykey]];
+    
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Baseurl,method,myparams,mysign];
+        
+       }
+    
+    return urlstr;
+    
+}
+
+
+//字典转json格式字符串：
+
++(NSString*)dictionaryToJson:(NSDictionary *)dic
+
+{
+    
+    NSError *parseError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+
+
 //md5加密
 
 - (NSString *)md5

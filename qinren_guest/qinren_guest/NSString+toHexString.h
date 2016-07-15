@@ -10,6 +10,8 @@
 
 @interface NSString (toHexString)
 
++(NSString*)dictionaryToJson:(NSDictionary *)dic;
+
 - (NSString *)md5;
 
 + (NSString *)md5HexDigest:(NSString*)input;
@@ -19,5 +21,12 @@
 +(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key;
 
 +(NSString *)decryptUseDES:(NSString *)cipherText key:(NSString *)key;
+
+//jsonparams获取方法
++(NSString *) Key:(NSArray *)keys Value:(NSArray *)values;
+
+//拼接url方法
++(NSString *)Method:(NSString*)method Params:(NSString*)params;
+
 
 @end

@@ -16,6 +16,7 @@
 
 #import "NSString+toHexString.h"
 
+
 @interface MealProjectViewController ()
 
 @end
@@ -98,24 +99,30 @@
     
     //数据模型
     
-        
+    NSString *goodsclasslistmethod = [NSString stringWithFormat:@"get.goodsclass.list"];
+    
+    //NSArray *goodsclasslistkeys = [[NSArray alloc]initWithObjects:@"", nil];
+    
+    //NSArray *goodsclasslistvalues = [[NSArray alloc]initWithObjects:@"", nil];
+    
+    //NSString *goodsclasslistjosn = [NSString Key:goodsclasslistkeys Value:goodsclasslistvalues];
+    
+    NSString *goodsclasslisturl = [NSString Method:goodsclasslistmethod Params:nil];
+    
+    
     //列表数据网络请求
     
     // 快捷方式获得session对象
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURL *url = [NSURL URLWithString:@"http://223.4.32.216:8087/index.aspx?Method=get.goodsclass.list&Params=94D5A18EFA02559A&Sign=1483B6D1CE4822FA47DC27770720F9A2"];
+    NSURL *url = [NSURL URLWithString:goodsclasslisturl];
     // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
     NSURLSessionTask *task = [session dataTaskWithURL:url
                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                        
-                                       NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                       NSString *goodsclasslistresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                        
-                                       NSString *keyString = @"SDFL#)@F";
+                                       NSString *newgoodsclasslistresponderjsonstr =[NSString decryptUseDES:goodsclasslistresponderjsonstr key:mykey];
                                        
-                                       NSString *new =nil;
-                                       new = [NSString decryptUseDES:str key:keyString];
-                                       
-                                       NSLog(@"%@",new);
                                    }];
     
     // 启动任务
