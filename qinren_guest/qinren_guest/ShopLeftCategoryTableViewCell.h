@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class LeftCategoryList;
-
 @interface ShopLeftCategoryTableViewCell : UITableViewCell
-
-@property(nonatomic,strong)LeftCategoryList *list;
 
 @end

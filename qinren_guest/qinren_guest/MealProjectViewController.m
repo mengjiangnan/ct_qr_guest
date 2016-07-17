@@ -26,8 +26,6 @@
 
 @property(nonatomic,strong)NSMutableArray *goodslist;
 
-@property(nonatomic,strong)NSArray *goodslistname;
-
 @property(nonatomic,weak)UITableView *lefttableview;
 
 @end
@@ -135,7 +133,7 @@ static NSString * const LeftCategoryId = @"category";
     
     
     //列表数据网络请求
-    
+    //[ProgressHUD show:@"请稍等..."];
     // 快捷方式获得session对象
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:goodsclasslisturl];
@@ -149,31 +147,18 @@ static NSString * const LeftCategoryId = @"category";
                                        NSString *newgoodsclasslistresponderjsonstr =[NSString decryptUseDES:goodsclasslistresponderjsonstr key:mykey];
                                        
                                        NSDictionary *responder = [NSString parseJSONStringToNSDictionary:newgoodsclasslistresponderjsonstr];
+                                        
+                                       //[ProgressHUD dismiss];
                                        
-                                       //self.goodslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:responder[@"data"]];
-                                        
-                                        self.goodslist = responder[@"data"];
-                                        
-                                        NSMutableArray *testarr = [[NSMutableArray alloc]init];
-                                        
-                                        for (NSDictionary *dic in self.goodslist) {
-                                            
-                                            [testarr addObject:dic[@"catename"]];
-                                            
-                                        }
-
-                                        self.goodslistname = testarr;
+                                       self.goodslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:responder[@"data"]];
                                         
                                        [self.lefttableview reloadData];
-                                        
-                                        
                                         
                                    }];
     
     // 启动任务
     [task resume];
-    
-    
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -205,9 +190,9 @@ static NSString * const LeftCategoryId = @"category";
     
    ShopLeftCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LeftCategoryId];
     
-    //cell.list = self.goodslist[indexPath.row];
+    LeftCategoryList *mylist = self.goodslist[indexPath.row];
     
-    cell.textLabel.text = self.goodslistname[indexPath.row];
+    cell.textLabel.text = mylist.catename;
     
     return cell;
 

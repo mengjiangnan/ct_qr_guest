@@ -8,7 +8,12 @@
 
 #import "ShopLeftCategoryTableViewCell.h"
 
-#import "LeftCategoryList.h"
+
+
+@interface ShopLeftCategoryTableViewCell()
+
+@end
+
 
 @implementation ShopLeftCategoryTableViewCell
 
@@ -17,11 +22,4 @@
     // Initialization code
 }
 
--(void)setvalue:(LeftCategoryList *)list
-{
-    _list = list;
-    
-    self.textLabel.text = list.catename;
-    
-}
 @end
