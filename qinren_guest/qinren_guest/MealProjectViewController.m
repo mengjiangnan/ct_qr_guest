@@ -16,18 +16,30 @@
 
 #import "NSString+toHexString.h"
 
+#import "MJExtension.h"
 
-@interface MealProjectViewController ()
+#import "LeftCategoryList.h"
+
+#import "ShopLeftCategoryTableViewCell.h"
+
+@interface MealProjectViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property(nonatomic,strong)NSMutableArray *goodslist;
+
+@property(nonatomic,strong)NSArray *goodslistname;
+
+@property(nonatomic,weak)UITableView *lefttableview;
 
 @end
 
 @implementation MealProjectViewController
 
+static NSString * const LeftCategoryId = @"category";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-        
     self.navigationItem.title = @"项目套餐";
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
@@ -90,12 +102,23 @@
     
     [self.view addSubview:last_third_btn];
     
+    
+    
     //左边类别列表
     
     UITableView *left_category_list = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + left_first_btn.frame.size.height + 2, left_first_btn.frame.size.width, self.view.frame.size.height) style:
                                        UITableViewStylePlain];
     
-    [self.view addSubview:left_category_list];
+    //注册
+    [left_category_list registerNib:[UINib nibWithNibName:NSStringFromClass([ShopLeftCategoryTableViewCell class]) bundle:nil] forCellReuseIdentifier:LeftCategoryId];
+    
+    self.lefttableview = left_category_list;
+    
+    self.lefttableview.delegate = self;
+    
+    self.lefttableview.dataSource = self;
+    
+    [self.view addSubview:self.lefttableview];
     
     //数据模型
     
@@ -110,6 +133,7 @@
     NSString *goodsclasslisturl = [NSString Method:goodsclasslistmethod Params:nil];
     
     
+    
     //列表数据网络请求
     
     // 快捷方式获得session对象
@@ -117,16 +141,38 @@
     NSURL *url = [NSURL URLWithString:goodsclasslisturl];
     // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
     NSURLSessionTask *task = [session dataTaskWithURL:url
-                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                              
+                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                        
                                        NSString *goodsclasslistresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                        
                                        NSString *newgoodsclasslistresponderjsonstr =[NSString decryptUseDES:goodsclasslistresponderjsonstr key:mykey];
                                        
+                                       NSDictionary *responder = [NSString parseJSONStringToNSDictionary:newgoodsclasslistresponderjsonstr];
+                                       
+                                       //self.goodslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:responder[@"data"]];
+                                        
+                                        self.goodslist = responder[@"data"];
+                                        
+                                        NSMutableArray *testarr = [[NSMutableArray alloc]init];
+                                        
+                                        for (NSDictionary *dic in self.goodslist) {
+                                            
+                                            [testarr addObject:dic[@"catename"]];
+                                            
+                                        }
+
+                                        self.goodslistname = testarr;
+                                        
+                                       [self.lefttableview reloadData];
+                                        
+                                        
+                                        
                                    }];
     
     // 启动任务
     [task resume];
+    
     
 }
 
@@ -145,5 +191,26 @@
 }
 */
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+
+    
+    return self.goodslist.count;
+
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+   ShopLeftCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LeftCategoryId];
+    
+    //cell.list = self.goodslist[indexPath.row];
+    
+    cell.textLabel.text = self.goodslistname[indexPath.row];
+    
+    return cell;
+
+}
 
 @end

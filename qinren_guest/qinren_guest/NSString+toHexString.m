@@ -17,6 +17,14 @@
 
 @implementation NSString (toHexString)
 
+//字符串转字典
+
++(NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString {
+    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+    return responseJSON;
+}
+
 //jsonparams获取方法
 
 +(NSString *) Key:(NSArray *)keys Value:(NSArray *)values

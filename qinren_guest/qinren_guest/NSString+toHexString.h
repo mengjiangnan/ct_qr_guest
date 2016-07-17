@@ -10,6 +10,8 @@
 
 @interface NSString (toHexString)
 
++(NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString;
+
 +(NSString*)dictionaryToJson:(NSDictionary *)dic;
 
 - (NSString *)md5;
