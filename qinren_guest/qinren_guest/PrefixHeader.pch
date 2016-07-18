@@ -18,7 +18,9 @@
 
 #define mykey [NSString stringWithFormat:@"SDFL#)@F"]
 
-#define getgoodsclasslist [NSString stringWithFormat:@"get.goodsclass.list"]
+#define getgoodsclasslist @"get.goodsclass.list"
+
+#define getgoodslist @"get.goods.list"
 
 #endif /* PrefixHeader_pch */
 

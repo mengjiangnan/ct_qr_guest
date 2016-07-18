@@ -30,5 +30,7 @@
 //拼接url方法
 +(NSString *)Method:(NSString*)method Params:(NSString*)params;
 
++(NSString *)DicMethod:(NSString*)method Params:(NSDictionary *)params;
+
 
 @end

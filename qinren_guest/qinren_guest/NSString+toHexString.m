@@ -63,11 +63,42 @@
     
         myparams = [NSString encryptUseDES:params key:mykey];
     
-        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@Params%@%@",mykey,method,params,mykey]];
+        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@Params%@%@",mykey,method,myparams,mykey]];
     
         urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Baseurl,method,myparams,mysign];
         
        }
+    
+    return urlstr;
+    
+}
+
++(NSString *)DicMethod:(NSString*)method Params:(NSDictionary *)params
+
+{
+    NSString *urlstr = [[NSString alloc]init];
+    
+    NSString *myparams = [[NSString alloc]init];
+    
+    NSString *mysign = [[NSString alloc]init];
+    
+    if (params==nil) {
+        
+        myparams = nil;
+        
+        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@%@",mykey,method,mykey]];
+        
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Sign=%@",Baseurl,method,mysign];
+        
+    }else{
+        
+        myparams = [NSString dicencryptUseDES:params key:mykey];
+        
+        mysign = [NSString md5HexDigest:[NSString stringWithFormat:@"%@Method%@Params%@%@",mykey,method,params,mykey]];
+        
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Baseurl,method,myparams,mysign];
+        
+    }
     
     return urlstr;
     
@@ -196,6 +227,48 @@
         
     }
    
+    return [ciphertext uppercaseString];
+}
+
+// 字典加密
+
++(NSString *) dicencryptUseDES:(NSDictionary *)plainText key:(NSString *)key
+
+{
+    
+    NSData * dataiv = [key dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *ciphertext = nil;
+    //NSData *textData = [plainText dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *textData = [NSJSONSerialization dataWithJSONObject:plainText options:NSJSONWritingPrettyPrinted error:nil];
+    NSUInteger dataLength = [textData length];
+    unsigned char buffer[44096];
+    memset(buffer, 0, sizeof(char));
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
+                                          kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding,
+                                          [key UTF8String],
+                                          kCCKeySizeDES,
+                                          [dataiv bytes],
+                                          //iv,
+                                          [textData bytes],
+                                          dataLength,
+                                          buffer,
+                                          44096,
+                                          &numBytesEncrypted);
+    if (cryptStatus == kCCSuccess) {
+        NSData *data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesEncrypted];
+        
+        Byte* bb = (Byte*)[data bytes];
+        
+        
+        ciphertext = [[NSString toHexString:bb]stringByRemovingPercentEncoding];
+        
+        
+    }
+    
     return [ciphertext uppercaseString];
 }
 
