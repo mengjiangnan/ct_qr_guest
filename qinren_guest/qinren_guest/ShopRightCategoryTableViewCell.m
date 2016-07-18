@@ -8,6 +8,13 @@
 
 #import "ShopRightCategoryTableViewCell.h"
 
+@interface ShopRightCategoryTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *right_img;
+
+@end
+
+
 @implementation ShopRightCategoryTableViewCell
 
 - (void)awakeFromNib {

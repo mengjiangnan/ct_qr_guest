@@ -28,6 +28,8 @@
 
 #import "ShopRightCategoryTableViewCell.h"
 
+#import "SDWebImageManager.h"
+
 @interface MealProjectViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic,strong)NSMutableArray *goodsclasslist;
@@ -116,7 +118,7 @@ static NSString * const RightCategoryId = @"rightcategory";
     
     //右边类别列表
     
-    UITableView *right_category_list = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 +  self.view.frame.size.height/18 + 2, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    UITableView *right_category_list = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 +  self.view.frame.size.height/18 + 2, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     
     //右边类别列表注册
     
@@ -305,12 +307,54 @@ static NSString * const RightCategoryId = @"rightcategory";
         
         RightCategoryList *mylist = self.goodslist[indexPath.row];
         
-        cell.textLabel.text = mylist.id;
+        cell.textLabel.text = mylist.name;
+        
+        cell.imageView.image = [UIImage imageNamed:@"health_shop_gxy"];
+        
+        NSURL *right_table_img_url = [[NSURL alloc]initWithString:mylist.pics];
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadImageWithURL:right_table_img_url
+                              options:0
+                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                 // progression tracking code
+                             }
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                if (image) {
+                                    
+                                    // do something with image
+                                    
+                                    cell.imageView.image = image;
+                                         
+                                }else{
+                                    
+                                    cell.imageView.image = nil;
+                                    
+                                }
+                            }];
+        
+
         
         return cell;
       
     }
 
+}
+
+//设置Cell高度
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (tableView.tag == 1)
+    {
+    
+        return 75;
+    
+    }else{
+    
+        return 44;
+    
+    }
 }
 
 -(void)firstaction{
