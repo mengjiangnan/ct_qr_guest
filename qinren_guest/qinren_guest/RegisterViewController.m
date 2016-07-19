@@ -1463,6 +1463,8 @@
     
     [reg_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
+    [reg_btn addTarget:self action:@selector(myregister) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:reg_btn];
 
   }
@@ -1568,5 +1570,13 @@
     }
 }
 
+//注册提交
+
+-(void)myregister{
+
+
+    NSLog(@"register");
+
+}
 
 @end

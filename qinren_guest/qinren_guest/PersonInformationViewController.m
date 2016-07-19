@@ -8,6 +8,10 @@
 
 #import "PersonInformationViewController.h"
 
+#import "LoginViewController.h"
+
+#import "ProgressHUD.h"
+
 @interface PersonInformationViewController ()
 
 @end
@@ -180,6 +184,8 @@
     
     [logout_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
+    [logout_btn addTarget:self action:@selector(loginout) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:logout_btn];
     
 }
@@ -198,5 +204,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//退出登录
+
+-(void)loginout{
+    
+    [ProgressHUD show:@"正在退出请稍等..."];
+    
+    self.hidesBottomBarWhenPushed=YES;
+ 
+    LoginViewController *loginvc = [[LoginViewController alloc]init];
+    
+    [self.navigationController pushViewController:loginvc animated:YES];
+    
+    [ProgressHUD dismiss];
+    
+}
 
 @end

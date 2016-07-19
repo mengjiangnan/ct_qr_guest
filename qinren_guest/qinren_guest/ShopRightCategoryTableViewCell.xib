@@ -38,40 +38,71 @@
                             <constraint firstAttribute="width" constant="68" id="eLd-IO-bpe"/>
                             <constraint firstAttribute="height" constant="15" id="ere-AI-G92"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfA-Ai-MmE">
-                        <rect key="frame" x="71" y="51" width="62" height="13"/>
+                        <rect key="frame" x="71" y="51" width="68" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="62" id="EnQ-fB-OkQ"/>
+                            <constraint firstAttribute="width" constant="68" id="ChB-iA-hMo"/>
                             <constraint firstAttribute="height" constant="13" id="XOD-LO-AjX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsO-d6-0vz">
+                        <rect key="frame" x="153" y="34" width="61" height="30"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="61" id="CKK-yT-VRJ"/>
+                            <constraint firstAttribute="height" constant="30" id="VQi-6T-5ap"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="加入购物车">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-S2-17h">
+                        <rect key="frame" x="231" y="34" width="61" height="30"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="61" id="608-lT-43b"/>
+                            <constraint firstAttribute="height" constant="30" id="zkG-GM-fgx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="立即购买">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="tSm-9p-yEz" firstAttribute="top" secondItem="TOs-z1-GOz" secondAttribute="top" id="7ry-aR-PQK"/>
                     <constraint firstItem="NKU-Np-Eh8" firstAttribute="top" secondItem="tSm-9p-yEz" secondAttribute="bottom" constant="8" id="AcD-EQ-RrF"/>
                     <constraint firstItem="tSm-9p-yEz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="BOa-sM-c8f"/>
                     <constraint firstItem="tSm-9p-yEz" firstAttribute="leading" secondItem="TOs-z1-GOz" secondAttribute="trailing" constant="8" id="Bet-eQ-LZr"/>
+                    <constraint firstItem="1fa-S2-17h" firstAttribute="bottom" secondItem="WsO-d6-0vz" secondAttribute="bottom" id="CJQ-mp-y1y"/>
                     <constraint firstItem="AfA-Ai-MmE" firstAttribute="leading" secondItem="TOs-z1-GOz" secondAttribute="trailing" constant="8" id="VFn-iC-hGu"/>
                     <constraint firstItem="NKU-Np-Eh8" firstAttribute="leading" secondItem="TOs-z1-GOz" secondAttribute="trailing" constant="8" id="WAy-Bb-MIT"/>
+                    <constraint firstItem="WsO-d6-0vz" firstAttribute="bottom" secondItem="AfA-Ai-MmE" secondAttribute="bottom" id="Z4v-fC-bSD"/>
+                    <constraint firstItem="WsO-d6-0vz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="asK-i2-nfV"/>
                     <constraint firstItem="TOs-z1-GOz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="iyn-vu-a4A"/>
+                    <constraint firstItem="WsO-d6-0vz" firstAttribute="leading" secondItem="AfA-Ai-MmE" secondAttribute="trailing" constant="14" id="kRz-SQ-8Ko"/>
+                    <constraint firstItem="1fa-S2-17h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="n2q-nq-6z8"/>
                     <constraint firstItem="AfA-Ai-MmE" firstAttribute="bottom" secondItem="TOs-z1-GOz" secondAttribute="bottom" id="nEy-1d-Awe"/>
                     <constraint firstItem="TOs-z1-GOz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="q6f-Og-i6i"/>
+                    <constraint firstItem="1fa-S2-17h" firstAttribute="leading" secondItem="WsO-d6-0vz" secondAttribute="trailing" constant="17" id="tOA-Vi-uSZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="add_shop_car_button" destination="WsO-d6-0vz" id="3QB-wI-1Qz"/>
                 <outlet property="model_img" destination="TOs-z1-GOz" id="GOx-RN-5bO"/>
                 <outlet property="model_label_group_price" destination="NKU-Np-Eh8" id="9QV-Gs-lcn"/>
                 <outlet property="model_label_market_price" destination="AfA-Ai-MmE" id="WDh-ZX-LJU"/>
                 <outlet property="model_label_name" destination="tSm-9p-yEz" id="5AX-ly-Z6L"/>
             </connections>
-            <point key="canvasLocation" x="590" y="390.5"/>
+            <point key="canvasLocation" x="275" y="380.5"/>
         </tableViewCell>
     </objects>
 </document>

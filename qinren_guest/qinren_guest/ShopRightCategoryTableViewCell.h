@@ -18,4 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *model_label_market_price;
 
+@property (weak, nonatomic) IBOutlet UIButton *add_shop_car_button;
+
 @end

@@ -311,7 +311,7 @@ static NSString * const RightCategoryId = @"rightcategory";
         
         cell.model_label_group_price.text = [NSString stringWithFormat:@"会员价:%.2f",rmylist.GroupPrice];
         
-        cell.model_label_market_price.text =[NSString stringWithFormat:@"%.2f",[rmylist.MarketPrice doubleValue]];
+        cell.model_label_market_price.text =[NSString stringWithFormat:@"市场价:%.2f",[rmylist.MarketPrice doubleValue]];
         
         NSURL *right_table_img_url = [[NSURL alloc]initWithString:rmylist.pics];
         
@@ -335,6 +335,8 @@ static NSString * const RightCategoryId = @"rightcategory";
                                     
                                 }
                             }];
+        
+        [cell.add_shop_car_button addTarget:self action:@selector(addcar) forControlEvents:UIControlEventTouchUpInside];
         
 
         
@@ -376,6 +378,17 @@ static NSString * const RightCategoryId = @"rightcategory";
      
     }
   
+}
+
+//增加到购物车
+
+-(void)addcar{
+    
+    
+    NSLog(@"addcar");
+
+
+
 }
 
 @end
