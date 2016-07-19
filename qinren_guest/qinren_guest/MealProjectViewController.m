@@ -295,9 +295,9 @@ static NSString * const RightCategoryId = @"rightcategory";
         
         ShopLeftCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LeftCategoryId];
         
-        LeftCategoryList *mylist = self.goodsclasslist[indexPath.row];
+        LeftCategoryList *lmylist = self.goodsclasslist[indexPath.row];
         
-        cell.textLabel.text = mylist.catename;
+        cell.textLabel.text = lmylist.catename;
         
         return cell;
     
@@ -305,15 +305,18 @@ static NSString * const RightCategoryId = @"rightcategory";
         
         ShopRightCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RightCategoryId];
         
-        RightCategoryList *mylist = self.goodslist[indexPath.row];
+        RightCategoryList *rmylist = self.goodslist[indexPath.row];
         
-        cell.textLabel.text = mylist.name;
+        cell.model_label_name.text = rmylist.name;
         
-        cell.imageView.image = [UIImage imageNamed:@"health_shop_gxy"];
+        cell.model_label_group_price.text = [NSString stringWithFormat:@"会员价:%.2f",rmylist.GroupPrice];
         
-        NSURL *right_table_img_url = [[NSURL alloc]initWithString:mylist.pics];
+        cell.model_label_market_price.text =[NSString stringWithFormat:@"%.2f",[rmylist.MarketPrice doubleValue]];
+        
+        NSURL *right_table_img_url = [[NSURL alloc]initWithString:rmylist.pics];
         
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        
         [manager downloadImageWithURL:right_table_img_url
                               options:0
                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -324,11 +327,11 @@ static NSString * const RightCategoryId = @"rightcategory";
                                     
                                     // do something with image
                                     
-                                    cell.imageView.image = image;
-                                         
+                                    cell.model_img.image =image;
+                                    
                                 }else{
                                     
-                                    cell.imageView.image = nil;
+                                    cell.imageView.image = [UIImage imageNamed:@"smallplacehold"];
                                     
                                 }
                             }];

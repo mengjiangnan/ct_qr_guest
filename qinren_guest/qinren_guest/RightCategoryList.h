@@ -41,7 +41,7 @@
 
 @property (nonatomic, assign) NSInteger buypeople;
 
-@property (nonatomic, assign) NSInteger GroupPrice;
+@property (nonatomic, assign) float GroupPrice;
 
 @property (nonatomic, copy) NSString *returnintegral;
 

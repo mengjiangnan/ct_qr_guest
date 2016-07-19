@@ -10,4 +10,12 @@
 
 @interface ShopRightCategoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *model_img;
+
+@property (weak, nonatomic) IBOutlet UILabel *model_label_name;
+
+@property (weak, nonatomic) IBOutlet UILabel *model_label_group_price;
+
+@property (weak, nonatomic) IBOutlet UILabel *model_label_market_price;
+
 @end
