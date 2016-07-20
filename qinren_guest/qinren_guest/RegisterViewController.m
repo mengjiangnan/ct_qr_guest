@@ -167,7 +167,7 @@
     
     member_accounts_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    member_accounts_textfield.text = self.usernametext;
+    self.usernametext = member_accounts_textfield.text;
     
     [mainview addSubview:member_accounts_textfield];
     
@@ -289,6 +289,8 @@
     UITextField *pwd_textfield = [[UITextField alloc]initWithFrame:pwd_textfield_rect];
     
     pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+    self.passwordtext = pwd_textfield.text;
     
     [mainview addSubview:pwd_textfield];
     
@@ -1473,50 +1475,50 @@
     
     [self.view addSubview:reg_btn];
     
-    //网络注册请求
-    
-    NSString *goodslistmethod = [NSString stringWithFormat:setuserregister];
-    
-    NSArray *goodslistkeys = [[NSArray alloc]initWithObjects:@"username",@"pwd",@"realname",@"question_id",@"nickname",@"mobile",@"medicalhistory",@"idcard",@"housekeeper",@"birthtime",@"answer", nil];
-    
-    NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:@"10",@"7", nil];
-    
-    //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
-    
-    NSString *goodslistjosn = [NSString Key:goodslistkeys Value:goodslistvalues];
-    
-    NSString *goodslisturl = [NSString Method:goodslistmethod Params:goodslistjosn];
-    
-    //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
-    
-    //快捷方式获得右边列表的session对象
-    
-    [ProgressHUD show:@"请稍等..."];
-    
-    NSURLSession *rightsession = [NSURLSession sharedSession];
-    
-    NSURL *righturl = [NSURL URLWithString:goodslisturl];
-    
-    NSURLSessionTask *righttask = [rightsession dataTaskWithURL:righturl
-                                   
-                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-                                                  
-                                                  [ProgressHUD dismiss];
-                                                  
-                                                  NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                                                  
-                                                  NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
-                                                  
-                                                  NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
-                                                  
-                                                  self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
-                                                  
-                                                  [self.righttableview reloadData];
-                                                  
-                                              }];
-    //启动右边任务
-    [righttask resume];
-
+//    //网络注册请求
+//    
+//    NSString *goodslistmethod = [NSString stringWithFormat:setuserregister];
+//    
+//    NSArray *goodslistkeys = [[NSArray alloc]initWithObjects:@"username",@"pwd",@"realname",@"question_id",@"nickname",@"mobile",@"medicalhistory",@"idcard",@"housekeeper",@"birthtime",@"answer", nil];
+//    
+//    NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:@"10",@"7", nil];
+//    
+//    //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
+//    
+//    NSString *goodslistjosn = [NSString Key:goodslistkeys Value:goodslistvalues];
+//    
+//    NSString *goodslisturl = [NSString Method:goodslistmethod Params:goodslistjosn];
+//    
+//    //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
+//    
+//    //快捷方式获得右边列表的session对象
+//    
+//    [ProgressHUD show:@"请稍等..."];
+//    
+//    NSURLSession *rightsession = [NSURLSession sharedSession];
+//    
+//    NSURL *righturl = [NSURL URLWithString:goodslisturl];
+//    
+//    NSURLSessionTask *righttask = [rightsession dataTaskWithURL:righturl
+//                                   
+//                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+//                                                  
+//                                                  [ProgressHUD dismiss];
+//                                                  
+//                                                  NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//                                                  
+//                                                  NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+//                                                  
+//                                                  NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+//                                                  
+//                                                  self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
+//                                                  
+//                                                  [self.righttableview reloadData];
+//                                                  
+//                                              }];
+//    //启动右边任务
+//    [righttask resume];
+//
 
   }
 
@@ -1626,7 +1628,7 @@
 -(void)myregister{
 
 
-    NSLog(@"register");
+    NSLog(@"%@,%@",self.usernametext,self.passwordtext);
 
 }
 
