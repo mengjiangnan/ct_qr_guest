@@ -8,7 +8,11 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
+#import "NSString+toHexString.h"
+
+#import "ProgressHUD.h"
+
+@interface RegisterViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate,NSURLSessionDataDelegate>
 
 @property (nonatomic,weak) UIPickerView *mypickview;
 
@@ -22,9 +26,25 @@
 
 @property (nonatomic,weak) UIDatePicker *mydatepicker;
 
-@property (nonatomic,strong) NSString *usernametext;
+@property (nonatomic,strong) UITextField *myusername;
 
-@property (nonatomic,strong) NSString *passwordtext;
+@property (nonatomic,strong) UITextField *mypassword;
+
+@property (nonatomic,strong) UITextField *myrealname;
+
+@property (nonatomic,strong) UITextField *myquestion_id;
+
+@property (nonatomic,strong) UITextField *mynickname;
+
+@property (nonatomic,strong) UITextField *mymobile;
+
+@property (nonatomic,strong) UITextField *myhousekeeper;
+
+@property (nonatomic,strong) UITextField *myanswer;
+
+@property (nonatomic,strong) NSString *registerstatus;
+
+@property (nonatomic,weak) UIButton *myregisterbtn;
 
 @end
 
@@ -167,9 +187,11 @@
     
     member_accounts_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    self.usernametext = member_accounts_textfield.text;
-    
     [mainview addSubview:member_accounts_textfield];
+    
+    self.myusername = member_accounts_textfield;
+    
+    [self.myusername addTarget:self action:@selector(textchange) forControlEvents:UIControlEventEditingDidEnd];
     
     //昵称标签
     
@@ -210,6 +232,8 @@
     nickname_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [mainview addSubview:nickname_textfield];
+    
+    self.mynickname = nickname_textfield;
     
     
     //性别标签
@@ -290,9 +314,11 @@
     
     pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
-    self.passwordtext = pwd_textfield.text;
-    
     [mainview addSubview:pwd_textfield];
+    
+    self.mypassword = pwd_textfield;
+    
+    [self.mypassword addTarget:self action:@selector(textchange) forControlEvents:UIControlEventEditingDidEnd];
     
     //确认密码标签
     
@@ -382,6 +408,7 @@
     
     [mainview addSubview:self.my_security_question_textfield];
     
+    
     //密保答案标签
     
     CGFloat security_answer_label_x = label_x;
@@ -421,6 +448,8 @@
     security_answer_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [mainview addSubview:security_answer_textfield];
+    
+    self.myanswer = security_answer_textfield;
     
     //出生日期标签
     
@@ -507,6 +536,8 @@
     real_name_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [mainview addSubview:real_name_textfield];
+    
+    self.myrealname = real_name_textfield;
     
     //身份证号标签
     
@@ -598,6 +629,8 @@
     
     [mainview addSubview:contact_phone_textfield];
     
+    self.mymobile = contact_phone_textfield;
+    
     //健康管家标签
     
     CGFloat health_manager_label_x = label_x;
@@ -639,6 +672,8 @@
     health_manager_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [mainview addSubview:health_manager_textfield];
+    
+    self.myhousekeeper = health_manager_textfield;
     
     //我的健康管理项目标签
     
@@ -1475,51 +1510,10 @@
     
     [self.view addSubview:reg_btn];
     
-//    //网络注册请求
-//    
-//    NSString *goodslistmethod = [NSString stringWithFormat:setuserregister];
-//    
-//    NSArray *goodslistkeys = [[NSArray alloc]initWithObjects:@"username",@"pwd",@"realname",@"question_id",@"nickname",@"mobile",@"medicalhistory",@"idcard",@"housekeeper",@"birthtime",@"answer", nil];
-//    
-//    NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:@"10",@"7", nil];
-//    
-//    //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
-//    
-//    NSString *goodslistjosn = [NSString Key:goodslistkeys Value:goodslistvalues];
-//    
-//    NSString *goodslisturl = [NSString Method:goodslistmethod Params:goodslistjosn];
-//    
-//    //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
-//    
-//    //快捷方式获得右边列表的session对象
-//    
-//    [ProgressHUD show:@"请稍等..."];
-//    
-//    NSURLSession *rightsession = [NSURLSession sharedSession];
-//    
-//    NSURL *righturl = [NSURL URLWithString:goodslisturl];
-//    
-//    NSURLSessionTask *righttask = [rightsession dataTaskWithURL:righturl
-//                                   
-//                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-//                                                  
-//                                                  [ProgressHUD dismiss];
-//                                                  
-//                                                  NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//                                                  
-//                                                  NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
-//                                                  
-//                                                  NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
-//                                                  
-//                                                  self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
-//                                                  
-//                                                  [self.righttableview reloadData];
-//                                                  
-//                                              }];
-//    //启动右边任务
-//    [righttask resume];
-//
-
+    reg_btn.userInteractionEnabled = NO;
+    
+    self.myregisterbtn = reg_btn;
+    
   }
 
 //为了说明,在UIPickerView中有多少列
@@ -1626,9 +1620,151 @@
 //注册提交
 
 -(void)myregister{
+    
+    NSString *myquestion_id = [[NSString alloc]init];
+    
+    if ([self.my_security_question_textfield.text  isEqual: @"我的出生地?"]) {
+        
+        myquestion_id = @"1";
+    
+    }else if ([self.my_security_question_textfield.text  isEqual: @"我的生日?"]){
+        
+    
+        myquestion_id = @"2";
+        
+    }else if ([self.my_security_question_textfield.text  isEqual: @"我父亲的姓名?"]){
+        
+        
+        myquestion_id = @"3";
+        
+    }else{
+        
+        
+        myquestion_id = @"4";
+    
+    
+    
+    }
 
+    NSString *mymedicalhistory = @"D00003,D00001,D00002";
+   
+    
+        //网络注册请求
+    
+        NSString *setuserregistermethod = [NSString stringWithFormat:setuserregister];
+    
+        NSArray *registerlistkeys = [[NSArray alloc]initWithObjects:@"username",@"pwd",@"realname",@"question_id",@"nickname",@"mobile",@"medicalhistory",@"idcard",@"housekeeper",@"birthtime",@"answer", nil];
+    
+        NSArray *registerlistvalues = [[NSArray alloc]initWithObjects:self.myusername.text,self.mypassword.text,self.myrealname.text,myquestion_id,self.mynickname.text,self.mymobile.text
+                                    ,mymedicalhistory,self.my_identity_card_num_textfield.text,self.myhousekeeper.text,self.my_birthday_textfield.text,self.myanswer.text, nil];
+    
+        //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
+    
+        NSString *registerlistjosn = [NSString Key:registerlistkeys Value:registerlistvalues];
+    
+        NSString *registerlisturl = [NSString Method:setuserregistermethod Params:registerlistjosn];
+    
+        //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
+    
+    //同步请求
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:registerlisturl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
+    
+    NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    
+    NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+    
+    NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+    
+    if ([registerresponder[@"error"] isEqualToString:@"注册成功！"]) {
+        
+        self.registerstatus = @"注册成功";
+        
+    }else if (registerresponder[@"error"] == nil){
+        
+        self.registerstatus = @"注册失败";
+        
+    }else{
+        
+        self.registerstatus = registerresponder[@"error"];
+        
+    }
 
-    NSLog(@"%@,%@",self.usernametext,self.passwordtext);
+    
+    
+    
+//    //快捷方式获得注册提交的session对象
+//    
+//        NSURLSession *registersession = [NSURLSession sharedSession];
+//    
+//        NSURL *registerurl = [NSURL URLWithString:registerlisturl];
+//    
+//        NSURLSessionTask *registertask = [registersession dataTaskWithURL:registerurl
+//    
+//                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+//                                                      
+//                                                      NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//    
+//                                                      NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+//    
+//                                                      NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+//                                                      
+//                                                      if ([registerresponder[@"error"] isEqualToString:@"注册成功！"]) {
+//                                                          
+//                                                          self.registerstatus = @"注册成功";
+//                                                          
+//                                                      }else if (registerresponder[@"error"] == nil){
+//                                                          
+//                                                          self.registerstatus = @"注册失败";
+//                                                          
+//                                                      }else{
+//                                                          
+//                                                          self.registerstatus = registerresponder[@"error"];
+//                                                          
+//                                                      }
+//                                                      
+//                                                      
+//                                                  }];
+//        //启动右边任务
+//        [registertask resume];
+//    
+    //初始化提示框；
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:self.registerstatus preferredStyle:
+                                UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnullaction) {
+        
+        //点击按钮的响应事件；
+        
+    }]];
+    
+    //弹出提示框；
+    
+    [self presentViewController:alert animated:true completion:nil];
+
+}
+
+-(void)textchange
+{
+    if (self.myusername.text.length == 0 || self.mypassword.text.length == 0) {
+        
+        
+        self.myregisterbtn.userInteractionEnabled = NO;
+        
+   
+       }else{
+        
+        
+        self.myregisterbtn.userInteractionEnabled = YES;
+    
+    
+    }
+    
+    NSLog(@"%@--%@",self.myusername.text,self.mypassword.text);
+
 
 }
 
