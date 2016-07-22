@@ -12,6 +12,14 @@
 
 #import "ForgetPasswordViewController.h"
 
+#import "NSString+toHexString.h"
+
+#import "ProgressHUD.h"
+
+#import "userinfo.h"
+
+#import "MJExtension.h"
+
 @interface LoginViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UITextField *my_username_field;
@@ -23,6 +31,14 @@
 @property (nonatomic,weak) UIButton *my_reg_btn;
 
 @property (nonatomic,weak) UIButton *my_forget_forget_pwd_btn;
+
+@property (nonatomic,strong) NSMutableArray *getuserloginlistarr;
+
+@property (nonatomic,strong) NSMutableDictionary *getuserloginlistdic;
+
+@property (nonatomic,strong) NSArray *testarr;
+
+@property (nonatomic,strong) NSString *teststr;
 
 @end
 
@@ -236,9 +252,53 @@
 -(void)mylogin
 
 {
+   
+    //网络注册请求
     
-    NSLog(@"login btn");
-
+    NSString *getuserloginmethod = [NSString stringWithFormat:getuserlogin];
+    
+    NSArray *getuserloginkeys = [[NSArray alloc]initWithObjects:@"username",@"password", nil];
+    
+    NSArray *getuserloginvalues = [[NSArray alloc]initWithObjects:self.my_username_field.text,self.my_pwd_field.text, nil];
+    
+    NSString *getuserloginjosn = [NSString Key:getuserloginkeys Value:getuserloginvalues];
+    
+    NSString *getuserloginurl = [NSString Method:getuserloginmethod Params:getuserloginjosn];
+    
+    //同步请求
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:getuserloginurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
+    
+    NSString *getuserloginresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    
+    NSString *newgetuserloginresponderjsonstr = [NSString decryptUseDES:getuserloginresponderjsonstr key:mykey];
+    
+    NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:newgetuserloginresponderjsonstr];
+    
+    self.getuserloginlistarr = [userinfo mj_objectArrayWithKeyValuesArray:getuserloginresponder[@"data"]];
+    
+    for (userinfo *user in self.getuserloginlistarr) {
+        
+        self.teststr = user.msg;
+        
+    }
+    
+    //初始化提示框；
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:self.teststr preferredStyle:
+                                UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnullaction) {
+        
+        //点击按钮的响应事件；
+        
+    }]];
+    
+    //弹出提示框；
+    
+    [self presentViewController:alert animated:true completion:nil];
 
 }
 

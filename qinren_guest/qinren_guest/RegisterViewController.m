@@ -46,9 +46,13 @@
 
 @property (nonatomic,weak) UIButton *myregisterbtn;
 
+@property (nonatomic,assign) CGRect myscorllviewrect;
+
 @end
 
 @implementation RegisterViewController
+
+
 
 - (void)viewDidLoad {
     
@@ -139,6 +143,8 @@
     CGFloat mainview_height = self.view.frame.size.height;
     
     CGRect  mainview_rect = CGRectMake(mainview_x, mainview_y, mainview_width, mainview_height);
+    
+    self.myscorllviewrect = mainview_rect;
     
     mainview = [[UIScrollView alloc] initWithFrame:mainview_rect];
     
@@ -1482,6 +1488,12 @@
     
     [mainview addSubview:diet_switch];
     
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    
+    tapGr.cancelsTouchesInView = NO;
+    
+    [mainview addGestureRecognizer:tapGr];
+    
     //提交注册按钮
     
     UIButton *reg_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -1512,7 +1524,11 @@
     
     reg_btn.userInteractionEnabled = NO;
     
+    reg_btn.alpha = 0.4;
+    
     self.myregisterbtn = reg_btn;
+    
+    
     
   }
 
@@ -1555,14 +1571,15 @@
 
 }
 
-/*点击空白处，收起输入控件*/
+///*点击空白处，收起输入控件*/
+//
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//
+//{
+//    [self.view endEditing:YES];
+//    
+//}
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-
-{
-    [self.view endEditing:YES];
-    
-}
 
 /*点击文本框，开始编辑时，文本框的内容改成“我的出生地”*/
 
@@ -1754,11 +1771,15 @@
         
         self.myregisterbtn.userInteractionEnabled = NO;
         
+        self.myregisterbtn.alpha = 0.4;
+        
    
        }else{
         
         
         self.myregisterbtn.userInteractionEnabled = YES;
+           
+        self.myregisterbtn.alpha = 1;
     
     
     }
@@ -1766,6 +1787,13 @@
     NSLog(@"%@--%@",self.myusername.text,self.mypassword.text);
 
 
+}
+
+-(void)viewTapped:(UITapGestureRecognizer*)tapGr
+{
+    [self.myusername resignFirstResponder];
+    
+    [self.mypassword resignFirstResponder];
 }
 
 @end

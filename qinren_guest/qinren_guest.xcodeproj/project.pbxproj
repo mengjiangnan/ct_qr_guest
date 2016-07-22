@@ -82,6 +82,11 @@
 		9B2FCEDC1D20C80000687390 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDB1D20C80000687390 /* libstdc++.6.0.9.dylib */; };
 		9B2FCEDE1D20C82B00687390 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDD1D20C82B00687390 /* libz.1.dylib */; };
 		9B2FCEE01D20CA7A00687390 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDF1D20CA7A00687390 /* libiconv.2.dylib */; };
+		9B39C2C91D41AB7F002327AE /* userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2C81D41AB7F002327AE /* userinfo.m */; };
+		9B39C2D31D42182B002327AE /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2CC1D42182B002327AE /* TPKeyboardAvoidingCollectionView.m */; };
+		9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2CE1D42182B002327AE /* TPKeyboardAvoidingScrollView.m */; };
+		9B39C2D51D42182B002327AE /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2D01D42182B002327AE /* TPKeyboardAvoidingTableView.m */; };
+		9B39C2D61D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2D21D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		9B48065D1D065817002B2175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065C1D065817002B2175 /* main.m */; };
 		9B4806601D065817002B2175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065F1D065817002B2175 /* AppDelegate.m */; };
 		9B4806631D065817002B2175 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806621D065817002B2175 /* IndexViewController.m */; };
@@ -293,6 +298,16 @@
 		9B2FCEDB1D20C80000687390 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
 		9B2FCEDD1D20C82B00687390 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		9B2FCEDF1D20CA7A00687390 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		9B39C2C71D41AB7F002327AE /* userinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userinfo.h; sourceTree = "<group>"; };
+		9B39C2C81D41AB7F002327AE /* userinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userinfo.m; sourceTree = "<group>"; };
+		9B39C2CB1D42182B002327AE /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		9B39C2CC1D42182B002327AE /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		9B39C2CD1D42182B002327AE /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		9B39C2CE1D42182B002327AE /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		9B39C2CF1D42182B002327AE /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		9B39C2D01D42182B002327AE /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		9B39C2D11D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		9B39C2D21D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		9B4806581D065817002B2175 /* qinren_guest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qinren_guest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B48065C1D065817002B2175 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B48065E1D065817002B2175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -443,6 +458,8 @@
 				2F213E471D3AE90900339496 /* LeftCategoryList.m */,
 				9BE25BF81D3C72A00033E3E2 /* RightCategoryList.h */,
 				9BE25BF91D3C72A00033E3E2 /* RightCategoryList.m */,
+				9B39C2C71D41AB7F002327AE /* userinfo.h */,
+				9B39C2C81D41AB7F002327AE /* userinfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -647,6 +664,21 @@
 			path = UMSocial_Sdk_Instructions;
 			sourceTree = "<group>";
 		};
+		9B39C2CA1D42182B002327AE /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				9B39C2CB1D42182B002327AE /* TPKeyboardAvoidingCollectionView.h */,
+				9B39C2CC1D42182B002327AE /* TPKeyboardAvoidingCollectionView.m */,
+				9B39C2CD1D42182B002327AE /* TPKeyboardAvoidingScrollView.h */,
+				9B39C2CE1D42182B002327AE /* TPKeyboardAvoidingScrollView.m */,
+				9B39C2CF1D42182B002327AE /* TPKeyboardAvoidingTableView.h */,
+				9B39C2D01D42182B002327AE /* TPKeyboardAvoidingTableView.m */,
+				9B39C2D11D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				9B39C2D21D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
 		9B48064F1D065817002B2175 = {
 			isa = PBXGroup;
 			children = (
@@ -679,6 +711,7 @@
 		9B48065A1D065817002B2175 /* qinren_guest */ = {
 			isa = PBXGroup;
 			children = (
+				9B39C2CA1D42182B002327AE /* TPKeyboardAvoiding */,
 				9BE25BCF1D3C50350033E3E2 /* LZCartviewcontroller */,
 				2F213E451D3AE8B200339496 /* Model */,
 				9B0F9D871D3786CF004B347A /* MJExtension */,
@@ -729,8 +762,8 @@
 				9BE25BF31D3C60530033E3E2 /* ShopRightCategoryTableViewCell.h */,
 				9BE25BF41D3C60530033E3E2 /* ShopRightCategoryTableViewCell.m */,
 				9BE25BF51D3C60530033E3E2 /* ShopRightCategoryTableViewCell.xib */,
-				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B48066F1D065817002B2175 /* Info.plist */,
+				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
 				9B48065B1D065817002B2175 /* Supporting Files */,
 			);
@@ -1072,6 +1105,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B39C2C91D41AB7F002327AE /* userinfo.m in Sources */,
 				9B0253541D2B5F5300360443 /* AFURLSessionManager.m in Sources */,
 				9BE4195C1D0D09D0008C5396 /* UIImage+GIF.m in Sources */,
 				9B0F9DA31D3786CF004B347A /* MJPropertyType.m in Sources */,
@@ -1082,6 +1116,7 @@
 				9B68D45E1D07BB6300BCD0ED /* ShopcarViewController.m in Sources */,
 				9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */,
 				9BE25BF11D3C50350033E3E2 /* LZCartTableViewCell.m in Sources */,
+				9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9B0F9DA21D3786CF004B347A /* MJPropertyKey.m in Sources */,
 				9BE4195E1D0D09D0008C5396 /* UIImage+WebP.m in Sources */,
 				9B0253511D2B5F5300360443 /* AFSecurityPolicy.m in Sources */,
@@ -1121,6 +1156,7 @@
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,
 				9B5A1BA41D2A013F004F0E21 /* New_Second_ViewController.m in Sources */,
+				9B39C2D51D42182B002327AE /* TPKeyboardAvoidingTableView.m in Sources */,
 				9B0253501D2B5F5300360443 /* AFNetworkReachabilityManager.m in Sources */,
 				9B0F9D861D376993004B347A /* ProgressHUD.m in Sources */,
 				9BE25BF21D3C50350033E3E2 /* LZCartViewController.m in Sources */,
@@ -1133,6 +1169,8 @@
 				9BE25BF01D3C50350033E3E2 /* LZCartModel.m in Sources */,
 				2FFC00311D154F6D00616FC8 /* UIView+SDExtension.m in Sources */,
 				9BE419611D0D09D0008C5396 /* UIView+WebCacheOperation.m in Sources */,
+				9B39C2D31D42182B002327AE /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				9B39C2D61D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				9B0F9DA81D3786CF004B347A /* NSString+MJExtension.m in Sources */,
 				9B02534F1D2B5F5300360443 /* AFHTTPSessionManager.m in Sources */,
 				9BE419551D0D09D0008C5396 /* SDWebImageCompat.m in Sources */,

@@ -24,5 +24,9 @@
 
 #define setuserregister @"set.user.register"
 
+#define getuserlogin @"get.user.login"
+
+#define setuserpassword @"set.user.password"
+
 #endif /* PrefixHeader_pch */
 

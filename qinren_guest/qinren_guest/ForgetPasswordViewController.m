@@ -8,6 +8,8 @@
 
 #import "ForgetPasswordViewController.h"
 
+#import "NSString+toHexString.h"
+
 @interface ForgetPasswordViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 
 @property (nonatomic,weak) UIPickerView *mypickview;
@@ -15,6 +17,12 @@
 @property (nonatomic,strong) NSArray *my_security_question_list_array;
 
 @property (nonatomic,weak) UITextField *my_security_question_textfield;
+
+@property (nonatomic,weak) UITextField *my_member_accounts_textfield;
+
+@property (nonatomic,weak) UITextField *my_new_pwd_textfield;
+
+@property (nonatomic,weak) UITextField *my_security_answer_textfield;
 
 @end
 
@@ -27,6 +35,11 @@
     self.navigationItem.title = @"忘记密码";
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
+    
+    //提交按钮
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain
+                                                                             target:self action:@selector(mysubmit)];
     
     //初始化密保问题选项数组
     
@@ -124,6 +137,8 @@
     
     [self.view addSubview:member_accounts_textfield];
     
+    self.my_member_accounts_textfield = member_accounts_textfield;
+    
     //新密码标签
     
     CGFloat new_pwd_label_x = label_x;
@@ -163,6 +178,8 @@
     new_pwd_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [self.view addSubview:new_pwd_textfield];
+    
+    self.my_new_pwd_textfield = new_pwd_textfield;
     
     //密保问题标签
     
@@ -251,7 +268,8 @@
     security_answer_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [self.view addSubview:security_answer_textfield];
-
+    
+    self.my_security_answer_textfield = security_answer_textfield;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -316,5 +334,63 @@
     
 }
 
+//提交按钮动作
+
+-(void)mysubmit
+
+{
+    NSString *myquestion_id = [[NSString alloc]init];
+    
+    if ([self.my_security_question_textfield.text  isEqual: @"我的出生地?"]) {
+        
+        myquestion_id = @"1";
+        
+    }else if ([self.my_security_question_textfield.text  isEqual: @"我的生日?"]){
+        
+        
+        myquestion_id = @"2";
+        
+    }else if ([self.my_security_question_textfield.text  isEqual: @"我父亲的姓名?"]){
+        
+        
+        myquestion_id = @"3";
+        
+    }else{
+        
+        
+        myquestion_id = @"4";
+        
+    }
+    
+    //网络注册请求
+    
+    NSString *setuserpasswordmethod = [NSString stringWithFormat:setuserpassword];
+    
+    NSArray *setuserpasswordkeys = [[NSArray alloc]initWithObjects:@"answer",@"new_password",@"question_id",@"username", nil];
+    
+    NSArray *setuserpasswordvalues = [[NSArray alloc]initWithObjects:self.my_security_answer_textfield.text,self.my_new_pwd_textfield.text,myquestion_id,self.my_member_accounts_textfield.text, nil];
+    
+    NSString *setuserpasswordjosn = [NSString Key:setuserpasswordkeys Value:setuserpasswordvalues];
+    
+    NSString *setuserpasswordurl = [NSString Method:setuserpasswordmethod Params:setuserpasswordjosn];
+    
+    //同步请求
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:setuserpasswordurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
+    
+    NSString *setuserpasswordresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    
+    NSString *newsetuserpasswordresponderjsonstr = [NSString decryptUseDES:setuserpasswordresponderjsonstr key:mykey];
+    
+    NSDictionary *setuserpasswordresponder = [NSString parseJSONStringToNSDictionary:newsetuserpasswordresponderjsonstr];
+    
+    NSLog(@"%@",setuserpasswordresponder);
+    
+
+
+
+}
 
 @end
