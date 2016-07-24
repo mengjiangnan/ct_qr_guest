@@ -110,7 +110,7 @@
 +(NSString*)dictionaryToJson:(NSDictionary *)dic
 
 {
-    
+
     NSError *parseError = nil;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
@@ -138,8 +138,8 @@
 
 + (NSString *)md5HexDigest:(NSString*)input
 {
-   
-    const char* str = [input UTF8String];
+
+    const char* str = input.UTF8String;
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(str, (int)strlen(str), result);
     NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH*2];//
@@ -195,12 +195,17 @@
 
 +(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key
 {
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 
-    NSData * dataiv = [key dataUsingEncoding:NSUTF8StringEncoding];
+    NSData * dataiv = [key dataUsingEncoding:enc];
     
     NSString *ciphertext = nil;
-    NSData *textData = [plainText dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *textData = [plainText dataUsingEncoding:enc];
+    
     NSUInteger dataLength = [textData length];
+    
+        
     unsigned char buffer[44096];
     memset(buffer, 0, sizeof(char));
     size_t numBytesEncrypted = 0;
@@ -208,7 +213,7 @@
                                           kCCAlgorithmDES,
                                           kCCOptionPKCS7Padding,
                                           [key UTF8String],
-                                          kCCKeySizeDES,
+                                            kCCKeySizeDES,
                                           [dataiv bytes],
                                           //iv,
                                           [textData bytes],
@@ -217,14 +222,19 @@
                                           44096,
                                           &numBytesEncrypted);
     if (cryptStatus == kCCSuccess) {
+        
         NSData *data = [NSData dataWithBytes:buffer length:(NSUInteger)numBytesEncrypted];
         
         Byte* bb = (Byte*)[data bytes];
         
         
         ciphertext = [[NSString toHexString:bb]stringByRemovingPercentEncoding];
- 
         
+    }else{
+        
+        NSLog(@"DES加密失败");
+    
+    
     }
    
     return [ciphertext uppercaseString];
@@ -302,4 +312,19 @@
          return plaintext;
      }
 
+
+//unicode编码以\u开头
++ (NSString *)replaceUnicode:(NSString *)unicodeStr
+{
+    
+    NSString *tempStr1 = [unicodeStr stringByReplacingOccurrencesOfString:@"\\u"withString:@"\\U"];
+    NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\""withString:@"\\\""];
+    NSString *tempStr3 = [[@"\""stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* returnStr = [NSPropertyListSerialization propertyListFromData:tempData
+                                                           mutabilityOption:NSPropertyListImmutable
+                                                                     format:NULL
+                                                           errorDescription:NULL];
+    return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
+}
 @end

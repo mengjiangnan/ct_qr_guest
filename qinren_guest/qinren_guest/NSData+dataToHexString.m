@@ -33,7 +33,7 @@
     NSUInteger len = [hexString length];
     NSMutableData *retData = [[NSMutableData alloc] init];
     const char *ch = [[hexString dataUsingEncoding:NSASCIIStringEncoding] bytes];
-    for (int i=0 ; i<len ; i+=2) {
+     for (int i=0 ; i<len ; i+=2) {
         
         int height=0;
         if (ch[i]>='0' && ch[i]<='9')

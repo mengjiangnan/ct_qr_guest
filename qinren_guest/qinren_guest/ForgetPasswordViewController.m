@@ -24,6 +24,8 @@
 
 @property (nonatomic,weak) UITextField *my_security_answer_textfield;
 
+@property (nonatomic,strong) NSString *errorinfo;
+
 @end
 
 @implementation ForgetPasswordViewController
@@ -330,7 +332,7 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 
 {
-    self.my_security_question_textfield.text = @"我的出生地?";
+    self.my_security_question_textfield.text = self.my_security_question_list_array[0];
     
 }
 
@@ -362,6 +364,7 @@
         
     }
     
+       
     //网络注册请求
     
     NSString *setuserpasswordmethod = [NSString stringWithFormat:setuserpassword];
@@ -386,9 +389,26 @@
     
     NSDictionary *setuserpasswordresponder = [NSString parseJSONStringToNSDictionary:newsetuserpasswordresponderjsonstr];
     
-    NSLog(@"%@",setuserpasswordresponder);
+    self.errorinfo = setuserpasswordresponder[@"error"];
     
-
+    NSLog(@"%@",setuserpasswordurl);
+    
+    NSLog(@"%@",self.errorinfo);
+    
+    //初始化提示框；
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:self.errorinfo preferredStyle:
+                                UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnullaction) {
+        
+        //点击按钮的响应事件；
+        
+    }]];
+    
+    //弹出提示框；
+    
+    [self presentViewController:alert animated:true completion:nil];
 
 
 }

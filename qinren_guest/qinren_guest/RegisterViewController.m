@@ -42,6 +42,8 @@
 
 @property (nonatomic,strong) UITextField *myanswer;
 
+@property (nonatomic,strong) UITextField *mysex;
+
 @property (nonatomic,strong) NSString *registerstatus;
 
 @property (nonatomic,weak) UIButton *myregisterbtn;
@@ -281,6 +283,8 @@
     sex_textfield.clearButtonMode = UITextFieldViewModeAlways;
     
     [mainview addSubview:sex_textfield];
+    
+    self.mysex = sex_textfield;
     
     //密码标签
     
@@ -1672,8 +1676,11 @@
     
         NSArray *registerlistkeys = [[NSArray alloc]initWithObjects:@"username",@"pwd",@"realname",@"question_id",@"nickname",@"mobile",@"medicalhistory",@"idcard",@"housekeeper",@"birthtime",@"answer", nil];
     
-        NSArray *registerlistvalues = [[NSArray alloc]initWithObjects:self.myusername.text,self.mypassword.text,self.myrealname.text,myquestion_id,self.mynickname.text,self.mymobile.text
-                                    ,mymedicalhistory,self.my_identity_card_num_textfield.text,self.myhousekeeper.text,self.my_birthday_textfield.text,self.myanswer.text, nil];
+    
+    
+        NSArray *registerlistvalues = [[NSArray alloc]initWithObjects:self.myusername.text,self.mypassword.text,self.myrealname.text,myquestion_id,self.mynickname.text,self.mymobile.text,mymedicalhistory,self.my_identity_card_num_textfield.text,self.myhousekeeper.text,self.my_birthday_textfield.text,self.myanswer.text, nil];
+    
+    
     
         //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
     
@@ -1694,6 +1701,8 @@
     NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
     
     NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+    
+    NSLog(@"%@",registerlisturl);
     
     if ([registerresponder[@"error"] isEqualToString:@"注册成功！"]) {
         
@@ -1746,7 +1755,7 @@
 //                                                  }];
 //        //启动右边任务
 //        [registertask resume];
-//    
+    
     //初始化提示框；
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:self.registerstatus preferredStyle:
@@ -1794,6 +1803,25 @@
     [self.myusername resignFirstResponder];
     
     [self.mypassword resignFirstResponder];
+    
+    [self.mysex resignFirstResponder];
+    
+    [self.myrealname resignFirstResponder];
+    
+    [self.my_security_question_textfield resignFirstResponder];
+    
+    [self.mynickname resignFirstResponder];
+    
+    [self.mymobile resignFirstResponder];
+    
+    [self.my_identity_card_num_textfield resignFirstResponder];
+    
+    [self.myhousekeeper resignFirstResponder];
+    
+    [self.my_birthday_textfield resignFirstResponder];
+    
+    [self.myanswer resignFirstResponder];
+    
 }
 
 @end

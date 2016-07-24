@@ -32,5 +32,8 @@
 
 +(NSString *)DicMethod:(NSString*)method Params:(NSDictionary *)params;
 
+//unicode编码以\u开头
++ (NSString *)replaceUnicode:(NSString *)unicodeStr;
+
 
 @end
