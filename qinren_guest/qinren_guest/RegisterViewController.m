@@ -1698,9 +1698,11 @@
     
     NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     
-    NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+//    NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+//    
+//    NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
     
-    NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+    NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:goodslistresponderjsonstr];
     
     NSLog(@"%@",registerlisturl);
     

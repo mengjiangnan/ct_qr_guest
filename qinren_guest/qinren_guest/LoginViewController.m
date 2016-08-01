@@ -265,6 +265,10 @@
     
     NSString *getuserloginurl = [NSString Method:getuserloginmethod Params:getuserloginjosn];
     
+//    NSString *test = [NSString encodeToPercentEscapeString:getuserloginjosn];
+//    
+//    NSLog(@"%@",test);
+    
     //同步请求
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:getuserloginurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
@@ -273,9 +277,11 @@
     
     NSString *getuserloginresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     
-    NSString *newgetuserloginresponderjsonstr = [NSString decryptUseDES:getuserloginresponderjsonstr key:mykey];
+   // NSString *newgetuserloginresponderjsonstr = [NSString decryptUseDES:getuserloginresponderjsonstr key:mykey];
     
-    NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:newgetuserloginresponderjsonstr];
+   // NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:newgetuserloginresponderjsonstr];
+    
+    NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:getuserloginresponderjsonstr];
     
     self.getuserloginlistarr = [userinfo mj_objectArrayWithKeyValuesArray:getuserloginresponder[@"data"]];
     
@@ -335,5 +341,6 @@
     self.hidesBottomBarWhenPushed=NO;
 
 }
+
 
 @end

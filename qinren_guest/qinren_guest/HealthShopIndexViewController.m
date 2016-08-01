@@ -73,6 +73,8 @@
     
     tnb_btn.backgroundColor = [UIColor whiteColor];
     
+    [tnb_btn addTarget:self action:@selector(tnb) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:tnb_btn];
     
     //糖尿病按钮标签
@@ -530,6 +532,23 @@
 
 -(void)gxy{
     
+    NSString *classid = @"10";
+    
+    NSString *goodstype = @"7";
+    
+    NSNumber *pageindex = [NSNumber numberWithInt:1];
+    
+    NSNumber *pagesize = [NSNumber numberWithInt:10];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    [defaults setObject:goodstype forKey:@"goodstype"];
+    
+    [defaults setObject:pageindex forKey:@"pageindex"];
+    
+    [defaults setObject:pagesize forKey:@"pagesize"];
     
     self.hidesBottomBarWhenPushed=YES;
     
@@ -538,4 +557,21 @@
     [self.navigationController pushViewController:meal_project_vc animated:YES];
    
 }
+
+-(void)tnb{
+
+    NSString *classid = @"17";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+
+}
+
 @end

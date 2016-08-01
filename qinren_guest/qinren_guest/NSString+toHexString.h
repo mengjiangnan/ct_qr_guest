@@ -35,5 +35,8 @@
 //unicode编码以\u开头
 + (NSString *)replaceUnicode:(NSString *)unicodeStr;
 
+//uri编码
++ (NSString *)encodeToPercentEscapeString: (NSString *) input;
+
 
 @end

@@ -195,13 +195,12 @@
 
 +(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key
 {
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 
-    NSData * dataiv = [key dataUsingEncoding:enc];
+    NSData * dataiv = [key dataUsingEncoding:NSUTF8StringEncoding];
     
     NSString *ciphertext = nil;
     
-    NSData *textData = [plainText dataUsingEncoding:enc];
+    NSData *textData = [plainText dataUsingEncoding:NSUTF8StringEncoding];
     
     NSUInteger dataLength = [textData length];
     
@@ -327,4 +326,21 @@
                                                            errorDescription:NULL];
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
 }
+
+//uri编码
+
++ (NSString *)encodeToPercentEscapeString: (NSString *) input
+{
+    // Encode all the reserved characters, per RFC 3986
+    // (<http://www.ietf.org/rfc/rfc3986.txt>)
+    NSString *outputStr = (NSString *)
+    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                              (CFStringRef)input,
+                                                              NULL,
+                                                              (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                              kCFStringEncodingUTF8));
+    return outputStr;
+}
+
+
 @end

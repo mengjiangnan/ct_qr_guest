@@ -189,16 +189,35 @@ static NSString * const RightCategoryId = @"rightcategory";
                                         
                                        //[ProgressHUD dismiss];
                                         
-                                       NSString *goodsclasslistresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                        if (!error) {
+                                            
+                                            //[ProgressHUD dismiss];
+                                            
+                                            NSError *jsonerror;
+                                            
+                                            NSDictionary *leftresponderdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+                                            
+                                            if (!jsonerror) {
+                                                
+                                                self.goodsclasslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:leftresponderdic[@"data"]];
+                                                
+                                                [self.lefttableview reloadData];
+                                                
+                                            } else {
+                                         
+                                                NSString *goodsclasslistresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                        
-                                       NSString *newgoodsclasslistresponderjsonstr =[NSString decryptUseDES:goodsclasslistresponderjsonstr key:mykey];
+                                                NSString *newgoodsclasslistresponderjsonstr =[NSString decryptUseDES:goodsclasslistresponderjsonstr key:mykey];
                                        
-                                       NSDictionary *leftresponder = [NSString parseJSONStringToNSDictionary:newgoodsclasslistresponderjsonstr];
-                                       
-                                       self.goodsclasslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:leftresponder[@"data"]];
+                                                NSDictionary *leftresponder = [NSString parseJSONStringToNSDictionary:newgoodsclasslistresponderjsonstr];
+                                                
+                                                self.goodsclasslist = [LeftCategoryList mj_objectArrayWithKeyValuesArray:leftresponder[@"data"]];
                                         
-                                       [self.lefttableview reloadData];
-                                        
+                                                [self.lefttableview reloadData];
+                                       
+                                            }
+                                        }
+                                                
                                    }];
     
     // 启动左边任务
@@ -206,19 +225,21 @@ static NSString * const RightCategoryId = @"rightcategory";
     
     //右边数据模型
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *classid = [defaults objectForKey:@"classid"];
+    
+    NSString *goodstype = [defaults objectForKey:@"goodstype"];
+    
+    NSNumber *pageindex = [defaults objectForKey:@"pageindex"];
+    
+    NSNumber *pagesize = [defaults objectForKey:@"pagesize"];
+    
     NSString *goodslistmethod = [NSString stringWithFormat:getgoodslist];
     
     NSArray *goodslistkeys = [[NSArray alloc]initWithObjects:@"classid",@"goodstype",@"pageindex",@"pagesize", nil];
-    
-    int onenum = 1;
-    
-    NSNumber *onenumber = [NSNumber numberWithInt:onenum];
-    
-    int tennum = 10;
-    
-    NSNumber *tennumber = [NSNumber numberWithInt:tennum];
-    
-    NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:@"10",@"7",onenumber,tennumber, nil];
+      
+    NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:classid,goodstype,pageindex,pagesize, nil];
     
     //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
     
@@ -240,17 +261,69 @@ static NSString * const RightCategoryId = @"rightcategory";
     
                                               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                                                   
+                                                  if (!error) {
+                                                      
                                                   [ProgressHUD dismiss];
-                                              
-                                                  NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                                                      
+                                                  NSError *jsonerror;
+                                                      
+                                                  NSDictionary *rightresponderdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+                                                      
+                                                      if (!jsonerror) {
+                                                          
+                                                          NSArray *testarr = [NSArray array];
+                                                          
+                                                          testarr = rightresponderdic[@"data"];
+                                                          
+                                                          if (testarr.count == 0) {
+                                                              
+                                                              NSLog(@"in");
+                                                              
+                                                              [self.righttableview removeFromSuperview];
+                                                              
+                                                              //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"no_goods_data"]];
+                                                              
+                                                              UIImage *pic = [ UIImage imageNamed:@"no_goods_data"];
+                                                              UIImageView *imageView   = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110, 220, 220 )];
+                                                              [imageView setImage:pic];
+                                                              [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+                                                              imageView.contentMode =  UIViewContentModeScaleAspectFill;
+                                                              imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+                                                              imageView.clipsToBounds  = YES;
+                                                              
+                                                              [self.view addSubview:imageView];
+                                                              
+                                                              UILabel *textlabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110 + imageView.frame.size.height + 5, imageView.frame.size.width, 20)];
+                                                              
+                                                              textlabel.text = @"商家很懒，什么也没有上架";
+                                                              
+                                                              [self.view addSubview:textlabel];
+                                                
+                                                                
+                                                          }
+
+                                                          
+                                                          self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponderdic[@"data"]];
+                                                          
+                                                          [self.righttableview reloadData];
+                                                              
+                                                         
+
+                                                      } else {
+                                                   
+                                                         NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
                                                   
-                                                  NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+                                                         NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
                                                   
-                                                  NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+                                                         NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+
+                                                         self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
                                                   
-                                                  self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
+                                                        [self.righttableview reloadData];
+                                                      
+                                                      }
+                                                  }
                                                   
-                                                  [self.righttableview reloadData];
                                                   
                                               }];
     //启动右边任务

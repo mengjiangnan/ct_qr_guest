@@ -385,9 +385,11 @@
     
     NSString *setuserpasswordresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     
-    NSString *newsetuserpasswordresponderjsonstr = [NSString decryptUseDES:setuserpasswordresponderjsonstr key:mykey];
+//    NSString *newsetuserpasswordresponderjsonstr = [NSString decryptUseDES:setuserpasswordresponderjsonstr key:mykey];
+//    
+//    NSDictionary *setuserpasswordresponder = [NSString parseJSONStringToNSDictionary:newsetuserpasswordresponderjsonstr];
     
-    NSDictionary *setuserpasswordresponder = [NSString parseJSONStringToNSDictionary:newsetuserpasswordresponderjsonstr];
+    NSDictionary *setuserpasswordresponder = [NSString parseJSONStringToNSDictionary:setuserpasswordresponderjsonstr];
     
     self.errorinfo = setuserpasswordresponder[@"error"];
     
