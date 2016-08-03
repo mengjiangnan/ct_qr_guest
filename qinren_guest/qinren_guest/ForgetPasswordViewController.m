@@ -272,6 +272,27 @@
     [self.view addSubview:security_answer_textfield];
     
     self.my_security_answer_textfield = security_answer_textfield;
+    
+    //关闭按钮
+    
+    UIButton *close_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    CGFloat close_btn_x = self.view.frame.size.width - 50;
+    
+    CGFloat close_btn_y =  30;
+    
+    CGFloat close_btn_width = 15;
+    
+    CGFloat close_btn_height = 15;
+    
+    close_btn.frame = CGRectMake(close_btn_x, close_btn_y, close_btn_width, close_btn_height);
+    
+    [close_btn setBackgroundImage:[UIImage imageNamed:@"close_btn_bg"] forState:UIControlStateNormal];
+    
+    [close_btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:close_btn];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -413,6 +434,14 @@
     [self presentViewController:alert animated:true completion:nil];
 
 
+}
+
+-(void)close
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end

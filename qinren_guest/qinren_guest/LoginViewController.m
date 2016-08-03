@@ -222,6 +222,25 @@
     
     [self.view addSubview:self.my_forget_forget_pwd_btn];
     
+    //关闭按钮
+    
+    UIButton *close_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    CGFloat close_btn_x = self.view.frame.size.width - 50;
+    
+    CGFloat close_btn_y =  30;
+    
+    CGFloat close_btn_width = 15;
+    
+    CGFloat close_btn_height = 15;
+    
+    close_btn.frame = CGRectMake(close_btn_x, close_btn_y, close_btn_width, close_btn_height);
+    
+    [close_btn setBackgroundImage:[UIImage imageNamed:@"close_btn_bg"] forState:UIControlStateNormal];
+    
+    [close_btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:close_btn];
     
 }
 
@@ -253,7 +272,7 @@
 
 {
    
-    //网络注册请求
+    //网络登陆请求
     
     NSString *getuserloginmethod = [NSString stringWithFormat:getuserlogin];
     
@@ -263,11 +282,13 @@
     
     NSString *getuserloginjosn = [NSString Key:getuserloginkeys Value:getuserloginvalues];
     
-    NSString *getuserloginurl = [NSString Method:getuserloginmethod Params:getuserloginjosn];
+    //加密url拼接
     
-//    NSString *test = [NSString encodeToPercentEscapeString:getuserloginjosn];
-//    
-//    NSLog(@"%@",test);
+    //NSString *getuserloginurl = [NSString Method:getuserloginmethod Params:getuserloginjosn];
+    
+    //不加密url拼接
+    
+    NSString *getuserloginurl = [NSString NOMethod:getuserloginmethod NOParams:getuserloginjosn];
     
     //同步请求
     
@@ -285,9 +306,16 @@
     
     self.getuserloginlistarr = [userinfo mj_objectArrayWithKeyValuesArray:getuserloginresponder[@"data"]];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     for (userinfo *user in self.getuserloginlistarr) {
         
+        NSString *uid = user.uid;
+        
         self.teststr = user.msg;
+        
+        [defaults setObject:uid forKey:@"uid"];
+        
         
     }
     
@@ -300,25 +328,32 @@
         
         //点击按钮的响应事件；
         
+        if ([self.teststr isEqualToString:@"登录成功"]) {
+            
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }
+        
     }]];
     
     //弹出提示框；
     
     [self presentViewController:alert animated:true completion:nil];
-
+ 
 }
 
 
 -(void)myreg
 
 {
-    self.hidesBottomBarWhenPushed=YES;
+    
     
     UIViewController *reg_vc = [[RegisterViewController alloc]init];
     
-    [self.navigationController pushViewController:reg_vc animated:YES];
+    [self presentViewController:reg_vc animated:YES completion:nil];
     
-    self.hidesBottomBarWhenPushed=NO;
+    
     
 }
 
@@ -332,15 +367,24 @@
 -(void)myforget
 
 {
-    self.hidesBottomBarWhenPushed=YES;
+    
     
     UIViewController *forget_pwd_vc = [[ForgetPasswordViewController alloc]init];
     
-    [self.navigationController pushViewController:forget_pwd_vc animated:YES];
+    [self presentViewController:forget_pwd_vc animated:YES completion:nil];
     
-    self.hidesBottomBarWhenPushed=NO;
+    
 
 }
 
+-(void)close
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+
+
+}
 
 @end

@@ -13,6 +13,7 @@
 #import "ShopcarViewController.h"
 #import "LZCartViewController.h"
 #import "CustomTabBar.h"
+#import "LoginViewController.h"
 
 @interface MainTabBarController ()
 
@@ -45,7 +46,6 @@
     
     [item setTitleTextAttributes:SelectAttrs forState:UIControlStateSelected];
     
-    
     /*用封装方法设置子视图*/
     
     [self setUpVc:[[IndexViewController alloc]init] setImage:@"tab_bar_Image_index_noselect" setSelectImage:@"tab_bar_Image_index_select" setTitle:@"主页"];
@@ -57,6 +57,7 @@
     [self setUpVc:[[LZCartViewController alloc]init] setImage:@"tab_bar_Image_shopcar_noselect" setSelectImage:@"tab_bar_Image_shopcar_select" setTitle:@"购物车"];
     
     [self setUpVc:[[MyViewController alloc]init] setImage:@"tab_bar_Image_my_noselect" setSelectImage:@"tab_bar_Image_my_select" setTitle:@"我的"];
+ 
     
     /*重写tabbar.(tabbar是只读属性，所以用kvc赋值)*/
     [self setValue:[[CustomTabBar alloc]init] forKey:@"tabBar"];

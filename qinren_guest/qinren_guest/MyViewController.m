@@ -10,18 +10,24 @@
 
 #import "PersonInformationViewController.h"
 
+#import "LoginViewController.h"
+
 
 @interface MyViewController ()
 
-
+@property (nonatomic,strong) UIButton *hbtn;
 
 @end
 
 @implementation MyViewController
 
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    
     self.navigationItem.title = @"我的信息";
     
     //添加全屏子控件scrollview
@@ -80,11 +86,30 @@
     
     myhead_btn.layer.masksToBounds = YES;
     
-    //[myhead_btn setTitleColor:[UIColor greenColor]forState:UIControlStateNormal];
+        //读取用户uid
     
-    [myhead_btn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+        NSString *myuid = [defaults objectForKey:@"uid"];
+    
+        if (myuid.length > 0) {
+    
+            [myhead_btn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
+    
+            
+        } else {
+    
+            [myhead_btn setBackgroundImage:[UIImage imageNamed:@"please_login"] forState:UIControlStateNormal];
+    
+            
+                }
+    
+    [myhead_btn addTarget:self action:@selector(mylogin) forControlEvents:UIControlEventTouchUpInside];
+
     
     [mainview addSubview:myhead_btn];
+    
+    self.hbtn = myhead_btn;
     
     //我的收藏按钮
     
@@ -333,23 +358,61 @@
     my_health_manager_item_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     [mainview addSubview:my_health_manager_item_btn];
+    
+ 
+    
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 
--(void)set_btn
+- (void)viewWillAppear:(BOOL)animated {
+    
+    
+    //读取用户uid
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    if (myuid.length > 0) {
+        
+        [self.hbtn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
+       
+        
+    } else {
+        
+        [self.hbtn setBackgroundImage:[UIImage imageNamed:@"please_login"] forState:UIControlStateNormal];
+       
+        
+            }
+    
+}
+
+
+
+- (void)set_btn
 {
 
-    self.hidesBottomBarWhenPushed=YES;
+    //self.hidesBottomBarWhenPushed=YES;
     
     UIViewController *person_vc = [[PersonInformationViewController alloc]init];
     
     [self.navigationController pushViewController:person_vc animated:YES];
     
-    self.hidesBottomBarWhenPushed=NO;
+    //self.hidesBottomBarWhenPushed=NO;
+
+}
+
+-(void)mylogin
+{
+    LoginViewController *loginvc = [[LoginViewController alloc]init];
+    
+    [self presentViewController:loginvc animated:YES completion:^{}];
 
 }
 

@@ -20,8 +20,11 @@
 //字符串转字典
 
 +(NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString {
+    
     NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    
     NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+    
     return responseJSON;
 }
 
@@ -73,6 +76,42 @@
     
 }
 
+//拼接不加密url方法
+
++(NSString *)NOMethod:(NSString*)method NOParams:(NSString *)params
+
+{
+    NSString *urlstr = [[NSString alloc]init];
+    
+    NSString *myparams = [[NSString alloc]init];
+    
+    NSString *mysign = [[NSString alloc]init];
+    
+    if (params==nil) {
+        
+        myparams = nil;
+        
+        mysign = @"iphone";
+        
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Sign=%@",Testurl,method,mysign];
+        
+    }else{
+        
+        myparams = [NSString encodeToPercentEscapeString:params];
+        
+        mysign = @"iphone";
+        
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Testurl,method,myparams,mysign];
+        
+    }
+    
+    return urlstr;
+    
+}
+
+
+//拼接加密url方法
+
 +(NSString *)DicMethod:(NSString*)method Params:(NSDictionary *)params
 
 {
@@ -110,7 +149,6 @@
 +(NSString*)dictionaryToJson:(NSDictionary *)dic
 
 {
-
     NSError *parseError = nil;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
@@ -195,7 +233,6 @@
 
 +(NSString *) encryptUseDES:(NSString *)plainText key:(NSString *)key
 {
-
     NSData * dataiv = [key dataUsingEncoding:NSUTF8StringEncoding];
     
     NSString *ciphertext = nil;

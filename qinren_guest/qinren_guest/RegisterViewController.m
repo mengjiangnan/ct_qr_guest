@@ -1532,7 +1532,26 @@
     
     self.myregisterbtn = reg_btn;
     
+    //关闭按钮
     
+    UIButton *close_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    CGFloat close_btn_x = self.view.frame.size.width - 50;
+    
+    CGFloat close_btn_y =  30;
+    
+    CGFloat close_btn_width = 15;
+    
+    CGFloat close_btn_height = 15;
+    
+    close_btn.frame = CGRectMake(close_btn_x, close_btn_y, close_btn_width, close_btn_height);
+    
+    [close_btn setBackgroundImage:[UIImage imageNamed:@"close_btn_bg"] forState:UIControlStateNormal];
+    
+    [close_btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:close_btn];
+
     
   }
 
@@ -1704,7 +1723,7 @@
     
     NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:goodslistresponderjsonstr];
     
-    NSLog(@"%@",registerlisturl);
+//    NSLog(@"%@",registerlisturl);
     
     if ([registerresponder[@"error"] isEqualToString:@"注册成功！"]) {
         
@@ -1767,6 +1786,12 @@
         
         //点击按钮的响应事件；
         
+        if ([self.registerstatus isEqualToString:@"注册成功！"]) {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+        
     }]];
     
     //弹出提示框；
@@ -1825,5 +1850,16 @@
     [self.myanswer resignFirstResponder];
     
 }
+
+-(void)close
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    
+}
+
 
 @end

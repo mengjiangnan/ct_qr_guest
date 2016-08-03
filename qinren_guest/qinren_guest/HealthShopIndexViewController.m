@@ -99,6 +99,8 @@
     
     gxz_btn.backgroundColor = [UIColor whiteColor];
     
+    [gxz_btn addTarget:self action:@selector(gxz) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:gxz_btn];
     
     //高血脂按钮标签
@@ -561,6 +563,22 @@
 -(void)tnb{
 
     NSString *classid = @"17";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+
+}
+
+-(void)gxz{
+    
+    NSString *classid = @"11";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     

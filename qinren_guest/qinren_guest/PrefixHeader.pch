@@ -16,6 +16,8 @@
 
 #define Baseurl [NSString stringWithFormat:@"http://223.4.32.216:8087/index.aspx?"]
 
+#define Testurl [NSString stringWithFormat:@"http://10.99.11.62/index.aspx?"]
+
 #define mykey [NSString stringWithFormat:@"SDFL#)@F"]
 
 #define getgoodsclasslist @"get.goodsclass.list"

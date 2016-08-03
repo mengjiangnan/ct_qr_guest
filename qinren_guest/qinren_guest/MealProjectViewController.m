@@ -228,7 +228,7 @@ static NSString * const RightCategoryId = @"rightcategory";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *classid = [defaults objectForKey:@"classid"];
-    
+       
     NSString *goodstype = [defaults objectForKey:@"goodstype"];
     
     NSNumber *pageindex = [defaults objectForKey:@"pageindex"];
@@ -276,8 +276,6 @@ static NSString * const RightCategoryId = @"rightcategory";
                                                           testarr = rightresponderdic[@"data"];
                                                           
                                                           if (testarr.count == 0) {
-                                                              
-                                                              NSLog(@"in");
                                                               
                                                               [self.righttableview removeFromSuperview];
                                                               

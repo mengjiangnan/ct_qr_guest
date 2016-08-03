@@ -27,7 +27,7 @@
 //jsonparams获取方法
 +(NSString *) Key:(NSArray *)keys Value:(NSArray *)values;
 
-//拼接url方法
+//拼接加密url方法
 +(NSString *)Method:(NSString*)method Params:(NSString*)params;
 
 +(NSString *)DicMethod:(NSString*)method Params:(NSDictionary *)params;
@@ -37,6 +37,9 @@
 
 //uri编码
 + (NSString *)encodeToPercentEscapeString: (NSString *) input;
+
+//拼接不加密url方法
++(NSString *)NOMethod:(NSString*)method NOParams:(NSString *)params;
 
 
 @end

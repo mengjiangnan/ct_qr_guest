@@ -8,7 +8,7 @@
 
 #import "PersonInformationViewController.h"
 
-#import "LoginViewController.h"
+#import "MyViewController.h"
 
 #import "ProgressHUD.h"
 
@@ -19,6 +19,7 @@
 @implementation PersonInformationViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -195,6 +196,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 /*
 #pragma mark - Navigation
 
@@ -209,16 +211,14 @@
 
 -(void)loginout{
     
-    [ProgressHUD show:@"正在退出请稍等..."];
+    [self.navigationController popViewControllerAnimated:YES];
     
-    self.hidesBottomBarWhenPushed=YES;
- 
-    LoginViewController *loginvc = [[LoginViewController alloc]init];
+    //移除uid
     
-    [self.navigationController pushViewController:loginvc animated:YES];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"uid"];
     
-    [ProgressHUD dismiss];
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 
 @end
