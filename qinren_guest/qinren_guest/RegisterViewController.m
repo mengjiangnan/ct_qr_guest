@@ -1705,7 +1705,7 @@
     
         NSString *registerlistjosn = [NSString Key:registerlistkeys Value:registerlistvalues];
     
-        NSString *registerlisturl = [NSString Method:setuserregistermethod Params:registerlistjosn];
+        NSString *registerlisturl = [NSString NOMethod:setuserregistermethod NOParams:registerlistjosn];
     
         //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
     
@@ -1723,7 +1723,7 @@
     
     NSDictionary *registerresponder = [NSString parseJSONStringToNSDictionary:goodslistresponderjsonstr];
     
-//    NSLog(@"%@",registerlisturl);
+    NSLog(@"%@",registerlisturl);
     
     if ([registerresponder[@"error"] isEqualToString:@"注册成功！"]) {
         

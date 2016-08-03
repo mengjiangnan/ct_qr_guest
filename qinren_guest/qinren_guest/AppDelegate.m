@@ -33,7 +33,7 @@
                                               secret:@"d34d5a3e56992c1c48b28973c6fb2425"
                                          RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
-    [NSThread sleepForTimeInterval:3.0]; // 设置启动页面停留时间
+    //[NSThread sleepForTimeInterval:3.0]; // 设置启动页面停留时间
     //NSLog(@"启动页停留3秒");
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]; //设置窗口初始化

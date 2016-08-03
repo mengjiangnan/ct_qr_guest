@@ -17,6 +17,8 @@
 
 @property (nonatomic,strong) UIButton *hbtn;
 
+@property (nonatomic,strong) UIBarButtonItem *oldbtn;
+
 @end
 
 @implementation MyViewController
@@ -64,6 +66,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain
                                                                              target:self action:@selector(set_btn)];
     
+    self.oldbtn = self.navigationItem.rightBarButtonItem;
+    
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
     
     //圆形按钮
@@ -95,11 +99,19 @@
         if (myuid.length > 0) {
     
             [myhead_btn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
+            
+            self.navigationItem.rightBarButtonItem = self.oldbtn;
+            
+            myhead_btn.userInteractionEnabled = NO;
     
             
         } else {
     
             [myhead_btn setBackgroundImage:[UIImage imageNamed:@"please_login"] forState:UIControlStateNormal];
+            
+            self.navigationItem.rightBarButtonItem=nil;
+            
+            myhead_btn.userInteractionEnabled = YES;
     
             
                 }
@@ -372,7 +384,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    
     //读取用户uid
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -382,12 +393,19 @@
     if (myuid.length > 0) {
         
         [self.hbtn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
-       
+        
+        self.navigationItem.rightBarButtonItem = self.oldbtn;
+        
+        self.hbtn.userInteractionEnabled = NO;
+        
         
     } else {
         
         [self.hbtn setBackgroundImage:[UIImage imageNamed:@"please_login"] forState:UIControlStateNormal];
-       
+        
+        self.navigationItem.rightBarButtonItem=nil;
+        
+        self.hbtn.userInteractionEnabled = YES;
         
             }
     

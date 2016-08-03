@@ -273,6 +273,35 @@
     
     self.my_security_answer_textfield = security_answer_textfield;
     
+    //提交按钮
+    
+    UIButton *submit_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    CGFloat submit_btn_x = label_x;
+    
+    CGFloat submit_btn_y = security_answer_label_y + security_answer_label.frame.size.height + space_width + 20;
+    
+    CGFloat submit_btn_width = security_answer_textfield_width + space_width + security_answer_label.frame.size.width;
+    
+    CGFloat submit_btn_height = 30;
+    
+    CGRect submit_btn_rect = CGRectMake(submit_btn_x, submit_btn_y, submit_btn_width, submit_btn_height);
+    
+    submit_btn.frame = submit_btn_rect;
+    
+    submit_btn.backgroundColor = [UIColor greenColor];
+    
+    [submit_btn setTitle:@"提交" forState:UIControlStateNormal];
+    
+    [submit_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [submit_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [submit_btn addTarget:self action:@selector(mysubmit) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:submit_btn];
+
+    
     //关闭按钮
     
     UIButton *close_btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -292,7 +321,7 @@
     [close_btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:close_btn];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -396,7 +425,7 @@
     
     NSString *setuserpasswordjosn = [NSString Key:setuserpasswordkeys Value:setuserpasswordvalues];
     
-    NSString *setuserpasswordurl = [NSString Method:setuserpasswordmethod Params:setuserpasswordjosn];
+    NSString *setuserpasswordurl = [NSString NOMethod:setuserpasswordmethod NOParams:setuserpasswordjosn];
     
     //同步请求
     
@@ -426,6 +455,14 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnullaction) {
         
         //点击按钮的响应事件；
+        
+        if ([self.errorinfo isEqualToString:@"修改成功"]) {
+            
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }
+
         
     }]];
     

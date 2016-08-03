@@ -144,7 +144,7 @@ static NSString * const RightCategoryId = @"rightcategory";
     
     //NSString *goodsclasslistjosn = [NSString Key:goodsclasslistkeys Value:goodsclasslistvalues];
     
-    NSString *goodsclasslisturl = [NSString Method:goodsclasslistmethod Params:nil];
+    NSString *goodsclasslisturl = [NSString NOMethod:goodsclasslistmethod NOParams:nil];
     
     //左边类别列表
     
@@ -245,7 +245,7 @@ static NSString * const RightCategoryId = @"rightcategory";
     
     NSString *goodslistjosn = [NSString Key:goodslistkeys Value:goodslistvalues];
     
-    NSString *goodslisturl = [NSString Method:goodslistmethod Params:goodslistjosn];
+    NSString *goodslisturl = [NSString NOMethod:goodslistmethod NOParams:goodslistjosn];
     
     //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
     
