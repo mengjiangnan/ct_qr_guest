@@ -1786,7 +1786,7 @@
         
         //点击按钮的响应事件；
         
-        if ([self.registerstatus isEqualToString:@"注册成功！"]) {
+        if ([self.registerstatus isEqualToString:@"注册成功"]) {
             
             [self dismissViewControllerAnimated:YES completion:nil];
         }

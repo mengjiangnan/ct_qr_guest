@@ -125,6 +125,8 @@
     
     ggj_btn.backgroundColor = [UIColor whiteColor];
     
+    [ggj_btn addTarget:self action:@selector(ggj) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:ggj_btn];
     
     //骨关节按钮标签
@@ -148,6 +150,8 @@
     [ksl_btn setImage:[UIImage imageNamed:@"health_shop_ksl"] forState:UIControlStateNormal];
     
     ksl_btn.backgroundColor = [UIColor whiteColor];
+    
+    [ksl_btn addTarget:self action:@selector(ksl) forControlEvents:UIControlEventTouchUpInside];
     
     [topview addSubview:ksl_btn];
     
@@ -173,6 +177,8 @@
     
     jf_btn.backgroundColor = [UIColor whiteColor];
     
+    [jf_btn addTarget:self action:@selector(jf) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:jf_btn];
     
     //减肥按钮标签
@@ -196,6 +202,8 @@
     [sm_btn setImage:[UIImage imageNamed:@"health_shop_sm"] forState:UIControlStateNormal];
     
     sm_btn.backgroundColor = [UIColor whiteColor];
+    
+    [sm_btn addTarget:self action:@selector(sm) forControlEvents:UIControlEventTouchUpInside];
     
     [topview addSubview:sm_btn];
     
@@ -221,6 +229,8 @@
     
     yy_btn.backgroundColor = [UIColor whiteColor];
     
+    [yy_btn addTarget:self action:@selector(yy) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:yy_btn];
     
     //抑郁按钮标签
@@ -244,6 +254,8 @@
     [myl_btn setImage:[UIImage imageNamed:@"health_shop_myl"] forState:UIControlStateNormal];
     
     myl_btn.backgroundColor = [UIColor whiteColor];
+    
+    [myl_btn addTarget:self action:@selector(myl) forControlEvents:UIControlEventTouchUpInside];
     
     [topview addSubview:myl_btn];
     
@@ -269,6 +281,8 @@
     
     slbh_btn.backgroundColor = [UIColor whiteColor];
     
+    [slbh_btn addTarget:self action:@selector(slbh) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:slbh_btn];
     
     //视力保护按钮标签
@@ -293,6 +307,8 @@
     
     wcd_btn.backgroundColor = [UIColor whiteColor];
     
+    [wcd_btn addTarget:self action:@selector(wcd) forControlEvents:UIControlEventTouchUpInside];
+    
     [topview addSubview:wcd_btn];
     
     //胃肠道按钮标签
@@ -316,6 +332,8 @@
     [mzf_btn setImage:[UIImage imageNamed:@"health_shop_mzf"] forState:UIControlStateNormal];
     
     mzf_btn.backgroundColor = [UIColor whiteColor];
+    
+    [mzf_btn addTarget:self action:@selector(mzf) forControlEvents:UIControlEventTouchUpInside];
     
     [topview addSubview:mzf_btn];
     
@@ -591,5 +609,153 @@
     [self.navigationController pushViewController:meal_project_vc animated:YES];
 
 }
+
+-(void)ggj{
+
+    NSString *classid = @"19";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+
+
+}
+
+-(void)ksl{
+    
+    NSString *classid = @"20";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+
+
+
+}
+
+-(void)jf{
+
+    NSString *classid = @"21";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+
+}
+
+-(void)sm{
+    
+    NSString *classid = @"22";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
+-(void)yy{
+    
+    NSString *classid = @"23";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
+-(void)myl{
+    
+    NSString *classid = @"24";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
+-(void)slbh{
+    
+    NSString *classid = @"25";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
+-(void)wcd{
+    
+    NSString *classid = @"26";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
+-(void)mzf{
+    
+    NSString *classid = @"27";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
+    
+}
+
 
 @end
