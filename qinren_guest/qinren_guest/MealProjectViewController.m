@@ -40,6 +40,8 @@
 
 @property(nonatomic,weak)UITableView *righttableview;
 
+@property(nonatomic,strong)UIButton *myaddcar;
+
 @end
 
 @implementation MealProjectViewController
@@ -238,7 +240,7 @@ static NSString * const RightCategoryId = @"rightcategory";
     NSString *goodslistmethod = [NSString stringWithFormat:getgoodslist];
     
     NSArray *goodslistkeys = [[NSArray alloc]initWithObjects:@"classid",@"goodstype",@"pageindex",@"pagesize", nil];
-      
+    
     NSArray *goodslistvalues = [[NSArray alloc]initWithObjects:classid,goodstype,pageindex,pagesize, nil];
     
     //NSDictionary *goodslistjosndic = [NSDictionary Key:goodslistkeys Value:goodslistvalues];
@@ -407,9 +409,11 @@ static NSString * const RightCategoryId = @"rightcategory";
                                 }
                             }];
         
-        [cell.add_shop_car_button addTarget:self action:@selector(addcar) forControlEvents:UIControlEventTouchUpInside];
+        cell.add_shop_car_button.tag = [rmylist.id intValue];
         
-
+        [cell.add_shop_car_button addTarget:self action:@selector(addcar:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.buy_now_button addTarget:self action:@selector(buynow) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
       
@@ -453,11 +457,36 @@ static NSString * const RightCategoryId = @"rightcategory";
 
 //增加到购物车
 
--(void)addcar{
+-(void)addcar:(UIButton *)btn
+{
+   UIButton *button = (UIButton *)[self.righttableview viewWithTag:btn.tag];
     
+   NSString *pid = [NSString stringWithFormat:@"%ld",(long)button.tag];
     
-    NSLog(@"addcar");
+   NSNumber *quetity = [NSNumber numberWithInt:1];
 
+   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+   [defaults setObject:pid forKey:@"pid"];
+    
+   [defaults setObject:quetity forKey:@"quetity"];
+    
+   
+}
+
+//立即购买
+
+-(void)buynow{
+
+    
+    [ProgressHUD show:@"即将在下一版本开放"];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // time-consuming task
+        [NSThread sleepForTimeInterval:3.0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ProgressHUD dismiss];
+        });
+    });
 
 
 }

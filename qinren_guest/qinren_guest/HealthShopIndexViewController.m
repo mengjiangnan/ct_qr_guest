@@ -367,6 +367,8 @@
     
     jksp_btn.backgroundColor = [UIColor whiteColor];
     
+    [jksp_btn addTarget:self action:@selector(jksp) forControlEvents:UIControlEventTouchUpInside];
+    
     [midview addSubview:jksp_btn];
     
     //健康食品按钮标签
@@ -757,5 +759,13 @@
     
 }
 
+-(void)jksp{
+
+    
+    NSLog(@"jksp");
+
+
+
+}
 
 @end

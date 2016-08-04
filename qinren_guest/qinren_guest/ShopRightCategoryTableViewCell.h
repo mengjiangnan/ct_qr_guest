@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *add_shop_car_button;
 
+@property (weak, nonatomic) IBOutlet UIButton *buy_now_button;
+
 @end
