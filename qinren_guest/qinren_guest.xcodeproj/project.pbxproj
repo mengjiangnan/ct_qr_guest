@@ -102,6 +102,7 @@
 		9B5A1BA71D2A285E004F0E21 /* HealthShopIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */; };
 		9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C48001D18C9E4006E50D5 /* MyViewController.m */; };
 		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
+		9B67973A1D5442E500718198 /* UserCartList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6797391D5442E500718198 /* UserCartList.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
 		9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* LoginViewController.m */; };
 		9B68D45E1D07BB6300BCD0ED /* ShopcarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45D1D07BB6300BCD0ED /* ShopcarViewController.m */; };
@@ -339,6 +340,8 @@
 		9B5C48001D18C9E4006E50D5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		9B6797381D5442E500718198 /* UserCartList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCartList.h; sourceTree = "<group>"; };
+		9B6797391D5442E500718198 /* UserCartList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCartList.m; sourceTree = "<group>"; };
 		9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
 		9B68D4591D07BA8200BCD0ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				9BE25BF91D3C72A00033E3E2 /* RightCategoryList.m */,
 				9B39C2C71D41AB7F002327AE /* userinfo.h */,
 				9B39C2C81D41AB7F002327AE /* userinfo.m */,
+				9B6797381D5442E500718198 /* UserCartList.h */,
+				9B6797391D5442E500718198 /* UserCartList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1151,6 +1156,7 @@
 				9BE25BFA1D3C72A00033E3E2 /* RightCategoryList.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
 				9BE4195A1D0D09D0008C5396 /* SDWebImagePrefetcher.m in Sources */,
+				9B67973A1D5442E500718198 /* UserCartList.m in Sources */,
 				9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */,
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,

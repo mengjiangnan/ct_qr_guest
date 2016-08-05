@@ -101,7 +101,7 @@
         
         mysign = @"iphone";
         
-        urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Testurl,method,myparams,mysign];
+        urlstr = [NSString stringWithFormat:@"%@Method=%@&Params=%@&Sign=%@",Baseurl,method,myparams,mysign];
         
     }
     

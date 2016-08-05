@@ -90,34 +90,7 @@
     
     myhead_btn.layer.masksToBounds = YES;
     
-        //读取用户uid
-    
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-        NSString *myuid = [defaults objectForKey:@"uid"];
-    
-        if (myuid.length > 0) {
-    
-            [myhead_btn setBackgroundImage:[UIImage imageNamed:@"h4"] forState:UIControlStateNormal];
-            
-            self.navigationItem.rightBarButtonItem = self.oldbtn;
-            
-            myhead_btn.userInteractionEnabled = NO;
-    
-            
-        } else {
-    
-            [myhead_btn setBackgroundImage:[UIImage imageNamed:@"please_login"] forState:UIControlStateNormal];
-            
-            self.navigationItem.rightBarButtonItem=nil;
-            
-            myhead_btn.userInteractionEnabled = YES;
-    
-            
-                }
-    
     [myhead_btn addTarget:self action:@selector(mylogin) forControlEvents:UIControlEventTouchUpInside];
-
     
     [mainview addSubview:myhead_btn];
     

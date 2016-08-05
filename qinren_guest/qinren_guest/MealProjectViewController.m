@@ -42,6 +42,8 @@
 
 @property(nonatomic,strong)UIButton *myaddcar;
 
+@property (nonatomic,strong) NSString *errorinfo;
+
 @end
 
 @implementation MealProjectViewController
@@ -471,7 +473,105 @@ static NSString * const RightCategoryId = @"rightcategory";
     
    [defaults setObject:quetity forKey:@"quetity"];
     
-   
+   NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    if (myuid.length > 0)
+    
+    {
+        //数据模型
+        
+        NSString *mypid = [defaults objectForKey:@"pid"];
+        
+        NSNumber *myquetity = [defaults objectForKey:@"quetity"];
+        
+        NSString *cartlistmethod = [NSString stringWithFormat:setusercartlist];
+        
+        NSArray *cartlistkeys = [[NSArray alloc]initWithObjects:@"pid",@"quetity",@"userid", nil];
+        
+        NSArray *cartlistvalues = [[NSArray alloc]initWithObjects:mypid,myquetity,myuid, nil];
+        
+        NSString *cartlistjson = [NSString Key:cartlistkeys Value:cartlistvalues];
+        
+        NSString *cartlisturl = [NSString NOMethod:cartlistmethod NOParams:cartlistjson];
+        
+        //快捷方式获得购物车列表的session对象
+        
+        //[ProgressHUD show:@"请稍等..."];
+        
+        NSURLSession *mycartlistsession = [NSURLSession sharedSession];
+        
+        NSURL *mycartlisturl = [NSURL URLWithString:cartlisturl];
+        
+        NSURLSessionTask *mycartlisttask =[mycartlistsession dataTaskWithURL:mycartlisturl completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+            
+            if (!error) {
+                
+                //[ProgressHUD dismiss];
+                
+                NSError *jsonerror;
+                
+                NSDictionary *mycartlistdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+
+                if (!jsonerror) {
+                
+                    self.errorinfo = mycartlistdic[@"error"];
+                    
+                    //初始化提示框；
+                    
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:self.errorinfo preferredStyle:
+                                                UIAlertControllerStyleAlert];
+                    
+                    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnullaction) {
+                        
+                        //点击按钮的响应事件；
+                        
+                        if ([self.errorinfo isEqualToString:@"添加成功"]) {
+                            
+                            
+                            //NSLog(@"添加成功");
+                            
+                        }
+                        
+                        
+                    }]];
+                    
+                    //弹出提示框；
+                    
+                    [self presentViewController:alert animated:true completion:nil];
+
+                
+                
+                }
+            }
+        
+                                           }];
+    
+    
+        //启动购物车列表任务
+        
+        [mycartlisttask resume];
+        
+    }
+    
+    else
+    
+    {
+        [ProgressHUD show:@"请登陆，再添加"];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            // time-consuming task
+            
+            [NSThread sleepForTimeInterval:3.0];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [ProgressHUD dismiss];
+            });
+        });
+
+    
+    }
 }
 
 //立即购买
@@ -480,10 +580,15 @@ static NSString * const RightCategoryId = @"rightcategory";
 
     
     [ProgressHUD show:@"即将在下一版本开放"];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         // time-consuming task
+        
         [NSThread sleepForTimeInterval:3.0];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [ProgressHUD dismiss];
         });
     });

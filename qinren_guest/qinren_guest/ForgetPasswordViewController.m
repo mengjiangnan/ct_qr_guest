@@ -443,9 +443,9 @@
     
     self.errorinfo = setuserpasswordresponder[@"error"];
     
-    NSLog(@"%@",setuserpasswordurl);
-    
-    NSLog(@"%@",self.errorinfo);
+//    NSLog(@"%@",setuserpasswordurl);
+//    
+//    NSLog(@"%@",self.errorinfo);
     
     //初始化提示框；
     
