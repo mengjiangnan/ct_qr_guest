@@ -16,6 +16,8 @@
 
 #import "MJExtension.h"
 
+#import "ProgressHUD.h"
+
 @interface MyLehuo ()
 
 @property(nonatomic,strong)NSMutableArray *getusersigninarrm;
@@ -27,6 +29,8 @@
 @property(nonatomic,strong)UILabel *mynumberfld;
 
 @property(nonatomic,strong)NSNumber *listcount;
+
+@property(nonatomic,strong)UIButton *mysignone_btn;
 
 @end
 
@@ -156,6 +160,8 @@
     [signone_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:signone_btn];
+    
+    self.mysignone_btn = signone_btn;
     
     UIButton *signtwo_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -336,7 +342,7 @@
     
     //网络请求
     
-    NSString *getusersigninmethod = [NSString stringWithFormat:getusersignin];
+    NSString *getusersigninmethod = [NSString stringWithFormat:setusersignin];
     
     NSArray *getusersigninkeys = [[NSArray alloc]initWithObjects:@"integral",@"uid", nil];
     
@@ -356,7 +362,15 @@
     
     NSDictionary *getusersigninresponder = [NSString parseJSONStringToNSDictionary:getusersigninresponderjsonstr];
     
-    NSLog(@"%@",getusersigninresponder);
+    NSString *errorinfo = getusersigninresponder[@"error"];
+    
+    if ([errorinfo isEqualToString:@"今天已签到!"]) {
+        
+        [ProgressHUD showError: errorinfo];
+        
+        self.mysignone_btn.enabled = NO;
+        
+    }
 
 
 

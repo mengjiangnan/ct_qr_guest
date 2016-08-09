@@ -36,5 +36,7 @@
 
 #define getusersignin @"get.user.signin"
 
+#define setusersignin @"set.user.signin"
+
 #endif /* PrefixHeader_pch */
 
