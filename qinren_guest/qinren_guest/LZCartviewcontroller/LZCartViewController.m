@@ -12,6 +12,11 @@
 #import "LZConfigFile.h"
 #import "LZCartTableViewCell.h"
 #import "LZCartModel.h"
+#import "NSString+toHexString.h"
+#import "ProgressHUD.h"
+#import "MJExtension.h"
+#import "UserCartList.h"
+#import "SDWebImageManager.h"
 
 @interface LZCartViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -25,6 +30,11 @@
 @property (strong,nonatomic)UITableView *myTableView;
 @property (strong,nonatomic)UIButton *allSellectedButton;
 @property (strong,nonatomic)UILabel *totlePriceLabel;
+
+@property(nonatomic,strong)NSMutableArray *getusercartlistarrm;
+
+@property(nonatomic,strong)NSNumber *listcount;
+
 @end
 
 @implementation LZCartViewController
@@ -32,7 +42,7 @@
 #pragma mark - viewController life cicle
 - (void)viewWillAppear:(BOOL)animated {
     
-    if (_isHasNavitationController == YES) {
+       if (_isHasNavitationController == YES) {
         if (self.navigationController.navigationBarHidden == YES) {
             _isHiddenNavigationBarWhenDisappear = NO;
         } else {
@@ -57,15 +67,51 @@
 }
 
 -(void)creatData {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < [self.listcount intValue]; i++) {
+        
+        UserCartList *mylist = self.getusercartlistarrm[i];
+        
         LZCartModel *model = [[LZCartModel alloc]init];
         
-        model.nameStr = [NSString stringWithFormat:@"测试数据%d",i];
-        model.price = @"100.00";
-        model.number = 1;
-        model.image = [UIImage imageNamed:@"aaa.jpg"];
-        model.dateStr = @"2016.02.18";
-        model.sizeStr = @"18*20cm";
+       
+        
+//        model.nameStr = [NSString stringWithFormat:@"测试数据%d",i];
+//        model.price = @"100.00";
+//        model.number = 1;
+//        model.image = [UIImage imageNamed:@"aaa.jpg"];
+//        model.dateStr = @"2016.02.18";
+//        model.sizeStr = @"18*20cm";
+        
+        model.nameStr = mylist.name;
+        model.price = mylist.buyprice;
+        model.number = [mylist.quetity intValue];
+        
+        NSString *firstimg = [[mylist.imgurl componentsSeparatedByString:@","] firstObject];
+        
+        NSURL *getusercartlist_img_url = [[NSURL alloc]initWithString:firstimg];
+        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        
+        [manager downloadImageWithURL:getusercartlist_img_url
+                              options:0
+                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                 // progression tracking code
+                             }
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                
+                                
+                                // do something with image
+                                
+                                model.image =image;
+        
+                                
+                                
+                            }];
+
+        
+        model.dateStr = @"";
+        model.sizeStr = @"";
+
         
         [self.dataArray addObject:model];
     }
@@ -78,6 +124,76 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    //读取用户uid
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    //网络请求
+    
+    NSString *getusercartlistmethod = [NSString stringWithFormat:getusercartlist];
+    
+    NSArray *getusercartlistkeys = [[NSArray alloc]initWithObjects:@"uid", nil];
+    
+    NSArray *getusercartlistvalues = [[NSArray alloc]initWithObjects:myuid, nil];
+    
+    NSString *getusercartlistjson = [NSString Key:getusercartlistkeys Value:getusercartlistvalues];
+    
+    NSString *getusercartlisturl = [NSString NOMethod:getusercartlistmethod NOParams:getusercartlistjson];
+    
+    // 快捷方式获得购物车列表的session对象
+    
+    NSURLSession *getusercartlistsession = [NSURLSession sharedSession];
+    
+    NSURL *mycartlisturl = [NSURL URLWithString:getusercartlisturl];
+    
+    //[ProgressHUD show:@"请稍等..."];
+    
+    // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
+    
+    NSURLSessionTask *getusercartlisttask = [getusercartlistsession dataTaskWithURL:mycartlisturl
+                                  
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                
+                                                if (!error) {
+                                                    
+                                                    //[ProgressHUD dismiss];
+                                                    
+                                                    NSError *jsonerror;
+                                                    
+                                                    NSDictionary *getusercartlistresponderdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+                                                    
+                                                    if (!jsonerror) {
+                                                        
+                                                        self.getusercartlistarrm = [UserCartList mj_objectArrayWithKeyValuesArray:getusercartlistresponderdic[@"data"]];
+                                                        
+                                                        self.listcount = getusercartlistresponderdic[@"total"];
+                                                        
+                                                        
+                                                    } else {
+                                                        
+                                                        NSString *getusercartlistresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                        
+                                                        NSString *newgetusercartlistresponderjsonstr =[NSString decryptUseDES:getusercartlistresponderjsonstr key:mykey];
+                                                        
+                                                        NSDictionary *getusercartlistresponderdic = [NSString parseJSONStringToNSDictionary:newgetusercartlistresponderjsonstr];
+                                                        
+                                                        self.getusercartlistarrm = [UserCartList mj_objectArrayWithKeyValuesArray:getusercartlistresponderdic[@"data"]];
+                                                        
+                                                        
+                                                        
+                                                    }
+                                                }
+                                                
+                                            }];
+    
+    // 启动左边任务
+    [getusercartlisttask resume];
+
+    
+    
     _isHasTabBarController = self.tabBarController?YES:NO;
     _isHasNavitationController = self.navigationController?YES:NO;
     
@@ -139,7 +255,8 @@
 #pragma mark -- 自定义导航
 - (void)setupCustomNavigationBar {
     UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LZSCREEN_WIDTH, LZNaigationBarHeight)];
-    backgroundView.backgroundColor = LZColorFromRGB(236, 236, 236);
+    //backgroundView.backgroundColor = LZColorFromRGB(236, 236, 236);
+    backgroundView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:backgroundView];
     
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, LZNaigationBarHeight - 0.5, LZSCREEN_WIDTH, 0.5)];
@@ -435,10 +552,40 @@
 - (void)goToPayButtonClick:(UIButton*)button {
     if (self.selectedArray.count > 0) {
         for (LZCartModel *model in self.selectedArray) {
-            NSLog(@"选择的商品>>%@>>>%ld",model,(long)model.number);
+            //NSLog(@"选择的商品>>%@>>>%ld",model,(long)model.number);
+            
+            [ProgressHUD show:@"即将在下一版本开放"];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                // time-consuming task
+                
+                [NSThread sleepForTimeInterval:3.0];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [ProgressHUD dismiss];
+                });
+            });
+
         }
     } else {
-        NSLog(@"你还没有选择任何商品");
+       // NSLog(@"你还没有选择任何商品");
+        
+        [ProgressHUD show:@"你还没有选择任何商品"];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            // time-consuming task
+            
+            [NSThread sleepForTimeInterval:3.0];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [ProgressHUD dismiss];
+            });
+        });
+
     }
     
 }
@@ -447,6 +594,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

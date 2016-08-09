@@ -41,6 +41,7 @@
 		9B0F9DA81D3786CF004B347A /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F9D9D1D3786CF004B347A /* NSString+MJExtension.m */; };
 		9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */; };
 		9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */; };
+		9B1AF5071D596215004C006F /* MyLehuo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF5061D596215004C006F /* MyLehuo.m */; };
 		9B2FCEAF1D20BD4C00687390 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE6A1D20BD4C00687390 /* UMSocialLocalizable.strings */; };
 		9B2FCEB01D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCE781D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a */; };
 		9B2FCEB11D20BD4C00687390 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE7A1D20BD4C00687390 /* UMSCommentDetailController.xib */; };
@@ -229,6 +230,8 @@
 		9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousekeeperExchangeViewController.m; sourceTree = "<group>"; };
 		9B1087201D23560A006023B8 /* AdministratorExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdministratorExchangeViewController.h; sourceTree = "<group>"; };
 		9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdministratorExchangeViewController.m; sourceTree = "<group>"; };
+		9B1AF5051D596215004C006F /* MyLehuo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLehuo.h; sourceTree = "<group>"; };
+		9B1AF5061D596215004C006F /* MyLehuo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLehuo.m; sourceTree = "<group>"; };
 		9B2FCE6B1D20BD4C00687390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		9B2FCE6D1D20BD4C00687390 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		9B2FCE6E1D20BD4C00687390 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -767,6 +770,8 @@
 				9BE25BF31D3C60530033E3E2 /* ShopRightCategoryTableViewCell.h */,
 				9BE25BF41D3C60530033E3E2 /* ShopRightCategoryTableViewCell.m */,
 				9BE25BF51D3C60530033E3E2 /* ShopRightCategoryTableViewCell.xib */,
+				9B1AF5051D596215004C006F /* MyLehuo.h */,
+				9B1AF5061D596215004C006F /* MyLehuo.m */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -1155,6 +1160,7 @@
 				9B5A1BA71D2A285E004F0E21 /* HealthShopIndexViewController.m in Sources */,
 				9BE25BFA1D3C72A00033E3E2 /* RightCategoryList.m in Sources */,
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
+				9B1AF5071D596215004C006F /* MyLehuo.m in Sources */,
 				9BE4195A1D0D09D0008C5396 /* SDWebImagePrefetcher.m in Sources */,
 				9B67973A1D5442E500718198 /* UserCartList.m in Sources */,
 				9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */,

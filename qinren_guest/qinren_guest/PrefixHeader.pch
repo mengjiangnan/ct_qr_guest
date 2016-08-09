@@ -32,5 +32,7 @@
 
 #define setusercartlist @"set.user.cartlist"
 
+#define getusercartlist @"get.user.cartlist"
+
 #endif /* PrefixHeader_pch */
 

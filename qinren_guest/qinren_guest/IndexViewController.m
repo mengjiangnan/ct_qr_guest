@@ -13,6 +13,7 @@
 #import "HealthShopIndexViewController.h"
 #import "NSString+toHexString.h"
 #import "NSData+dataToHexString.h"
+#import "MyLehuo.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -442,7 +443,7 @@
     [mainview addSubview:group_shopping_btn];
     
     
-    //我的积分按钮
+    //我的红包按钮
     
     UIButton *my_ntegral_btn;
     
@@ -460,7 +461,7 @@
     
     my_ntegral_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_ntegral_btn.frame.size.width * 0.2);
     
-    [my_ntegral_btn setTitle:@"我的积分" forState:UIControlStateNormal];
+    [my_ntegral_btn setTitle:@"我的红包" forState:UIControlStateNormal];
     
     my_ntegral_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -469,6 +470,8 @@
     [my_ntegral_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     my_ntegral_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [my_ntegral_btn addTarget:self action:@selector(mylehuo) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_ntegral_btn];
     
@@ -539,9 +542,21 @@
 {
     self.hidesBottomBarWhenPushed=YES;
     
-    UIViewController *shop_index_vc = [[HealthShopIndexViewController alloc]init];
+    HealthShopIndexViewController *shop_index_vc = [[HealthShopIndexViewController alloc]init];
     
     [self.navigationController pushViewController:shop_index_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
+
+}
+
+-(void)mylehuo
+{
+    self.hidesBottomBarWhenPushed=YES;
+    
+    MyLehuo *mylehuo_vc = [[MyLehuo alloc]init];
+    
+    [self.navigationController pushViewController:mylehuo_vc animated:YES];
     
     self.hidesBottomBarWhenPushed=NO;
 

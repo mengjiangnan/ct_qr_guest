@@ -14,8 +14,9 @@
 #import "LZCartViewController.h"
 #import "CustomTabBar.h"
 #import "LoginViewController.h"
+#import "ProgressHUD.h"
 
-@interface MainTabBarController ()
+@interface MainTabBarController ()<UITabBarControllerDelegate>
 
 -(void)setUpVc:(UIViewController *)vc setImage:(NSString *)normal setSelectImage:(NSString *)select setTitle:(NSString *)title;
 
@@ -28,6 +29,8 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
+    
+    self.delegate = self;
     
     /*批量设置uitabbaritem文字颜色*/
     
@@ -102,7 +105,38 @@
     
 }
 
-
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    //读取用户uid
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    if(viewController == [tabBarController.viewControllers objectAtIndex:2])    //"购物车"
+    {
+        if (myuid.length == 0) {
+            
+            [ProgressHUD showError: @"请登陆!"];
+            
+            return NO;
+            
+        }
+        
+        LZCartViewController *lzcartvc = [[LZCartViewController alloc]init];
+        
+        [lzcartvc viewWillAppear:YES];
+        
+        
+        return YES;
+    
+    }else{
+    
+    
+        return YES;
+    
+    }
+}
 
 
 @end
