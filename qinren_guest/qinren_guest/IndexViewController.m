@@ -14,6 +14,7 @@
 #import "NSString+toHexString.h"
 #import "NSData+dataToHexString.h"
 #import "MyLehuo.h"
+#import "ProgressHUD.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -552,14 +553,29 @@
 
 -(void)mylehuo
 {
-    self.hidesBottomBarWhenPushed=YES;
+    //读取用户uid
     
-    MyLehuo *mylehuo_vc = [[MyLehuo alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [self.navigationController pushViewController:mylehuo_vc animated:YES];
+    NSString *myuid = [defaults objectForKey:@"uid"];
     
-    self.hidesBottomBarWhenPushed=NO;
+           if (myuid.length == 0) {
+            
+            [ProgressHUD showError: @"请登陆!"];
+            
+               
+           }else{
 
+    
+             self.hidesBottomBarWhenPushed=YES;
+    
+             MyLehuo *mylehuo_vc = [[MyLehuo alloc]init];
+    
+             [self.navigationController pushViewController:mylehuo_vc animated:YES];
+    
+             self.hidesBottomBarWhenPushed=NO;
+           
+           }
 }
 
 @end

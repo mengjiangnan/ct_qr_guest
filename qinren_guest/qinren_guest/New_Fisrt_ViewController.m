@@ -24,7 +24,7 @@
     
     UIWebView *webview = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    NSURL *url_new_01 = [[NSURL alloc]initWithString:@"http://223.4.32.216:8087/app/healthnewsdetail.aspx?id=1f58fdf8-bab5-4196-8589-856e85392924"];
+    NSURL *url_new_01 = [[NSURL alloc]initWithString:@"http://www.qrgs360.com:8087/app/healthnewsdetail.aspx?id=1f58fdf8-bab5-4196-8589-856e85392924"];
     
     [webview loadRequest:[NSURLRequest requestWithURL:url_new_01]];
     

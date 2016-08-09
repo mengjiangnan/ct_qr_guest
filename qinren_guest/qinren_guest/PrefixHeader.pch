@@ -34,5 +34,7 @@
 
 #define getusercartlist @"get.user.cartlist"
 
+#define getusersignin @"get.user.signin"
+
 #endif /* PrefixHeader_pch */
 

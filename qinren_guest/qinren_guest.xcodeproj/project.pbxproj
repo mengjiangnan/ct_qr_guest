@@ -42,6 +42,8 @@
 		9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */; };
 		9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */; };
 		9B1AF5071D596215004C006F /* MyLehuo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF5061D596215004C006F /* MyLehuo.m */; };
+		9B1AF50A1D598B23004C006F /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF5091D598B23004C006F /* ExplainViewController.m */; };
+		9B1AF50D1D59AD2D004C006F /* MyLehuoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */; };
 		9B2FCEAF1D20BD4C00687390 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE6A1D20BD4C00687390 /* UMSocialLocalizable.strings */; };
 		9B2FCEB01D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCE781D20BD4C00687390 /* libUMSocial_Sdk_5.2.1.a */; };
 		9B2FCEB11D20BD4C00687390 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2FCE7A1D20BD4C00687390 /* UMSCommentDetailController.xib */; };
@@ -232,6 +234,10 @@
 		9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdministratorExchangeViewController.m; sourceTree = "<group>"; };
 		9B1AF5051D596215004C006F /* MyLehuo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLehuo.h; sourceTree = "<group>"; };
 		9B1AF5061D596215004C006F /* MyLehuo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLehuo.m; sourceTree = "<group>"; };
+		9B1AF5081D598B23004C006F /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
+		9B1AF5091D598B23004C006F /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
+		9B1AF50B1D59AD2D004C006F /* MyLehuoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLehuoList.h; sourceTree = "<group>"; };
+		9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLehuoList.m; sourceTree = "<group>"; };
 		9B2FCE6B1D20BD4C00687390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		9B2FCE6D1D20BD4C00687390 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		9B2FCE6E1D20BD4C00687390 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -468,6 +474,8 @@
 				9B39C2C81D41AB7F002327AE /* userinfo.m */,
 				9B6797381D5442E500718198 /* UserCartList.h */,
 				9B6797391D5442E500718198 /* UserCartList.m */,
+				9B1AF50B1D59AD2D004C006F /* MyLehuoList.h */,
+				9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -764,6 +772,8 @@
 				9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */,
 				9B02533E1D2B3FE500360443 /* MealProjectViewController.h */,
 				9B02533F1D2B3FE500360443 /* MealProjectViewController.m */,
+				9B1AF5081D598B23004C006F /* ExplainViewController.h */,
+				9B1AF5091D598B23004C006F /* ExplainViewController.m */,
 				2F213E4C1D3B68C000339496 /* ShopLeftCategoryTableViewCell.h */,
 				2F213E4D1D3B68C000339496 /* ShopLeftCategoryTableViewCell.m */,
 				2F213E4E1D3B68C000339496 /* ShopLeftCategoryTableViewCell.xib */,
@@ -1122,6 +1132,7 @@
 				9B0F9DA41D3786CF004B347A /* NSObject+MJClass.m in Sources */,
 				2FFC003C1D154FA800616FC8 /* TADotView.m in Sources */,
 				9B4806631D065817002B2175 /* IndexViewController.m in Sources */,
+				9B1AF50D1D59AD2D004C006F /* MyLehuoList.m in Sources */,
 				9B8E9F041D364EDF0096F04E /* NSData+dataToHexString.m in Sources */,
 				9B68D45E1D07BB6300BCD0ED /* ShopcarViewController.m in Sources */,
 				9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */,
@@ -1168,6 +1179,7 @@
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,
 				9B5A1BA41D2A013F004F0E21 /* New_Second_ViewController.m in Sources */,
+				9B1AF50A1D598B23004C006F /* ExplainViewController.m in Sources */,
 				9B39C2D51D42182B002327AE /* TPKeyboardAvoidingTableView.m in Sources */,
 				9B0253501D2B5F5300360443 /* AFNetworkReachabilityManager.m in Sources */,
 				9B0F9D861D376993004B347A /* ProgressHUD.m in Sources */,
