@@ -1711,11 +1711,15 @@
     
     //同步请求
     
+    [ProgressHUD show:@"请稍等..."];
+    
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:registerlisturl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     
     NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
     
     NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    
+    [ProgressHUD dismiss];
     
 //    NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
 //    

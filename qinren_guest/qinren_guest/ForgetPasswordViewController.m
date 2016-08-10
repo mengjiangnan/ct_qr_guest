@@ -10,6 +10,8 @@
 
 #import "NSString+toHexString.h"
 
+#import "ProgressHUD.h"
+
 @interface ForgetPasswordViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 
 @property (nonatomic,weak) UIPickerView *mypickview;
@@ -429,11 +431,15 @@
     
     //同步请求
     
+    [ProgressHUD show:@"请稍等..."];
+    
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:setuserpasswordurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     
     NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
     
     NSString *setuserpasswordresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    
+    [ProgressHUD show:@"请稍等..."];
     
 //    NSString *newsetuserpasswordresponderjsonstr = [NSString decryptUseDES:setuserpasswordresponderjsonstr key:mykey];
 //    

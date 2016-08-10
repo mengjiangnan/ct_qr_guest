@@ -32,6 +32,20 @@
 
 @property(nonatomic,strong)UIButton *mysignone_btn;
 
+@property(nonatomic,strong)UIButton *mysigntwo_btn;
+
+@property(nonatomic,strong)UIButton *mysignthree_btn;
+
+@property(nonatomic,strong)UIButton *mysignfour_btn;
+
+@property(nonatomic,strong)UIButton *mysignfive_btn;
+
+@property(nonatomic,strong)UIButton *mysignsix_btn;
+
+@property(nonatomic,strong)UIButton *mysignseven_btn;
+
+@property(nonatomic,strong)UIButton *mysigneight_btn;
+
 @end
 
 @implementation MyLehuo
@@ -163,6 +177,7 @@
     
     self.mysignone_btn = signone_btn;
     
+    
     UIButton *signtwo_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
     signtwo_btn.frame = CGRectMake(self.view.frame.size.width - self.view.frame.size.width * 0.1 - 45, 64+20+15+10+15+10+15+20+20, 45, 45);
@@ -171,7 +186,12 @@
     
     [signtwo_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signtwo_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signtwo_btn];
+    
+    self.mysigntwo_btn = signtwo_btn;
+    
     
     UIButton *signthree_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -181,7 +201,12 @@
     
     [signthree_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signthree_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signthree_btn];
+    
+    self.mysignthree_btn = signthree_btn;
+    
     
     UIButton *signfour_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -191,7 +216,12 @@
     
     [signfour_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signfour_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signfour_btn];
+    
+    self.mysignfour_btn = signfour_btn;
+    
     
     UIButton *signfive_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -201,7 +231,11 @@
     
     [signfive_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signfive_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signfive_btn];
+    
+    self.mysignfive_btn = signfive_btn;
 
     
     UIButton *signsix_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -212,7 +246,11 @@
     
     [signsix_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signsix_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signsix_btn];
+    
+    self.mysignsix_btn = signsix_btn;
     
     
     UIButton *signseven_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -223,7 +261,11 @@
     
     [signseven_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signseven_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signseven_btn];
+    
+    self.mysignseven_btn = signseven_btn;
     
     
     UIButton *signeight_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -234,7 +276,11 @@
     
     [signeight_btn setTitle:@"签到" forState:UIControlStateNormal];
     
+    [signeight_btn addTarget:self action:@selector(signone) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:signeight_btn];
+    
+    self.mysigneight_btn = signeight_btn;
 
     
     //读取用户uid
@@ -257,64 +303,101 @@
     
     // 快捷方式获得购物车列表的session对象
     
-    NSURLSession *getusersigninsession = [NSURLSession sharedSession];
+    // NSURLSession *getusersigninsession = [NSURLSession sharedSession];
     
-    NSURL *mysigninurl = [NSURL URLWithString:getusersigninurl];
+   // NSURL *mysigninurl = [NSURL URLWithString:getusersigninurl];
+    
+    // 同步请求
+    
+    [ProgressHUD show:@"请稍等..."];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:getusersigninurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
+    
+    NSError *jsonerror;
+    
+    NSDictionary *getusersigninresponderdic = [NSJSONSerialization JSONObjectWithData:received options:  NSJSONReadingAllowFragments error:&jsonerror];
+    
+    if (!jsonerror) {
+        
+    [ProgressHUD dismiss];
+        
+        self.getusersigninarrm = [MyLehuoList mj_objectArrayWithKeyValuesArray:getusersigninresponderdic[@"data"]];
+        
+         self.listcount = getusersigninresponderdic[@"total"];
+        
+         for (int i = 0; i < [self.listcount intValue]; i++) {
+        
+          MyLehuoList *mylehuolist = self.getusersigninarrm[i];
+        
+          self.mytotallehuofld.text = [NSString stringWithFormat:@"%@R",mylehuolist.customer_credits];
+        
+          self.mydayfld.text = [NSString stringWithFormat:@"%@天", mylehuolist.signnum];
+        
+          self.mynumberfld.text = [NSString stringWithFormat:@"%@R", mylehuolist.score];
+        
+          }
+
+    
+    }
+
+    
     
     //[ProgressHUD show:@"请稍等..."];
     
     // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
     
-    NSURLSessionTask *getusersignintask = [getusersigninsession dataTaskWithURL:mysigninurl
-                                             
-                                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                                      
-                                                                      if (!error) {
-                                                                          
-                                                                          //[ProgressHUD dismiss];
-                                                                          
-                                                                          NSError *jsonerror;
-                                                                          
-                                                                          NSDictionary *getusersigninresponderdic = [NSJSONSerialization JSONObjectWithData:data options:  NSJSONReadingAllowFragments error:&jsonerror];
-                                                                          
-                                                                          if (!jsonerror) {
-                                                                              
-                                                                              self.getusersigninarrm = [MyLehuoList mj_objectArrayWithKeyValuesArray:getusersigninresponderdic[@"data"]];
-                                                                              
-                                                                              self.listcount = getusersigninresponderdic[@"total"];
-                                                                              
-                                                                              for (int i = 0; i < [self.listcount intValue]; i++) {
-                                                                                  
-                                                                                  MyLehuoList *mylehuolist = self.getusersigninarrm[i];
-                                                                                  
-                                                                                  self.mytotallehuofld.text = [NSString stringWithFormat:@"%@R",mylehuolist.customer_credits];
-                                                                                  
-                                                                                  self.mydayfld.text = [NSString stringWithFormat:@"%@天", mylehuolist.signnum];
-                                                                                  
-                                                                                  self.mynumberfld.text = [NSString stringWithFormat:@"%@R", mylehuolist.score];
-                                                                                  
-                                                                              }
-
-                                                                              
-                                                                          } else {
-                                                                              
-                                                                              NSString *getusersigninresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                                              
-                                                                              NSString *newgetusersigninresponderjsonstr =[NSString decryptUseDES:getusersigninresponderjsonstr key:mykey];
-                                                                              
-                                                                              NSDictionary *getusersigninresponderdic = [NSString parseJSONStringToNSDictionary:newgetusersigninresponderjsonstr];
-                                                                              
-                                                                              self.getusersigninarrm = [MyLehuoList mj_objectArrayWithKeyValuesArray:getusersigninresponderdic[@"data"]];
-                                                                              
-                                                                              
-                                                                              
-                                                                          }
-                                                                      }
-                                                                      
-                                                                  }];
-    
-    // 启动左边任务
-    [getusersignintask resume];
+//    NSURLSessionTask *getusersignintask = [getusersigninsession dataTaskWithURL:mysigninurl
+//                                             
+//                                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//                                                                      
+//                                                                      if (!error) {
+//                                                                          
+//                                                                          //[ProgressHUD dismiss];
+//                                                                          
+//                                                                          NSError *jsonerror;
+//                                                                          
+//                                                                          NSDictionary *getusersigninresponderdic = [NSJSONSerialization JSONObjectWithData:data options:  NSJSONReadingAllowFragments error:&jsonerror];
+//                                                                          
+//                                                                          if (!jsonerror) {
+//                                                                              
+//                                                                              self.getusersigninarrm = [MyLehuoList mj_objectArrayWithKeyValuesArray:getusersigninresponderdic[@"data"]];
+//                                                                              
+//                                                                              self.listcount = getusersigninresponderdic[@"total"];
+//                                                                              
+//                                                                              for (int i = 0; i < [self.listcount intValue]; i++) {
+//                                                                                  
+//                                                                                  MyLehuoList *mylehuolist = self.getusersigninarrm[i];
+//                                                                                  
+//                                                                                  self.mytotallehuofld.text = [NSString stringWithFormat:@"%@R",mylehuolist.customer_credits];
+//                                                                                  
+//                                                                                  self.mydayfld.text = [NSString stringWithFormat:@"%@天", mylehuolist.signnum];
+//                                                                                  
+//                                                                                  self.mynumberfld.text = [NSString stringWithFormat:@"%@R", mylehuolist.score];
+//                                                                                  
+//                                                                              }
+//
+//                                                                              
+//                                                                          } else {
+//                                                                              
+//                                                                              NSString *getusersigninresponderjsonstr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                                                                              
+//                                                                              NSString *newgetusersigninresponderjsonstr =[NSString decryptUseDES:getusersigninresponderjsonstr key:mykey];
+//                                                                              
+//                                                                              NSDictionary *getusersigninresponderdic = [NSString parseJSONStringToNSDictionary:newgetusersigninresponderjsonstr];
+//                                                                              
+//                                                                              self.getusersigninarrm = [MyLehuoList mj_objectArrayWithKeyValuesArray:getusersigninresponderdic[@"data"]];
+//                                                                              
+//                                                                              
+//                                                                              
+//                                                                          }
+//                                                                      }
+//                                                                      
+//                                                                  }];
+//    
+//    // 启动左边任务
+//    [getusersignintask resume];
 
 }
 
@@ -342,11 +425,15 @@
     
     //网络请求
     
+    int y = (arc4random() % 6) + 5;
+    
+    NSString *ran = [NSString stringWithFormat:@"%d",y];
+    
     NSString *getusersigninmethod = [NSString stringWithFormat:setusersignin];
     
     NSArray *getusersigninkeys = [[NSArray alloc]initWithObjects:@"integral",@"uid", nil];
     
-    NSArray *getusersigninvalues = [[NSArray alloc]initWithObjects:@"8",myuid, nil];
+    NSArray *getusersigninvalues = [[NSArray alloc]initWithObjects:ran,myuid, nil];
     
     NSString *getusersigninjson = [NSString Key:getusersigninkeys Value:getusersigninvalues];
     
@@ -364,16 +451,24 @@
     
     NSString *errorinfo = getusersigninresponder[@"error"];
     
-    if ([errorinfo isEqualToString:@"今天已签到!"]) {
+    [ProgressHUD showError: errorinfo];
         
-        [ProgressHUD showError: errorinfo];
-        
-        self.mysignone_btn.enabled = NO;
-        
-    }
-
-
-
+    self.mysignone_btn.enabled = NO;
+    
+    self.mysigntwo_btn.enabled = NO;
+    
+    self.mysignthree_btn.enabled = NO;
+    
+    self.mysignfour_btn.enabled = NO;
+    
+    self.mysignfive_btn.enabled = NO;
+    
+    self.mysignsix_btn.enabled = NO;
+    
+    self.mysignseven_btn.enabled = NO;
+    
+    self.mysigneight_btn.enabled = NO;
+ 
 }
 
 @end

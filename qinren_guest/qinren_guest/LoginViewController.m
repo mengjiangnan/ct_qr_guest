@@ -292,17 +292,23 @@
     
     //同步请求
     
+    [ProgressHUD show:@"请稍等..."];
+    
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:getuserloginurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     
     NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
     
     NSString *getuserloginresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     
+    [ProgressHUD dismiss];
+    
    // NSString *newgetuserloginresponderjsonstr = [NSString decryptUseDES:getuserloginresponderjsonstr key:mykey];
     
    // NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:newgetuserloginresponderjsonstr];
     
     NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:getuserloginresponderjsonstr];
+    
+    NSLog(@"%@",getuserloginresponder[@"data"]);
     
     self.getuserloginlistarr = [userinfo mj_objectArrayWithKeyValuesArray:getuserloginresponder[@"data"]];
     
@@ -314,8 +320,15 @@
         
         self.teststr = user.msg;
         
+        NSString *nickname = user.nickname;
+        
+        NSString *phone = user.phone;
+        
         [defaults setObject:uid forKey:@"uid"];
         
+        [defaults setObject:nickname forKey:@"nickname"];
+        
+        [defaults setObject:phone forKey:@"phone"];
         
     }
     

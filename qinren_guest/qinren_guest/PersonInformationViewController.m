@@ -65,7 +65,17 @@
     
     my_information_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, btn_const_height * 0.2);
     
-    [my_information_btn setTitle:@"罗忠 手机号:18808680413" forState:UIControlStateNormal];
+    //个人信息获取
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *nickname = [defaults objectForKey:@"nickname"];
+    
+    NSString *phone = [defaults objectForKey:@"phone"];
+    
+    NSString *info = [NSString stringWithFormat:@"%@ 手机号:%@",nickname,phone];
+    
+    [my_information_btn setTitle:info forState:UIControlStateNormal];
     
     my_information_btn.titleLabel.font = [UIFont systemFontOfSize:15.0];
     
@@ -129,9 +139,11 @@
     
     [change_pwd_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
+    [change_pwd_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:change_pwd_btn];
     
-    //关于亲仁健康按钮
+    //关于乐活小管家按钮
     
     UIButton *about_me_btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -149,13 +161,15 @@
     
     about_me_btn.backgroundColor = [UIColor whiteColor];
     
-    [about_me_btn setTitle:@"关于亲仁健康" forState:UIControlStateNormal];
+    [about_me_btn setTitle:@"关于乐活小管家" forState:UIControlStateNormal];
     
     about_me_btn.titleLabel.font = [UIFont systemFontOfSize:15.0];
     
     [about_me_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [about_me_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [about_me_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:about_me_btn];
     
@@ -220,5 +234,12 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void)test
+{
+    
+    [ProgressHUD showError: @"此功能下一版本开放！"];
+
+
+}
 
 @end

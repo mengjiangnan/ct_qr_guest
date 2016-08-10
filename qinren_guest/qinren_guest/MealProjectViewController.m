@@ -253,83 +253,152 @@ static NSString * const RightCategoryId = @"rightcategory";
     
     //NSString *goodslisturl = [NSString DicMethod:goodslistmethod Params:goodslistjosndic];
     
-    //快捷方式获得右边列表的session对象
+    //右边列表同步请求
     
     [ProgressHUD show:@"请稍等..."];
     
-    NSURLSession *rightsession = [NSURLSession sharedSession];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:goodslisturl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     
-    NSURL *righturl = [NSURL URLWithString:goodslisturl];
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
     
-    NSURLSessionTask *righttask = [rightsession dataTaskWithURL:righturl
+    NSError *jsonerror;
     
-                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-                                                  
-                                                  if (!error) {
-                                                      
-                                                  [ProgressHUD dismiss];
-                                                      
-                                                  NSError *jsonerror;
-                                                      
-                                                  NSDictionary *rightresponderdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
-                                                      
-                                                      if (!jsonerror) {
+    NSDictionary *rightresponderdic = [NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingAllowFragments error:&jsonerror];
+    
+    if (!jsonerror) {
+        
+    [ProgressHUD dismiss];
+        
+       NSArray *testarr = [NSArray array];
+        
+       testarr = rightresponderdic[@"data"];
+        
+       if (testarr.count == 0) {
+        
+          [self.righttableview removeFromSuperview];
+        
+           //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"no_goods_data"]];
+        
+           UIImage *pic = [ UIImage imageNamed:@"no_goods_data"];
+           UIImageView *imageView   = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110, 220, 220 )];
+           [imageView setImage:pic];
+           [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+            imageView.contentMode =  UIViewContentModeScaleAspectFill;
+            imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            imageView.clipsToBounds  = YES;
+        
+            [self.view addSubview:imageView];
+        
+            UILabel *textlabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110 + imageView.frame.size.height + 5, imageView.frame.size.width, 20)];
+        
+            textlabel.text = @"商家很懒，什么也没有上架";
+        
+            [self.view addSubview:textlabel];
+        
+        
+                                   }
+        
+        
+              self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponderdic[@"data"]];
+        
+              [self.righttableview reloadData];
+        
+        
+        
+              } else {
+        
+             NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+        
+             NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+        
+             NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+        
+             self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
                                                           
-                                                          NSArray *testarr = [NSArray array];
-                                                          
-                                                          testarr = rightresponderdic[@"data"];
-                                                          
-                                                          if (testarr.count == 0) {
+             [self.righttableview reloadData];
                                                               
-                                                              [self.righttableview removeFromSuperview];
-                                                              
-                                                              //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"no_goods_data"]];
-                                                              
-                                                              UIImage *pic = [ UIImage imageNamed:@"no_goods_data"];
-                                                              UIImageView *imageView   = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110, 220, 220 )];
-                                                              [imageView setImage:pic];
-                                                              [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-                                                              imageView.contentMode =  UIViewContentModeScaleAspectFill;
-                                                              imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-                                                              imageView.clipsToBounds  = YES;
-                                                              
-                                                              [self.view addSubview:imageView];
-                                                              
-                                                              UILabel *textlabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110 + imageView.frame.size.height + 5, imageView.frame.size.width, 20)];
-                                                              
-                                                              textlabel.text = @"商家很懒，什么也没有上架";
-                                                              
-                                                              [self.view addSubview:textlabel];
-                                                
-                                                                
-                                                          }
+                                                              }
 
-                                                          
-                                                          self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponderdic[@"data"]];
-                                                          
-                                                          [self.righttableview reloadData];
-                                                              
-                                                         
 
-                                                      } else {
-                                                   
-                                                         NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                                                  
-                                                         NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
-                                                  
-                                                         NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
-
-                                                         self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
-                                                  
-                                                        [self.righttableview reloadData];
-                                                      
-                                                      }
-                                                  }
-                                                  
-                                                  
-                                              }];
-    //启动右边任务
-    [righttask resume];
+    
+    
+    //快捷方式获得右边列表的session对象
+    
+//    [ProgressHUD show:@"请稍等..."];
+    
+//    NSURLSession *rightsession = [NSURLSession sharedSession];
+//    
+//    NSURL *righturl = [NSURL URLWithString:goodslisturl];
+//    
+//    NSURLSessionTask *righttask = [rightsession dataTaskWithURL:righturl
+//    
+//                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+//                                                  
+//                                                  if (!error) {
+//                                                      
+//                                                  [ProgressHUD dismiss];
+//                                                      
+//                                                  NSError *jsonerror;
+//                                                      
+//                                                  NSDictionary *rightresponderdic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+//                                                      
+//                                                      if (!jsonerror) {
+//                                                          
+//                                                          NSArray *testarr = [NSArray array];
+//                                                          
+//                                                          testarr = rightresponderdic[@"data"];
+//                                                          
+//                                                          if (testarr.count == 0) {
+//                                                              
+//                                                              [self.righttableview removeFromSuperview];
+//                                                              
+//                                                              //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"no_goods_data"]];
+//                                                              
+//                                                              UIImage *pic = [ UIImage imageNamed:@"no_goods_data"];
+//                                                              UIImageView *imageView   = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110, 220, 220 )];
+//                                                              [imageView setImage:pic];
+//                                                              [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//                                                              imageView.contentMode =  UIViewContentModeScaleAspectFill;
+//                                                              imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//                                                              imageView.clipsToBounds  = YES;
+//                                                              
+//                                                              [self.view addSubview:imageView];
+//                                                              
+//                                                              UILabel *textlabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.5 - 110, self.view.frame.size.height * 0.5 - 110 + imageView.frame.size.height + 5, imageView.frame.size.width, 20)];
+//                                                              
+//                                                              textlabel.text = @"商家很懒，什么也没有上架";
+//                                                              
+//                                                              [self.view addSubview:textlabel];
+//                                                
+//                                                                
+//                                                          }
+//
+//                                                          
+//                                                          self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponderdic[@"data"]];
+//                                                          
+//                                                          [self.righttableview reloadData];
+//                                                              
+//                                                         
+//
+//                                                      } else {
+//                                                   
+//                                                         NSString *goodslistresponderjsonstr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//                                                  
+//                                                         NSString *newgoodslistresponderjsonstr = [NSString decryptUseDES:goodslistresponderjsonstr key:mykey];
+//                                                  
+//                                                         NSDictionary *rightresponder = [NSString parseJSONStringToNSDictionary:newgoodslistresponderjsonstr];
+//
+//                                                         self.goodslist = [RightCategoryList mj_objectArrayWithKeyValuesArray:rightresponder[@"data"]];
+//                                                  
+//                                                        [self.righttableview reloadData];
+//                                                      
+//                                                      }
+//                                                  }
+//                                                  
+//                                                  
+//                                              }];
+//    //启动右边任务
+//    [righttask resume];
   
 }
 

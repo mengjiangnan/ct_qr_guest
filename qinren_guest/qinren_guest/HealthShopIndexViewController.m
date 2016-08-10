@@ -393,6 +393,8 @@
     
     jkyp_btn.backgroundColor = [UIColor whiteColor];
     
+    [jkyp_btn addTarget:self action:@selector(jksp) forControlEvents:UIControlEventTouchUpInside];
+    
     [midview addSubview:jkyp_btn];
     
     //健康用品按钮标签
@@ -416,6 +418,8 @@
     [jkqc_btn setImage:[UIImage imageNamed:@"health_shop_jkqc"] forState:UIControlStateNormal];
     
     jkqc_btn.backgroundColor = [UIColor whiteColor];
+    
+    [jkqc_btn addTarget:self action:@selector(jksp) forControlEvents:UIControlEventTouchUpInside];
     
     [midview addSubview:jkqc_btn];
     
@@ -441,6 +445,8 @@
     
     sqtg_btn.backgroundColor = [UIColor whiteColor];
     
+    [sqtg_btn addTarget:self action:@selector(jksp) forControlEvents:UIControlEventTouchUpInside];
+    
     [midview addSubview:sqtg_btn];
     
     //社区团购按钮标签
@@ -464,6 +470,8 @@
     [jfsc_btn setImage:[UIImage imageNamed:@"health_shop_jfsc"] forState:UIControlStateNormal];
     
     jfsc_btn.backgroundColor = [UIColor whiteColor];
+    
+    [jfsc_btn addTarget:self action:@selector(jksp) forControlEvents:UIControlEventTouchUpInside];
     
     [midview addSubview:jfsc_btn];
     
@@ -531,25 +539,20 @@
 */
 
 -(void)seckilling {
-    
-    
-    
-    
-    
-    NSLog(@"seckilling");
-    
-    
-    
-    [ProgressHUD show:@"请稍等..."];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // time-consuming task
-        [NSThread sleepForTimeInterval:3.0];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [ProgressHUD dismiss];
-        });
-    });
 
+    NSString *classid = @"17";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
 
+  
 }
 
 -(void)gxy{
@@ -760,11 +763,20 @@
 }
 
 -(void)jksp{
-
     
-    NSLog(@"jksp");
+    //zhanshi
 
-
+    NSString *classid = @"17";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:classid forKey:@"classid"];
+    
+    self.hidesBottomBarWhenPushed=YES;
+    
+    UIViewController *meal_project_vc = [[MealProjectViewController alloc]init];
+    
+    [self.navigationController pushViewController:meal_project_vc animated:YES];
 
 }
 

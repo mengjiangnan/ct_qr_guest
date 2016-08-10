@@ -130,8 +130,13 @@
         
         return YES;
     
-    }else{
+    }else if(viewController == [tabBarController.viewControllers objectAtIndex:1]){
     
+        [ProgressHUD showError: @"对不起您没有交流群的权限！"];
+    
+        return NO;
+    
+    }else{
     
         return YES;
     

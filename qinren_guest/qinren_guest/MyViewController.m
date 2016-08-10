@@ -12,6 +12,8 @@
 
 #import "LoginViewController.h"
 
+#import "ProgressHUD.h"
+
 
 @interface MyViewController ()
 
@@ -116,6 +118,8 @@
     
     mycollect_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
+    [mycollect_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:mycollect_btn];
 
     //我的积分按钮
@@ -137,6 +141,8 @@
     [myintegral_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     myintegral_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [myintegral_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
 
     [mainview addSubview:myintegral_btn];
     
@@ -174,6 +180,8 @@
     
     wait_pay_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
+    [wait_pay_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:wait_pay_btn];
     
     //待发货按钮
@@ -197,6 +205,8 @@
     [wait_sip_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     wait_sip_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [wait_sip_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:wait_sip_btn];
     
@@ -222,6 +232,8 @@
     
     wait_receipt_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
+    [wait_receipt_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:wait_receipt_btn];
     
     //待评价按钮
@@ -245,6 +257,8 @@
     [wait_appraise_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     wait_appraise_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [wait_appraise_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:wait_appraise_btn];
     
@@ -270,6 +284,8 @@
     
     my_device_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     
+    [my_device_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:my_device_btn];
     
     //我的方案按钮
@@ -293,6 +309,8 @@
     [my_scheme_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     my_scheme_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [my_scheme_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_scheme_btn];
     
@@ -318,6 +336,8 @@
     
     my_member_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     
+    [my_member_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:my_member_btn];
     
     //我的健康管理项目按钮
@@ -341,6 +361,8 @@
     [my_health_manager_item_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     my_health_manager_item_btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [my_health_manager_item_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_health_manager_item_btn];
     
@@ -404,6 +426,12 @@
     LoginViewController *loginvc = [[LoginViewController alloc]init];
     
     [self presentViewController:loginvc animated:YES completion:^{}];
+
+}
+
+-(void)test
+{
+    [ProgressHUD showError: @"对不起暂未开放！"];
 
 }
 

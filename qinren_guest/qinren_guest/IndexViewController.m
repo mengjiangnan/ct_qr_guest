@@ -140,6 +140,8 @@
     
     health_manager_left_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_left_tel_img.size.height+20, 0, 0, 0);
     
+    [health_manager_left_tel_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [health_manager_left_view addSubview:health_manager_left_tel_btn];
     
     //在线交流按钮
@@ -168,6 +170,8 @@
     health_manager_left_chat_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     health_manager_left_chat_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_left_chat_img.size.height+20, -2.5, 0, -2.5);
+    
+    [health_manager_left_chat_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [health_manager_left_view addSubview:health_manager_left_chat_btn];
 
@@ -222,6 +226,8 @@
     
     health_manager_right_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_right_tel_img.size.height+20, 0, 0, 0);
     
+    [health_manager_right_tel_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [health_manager_teacher_right_view addSubview:health_manager_right_tel_btn];
 
     //在线交流按钮
@@ -250,6 +256,8 @@
     health_manager_right_chat_btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     health_manager_right_chat_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_right_chat_img.size.height+20, -2.5, 0, -2.5);
+    
+    [health_manager_right_chat_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [health_manager_teacher_right_view addSubview:health_manager_right_chat_btn];
 
@@ -283,6 +291,8 @@
     
     today_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
+    [today_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:today_btn];
     
     
@@ -313,6 +323,8 @@
     [service_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     service_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [service_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:service_btn];
     
@@ -345,6 +357,8 @@
     
     health_check_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
+    [health_check_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:health_check_btn];
     
     
@@ -375,7 +389,8 @@
     [my_scheme_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     my_scheme_btn.titleLabel.textAlignment = NSTextAlignmentRight;
-
+    
+    [my_scheme_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_scheme_btn];
     
@@ -441,6 +456,8 @@
     
     group_shopping_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
+    [group_shopping_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
     [mainview addSubview:group_shopping_btn];
     
     
@@ -504,6 +521,8 @@
     [my_join_btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     my_join_btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [my_join_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_join_btn];
     
@@ -576,6 +595,12 @@
              self.hidesBottomBarWhenPushed=NO;
            
            }
+}
+
+-(void)test
+{
+
+    [ProgressHUD showError: @"对不起您没有权限！"];
 }
 
 @end
