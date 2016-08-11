@@ -46,6 +46,8 @@
 
 @property(nonatomic,strong)UIButton *mysigneight_btn;
 
+@property(nonatomic,strong)NSString *issignstr;
+
 @end
 
 @implementation MyLehuo
@@ -336,13 +338,13 @@
           self.mydayfld.text = [NSString stringWithFormat:@"%@天", mylehuolist.signnum];
         
           self.mynumberfld.text = [NSString stringWithFormat:@"%@R", mylehuolist.score];
-        
+             
+          self.issignstr = mylehuolist.issignin;
+             
           }
 
     
     }
-
-    
     
     //[ProgressHUD show:@"请稍等..."];
     
@@ -398,6 +400,33 @@
 //    
 //    // 启动左边任务
 //    [getusersignintask resume];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+
+{
+    if ([self.issignstr isEqualToString:@"1"]) {
+        
+        self.mysignone_btn.enabled = NO;
+        
+        self.mysigntwo_btn.enabled = NO;
+        
+        self.mysignthree_btn.enabled = NO;
+        
+        self.mysignfour_btn.enabled = NO;
+        
+        self.mysignfive_btn.enabled = NO;
+        
+        self.mysignsix_btn.enabled = NO;
+        
+        self.mysignseven_btn.enabled = NO;
+        
+        self.mysigneight_btn.enabled = NO;
+
+    }
+
+
 
 }
 
