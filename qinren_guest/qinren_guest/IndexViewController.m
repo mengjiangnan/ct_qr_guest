@@ -15,6 +15,8 @@
 #import "NSData+dataToHexString.h"
 #import "MyLehuo.h"
 #import "ProgressHUD.h"
+#import "JkpdViewController.h"
+#import "NoonBreakViewController.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -63,6 +65,7 @@
     NSArray *imagesURLStrings;
     imagesURLStrings =@[@"http://www.qrgs360.com:8088/Picture/201604/141527453573qy2x_640x300.jpg",
                         @"http://www.qrgs360.com:8088/Picture/201604/131633434739qb0q_640x300.jpg",
+                        @"http://www.qrgs360.com:8088//Picture/201608/111141584789q0qj.jpg"
                         ];
     
     // 网络加载图片的轮播器
@@ -494,7 +497,7 @@
     [mainview addSubview:my_ntegral_btn];
     
     
-    //我要加盟按钮
+    //健康频道按钮
     
     UIButton *my_join_btn;
     
@@ -512,7 +515,7 @@
     
     my_join_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_join_btn.frame.size.width * 0.2);
     
-    [my_join_btn setTitle:@"我要加盟" forState:UIControlStateNormal];
+    [my_join_btn setTitle:@"健康频道" forState:UIControlStateNormal];
     
     my_join_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -522,7 +525,7 @@
     
     my_join_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [my_join_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [my_join_btn addTarget:self action:@selector(jkpd) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_join_btn];
     
@@ -553,6 +556,17 @@
         
         self.hidesBottomBarWhenPushed=NO;
 
+    }else if ((long)index == 2){
+    
+        self.hidesBottomBarWhenPushed=YES;
+        
+        UIViewController *new03_vc = [[NoonBreakViewController alloc]init];
+        
+        [self.navigationController pushViewController:new03_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+    
+    
     }
     
     
@@ -642,6 +656,19 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         
     }
+
+}
+
+-(void)jkpd
+{
+
+    self.hidesBottomBarWhenPushed=YES;
+    
+     JkpdViewController *jkpd_vc = [[JkpdViewController alloc]init];
+    
+    [self.navigationController pushViewController:jkpd_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
 
 }
 

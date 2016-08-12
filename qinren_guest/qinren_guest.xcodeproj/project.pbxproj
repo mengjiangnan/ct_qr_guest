@@ -85,6 +85,8 @@
 		9B2FCEDC1D20C80000687390 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDB1D20C80000687390 /* libstdc++.6.0.9.dylib */; };
 		9B2FCEDE1D20C82B00687390 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDD1D20C82B00687390 /* libz.1.dylib */; };
 		9B2FCEE01D20CA7A00687390 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FCEDF1D20CA7A00687390 /* libiconv.2.dylib */; };
+		9B3126D31D5D700400729E5A /* JkpdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3126D21D5D700400729E5A /* JkpdViewController.m */; };
+		9B3126D61D5D741C00729E5A /* NoonBreakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3126D51D5D741C00729E5A /* NoonBreakViewController.m */; };
 		9B39C2C91D41AB7F002327AE /* userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2C81D41AB7F002327AE /* userinfo.m */; };
 		9B39C2D31D42182B002327AE /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2CC1D42182B002327AE /* TPKeyboardAvoidingCollectionView.m */; };
 		9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2CE1D42182B002327AE /* TPKeyboardAvoidingScrollView.m */; };
@@ -308,6 +310,10 @@
 		9B2FCEDB1D20C80000687390 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
 		9B2FCEDD1D20C82B00687390 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		9B2FCEDF1D20CA7A00687390 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		9B3126D11D5D700400729E5A /* JkpdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JkpdViewController.h; sourceTree = "<group>"; };
+		9B3126D21D5D700400729E5A /* JkpdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JkpdViewController.m; sourceTree = "<group>"; };
+		9B3126D41D5D741C00729E5A /* NoonBreakViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoonBreakViewController.h; sourceTree = "<group>"; };
+		9B3126D51D5D741C00729E5A /* NoonBreakViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoonBreakViewController.m; sourceTree = "<group>"; };
 		9B39C2C71D41AB7F002327AE /* userinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userinfo.h; sourceTree = "<group>"; };
 		9B39C2C81D41AB7F002327AE /* userinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userinfo.m; sourceTree = "<group>"; };
 		9B39C2CB1D42182B002327AE /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -782,6 +788,10 @@
 				9BE25BF51D3C60530033E3E2 /* ShopRightCategoryTableViewCell.xib */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
 				9B1AF5061D596215004C006F /* MyLehuo.m */,
+				9B3126D11D5D700400729E5A /* JkpdViewController.h */,
+				9B3126D21D5D700400729E5A /* JkpdViewController.m */,
+				9B3126D41D5D741C00729E5A /* NoonBreakViewController.h */,
+				9B3126D51D5D741C00729E5A /* NoonBreakViewController.m */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -1142,6 +1152,7 @@
 				9BE4195E1D0D09D0008C5396 /* UIImage+WebP.m in Sources */,
 				9B0253511D2B5F5300360443 /* AFSecurityPolicy.m in Sources */,
 				9B5547BC1D1B6F480088D40E /* PersonInformationViewController.m in Sources */,
+				9B3126D31D5D700400729E5A /* JkpdViewController.m in Sources */,
 				9B7BF4EB1D3CAC63005DB822 /* NSDictionary+toDic.m in Sources */,
 				9B0F9D9F1D3786CF004B347A /* MJExtensionConst.m in Sources */,
 				9B0F9DA51D3786CF004B347A /* NSObject+MJCoding.m in Sources */,
@@ -1162,6 +1173,7 @@
 				9BE419591D0D09D0008C5396 /* SDWebImageManager.m in Sources */,
 				2F7400591D0922CE000D9E15 /* CustomTabBar.m in Sources */,
 				9B0253531D2B5F5300360443 /* AFURLResponseSerialization.m in Sources */,
+				9B3126D61D5D741C00729E5A /* NoonBreakViewController.m in Sources */,
 				9BE419601D0D09D0008C5396 /* UIImageView+WebCache.m in Sources */,
 				9B0F9DA01D3786CF004B347A /* MJFoundation.m in Sources */,
 				2F213E481D3AE90900339496 /* LeftCategoryList.m in Sources */,
