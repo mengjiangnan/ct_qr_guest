@@ -61,8 +61,8 @@
     
     // 情颢二: 采用网络图片实现
     NSArray *imagesURLStrings;
-    imagesURLStrings =@[@"http://223.4.32.216:8088/Picture/201604/141527453573qy2x_640x300.jpg",
-                        @"http://223.4.32.216:8088/Picture/201604/131633434739qb0q_640x300.jpg",
+    imagesURLStrings =@[@"http://www.qrgs360.com:8088/Picture/201604/141527453573qy2x_640x300.jpg",
+                        @"http://www.qrgs360.com:8088/Picture/201604/131633434739qb0q_640x300.jpg",
                         ];
     
     // 网络加载图片的轮播器
@@ -140,7 +140,7 @@
     
     health_manager_left_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_left_tel_img.size.height+20, 0, 0, 0);
     
-    [health_manager_left_tel_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [health_manager_left_tel_btn addTarget:self action:@selector(leftcallphone) forControlEvents:UIControlEventTouchUpInside];
     
     [health_manager_left_view addSubview:health_manager_left_tel_btn];
     
@@ -226,7 +226,7 @@
     
     health_manager_right_tel_btn.titleEdgeInsets = UIEdgeInsetsMake(health_manager_right_tel_img.size.height+20, 0, 0, 0);
     
-    [health_manager_right_tel_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [health_manager_right_tel_btn addTarget:self action:@selector(rightcallphone) forControlEvents:UIControlEventTouchUpInside];
     
     [health_manager_teacher_right_view addSubview:health_manager_right_tel_btn];
 
@@ -601,6 +601,48 @@
 {
 
     [ProgressHUD showError: @"对不起您没有权限！"];
+}
+
+-(void)leftcallphone
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *emissary_phone = [defaults objectForKey:@"emissary_phone"];
+    
+    if (emissary_phone.length == 0) {
+        
+        [ProgressHUD showError: @"对不起您没有权限!"];
+    
+    }else{
+    
+    
+    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"%@",emissary_phone];
+     // NSLog(@"str======%@",str);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        
+    }
+    
+}
+
+-(void)rightcallphone
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *emissary_phone = [defaults objectForKey:@"housekeeper_phone"];
+    
+    if (emissary_phone.length == 0) {
+        
+        [ProgressHUD showError: @"对不起您没有权限!"];
+        
+    }else{
+        
+        
+        NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"%@",emissary_phone];
+        // NSLog(@"str======%@",str);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        
+    }
+
 }
 
 @end

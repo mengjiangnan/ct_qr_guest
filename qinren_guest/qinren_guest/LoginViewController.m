@@ -308,7 +308,7 @@
     
     NSDictionary *getuserloginresponder = [NSString parseJSONStringToNSDictionary:getuserloginresponderjsonstr];
     
-    NSLog(@"%@",getuserloginresponder[@"data"]);
+    //NSLog(@"%@",getuserloginresponder[@"data"]);
     
     self.getuserloginlistarr = [userinfo mj_objectArrayWithKeyValuesArray:getuserloginresponder[@"data"]];
     
@@ -324,11 +324,19 @@
         
         NSString *phone = user.phone;
         
+        NSString *emissary_phone = user.emissary_phone;
+        
+        NSString *housekeeper_phone = user.housekeeper_phone;
+        
         [defaults setObject:uid forKey:@"uid"];
         
         [defaults setObject:nickname forKey:@"nickname"];
         
         [defaults setObject:phone forKey:@"phone"];
+        
+        [defaults setObject:emissary_phone forKey:@"emissary_phone"];
+        
+        [defaults setObject:emissary_phone forKey:@"housekeeper_phone"];
         
     }
     

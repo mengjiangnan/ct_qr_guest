@@ -231,6 +231,14 @@
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"uid"];
     
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"nickname"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"phone"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"emissary_phone"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"housekeeper_phone"];
+     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
