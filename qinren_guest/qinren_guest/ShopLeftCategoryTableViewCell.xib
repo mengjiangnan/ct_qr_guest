@@ -15,5 +15,14 @@
                 <autoresizingMask key="autoresizingMask"/>
             </tableViewCellContentView>
         </tableViewCell>
+        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="752-1i-Dua">
+            <rect key="frame" x="0.0" y="0.0" width="121" height="29"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <segments>
+                <segment title="First"/>
+                <segment title="Second"/>
+            </segments>
+            <point key="canvasLocation" x="863.5" y="667"/>
+        </segmentedControl>
     </objects>
 </document>

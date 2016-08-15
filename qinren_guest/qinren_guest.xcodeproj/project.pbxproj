@@ -92,6 +92,10 @@
 		9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2CE1D42182B002327AE /* TPKeyboardAvoidingScrollView.m */; };
 		9B39C2D51D42182B002327AE /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2D01D42182B002327AE /* TPKeyboardAvoidingTableView.m */; };
 		9B39C2D61D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B39C2D21D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		9B4185781D61590300AD38ED /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4185771D61590300AD38ED /* TodayViewController.m */; };
+		9B41857C1D619BCD00AD38ED /* TodayFoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41857A1D619BCD00AD38ED /* TodayFoodTableViewCell.m */; };
+		9B41857D1D619BCD00AD38ED /* TodayFoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B41857B1D619BCD00AD38ED /* TodayFoodTableViewCell.xib */; };
+		9B4185801D619DF000AD38ED /* TodayFoodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41857F1D619DF000AD38ED /* TodayFoodList.m */; };
 		9B48065D1D065817002B2175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065C1D065817002B2175 /* main.m */; };
 		9B4806601D065817002B2175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48065F1D065817002B2175 /* AppDelegate.m */; };
 		9B4806631D065817002B2175 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4806621D065817002B2175 /* IndexViewController.m */; };
@@ -324,6 +328,13 @@
 		9B39C2D01D42182B002327AE /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		9B39C2D11D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		9B39C2D21D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		9B4185761D61590300AD38ED /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		9B4185771D61590300AD38ED /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		9B4185791D619BCD00AD38ED /* TodayFoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayFoodTableViewCell.h; sourceTree = "<group>"; };
+		9B41857A1D619BCD00AD38ED /* TodayFoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayFoodTableViewCell.m; sourceTree = "<group>"; };
+		9B41857B1D619BCD00AD38ED /* TodayFoodTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayFoodTableViewCell.xib; sourceTree = "<group>"; };
+		9B41857E1D619DF000AD38ED /* TodayFoodList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayFoodList.h; sourceTree = "<group>"; };
+		9B41857F1D619DF000AD38ED /* TodayFoodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayFoodList.m; sourceTree = "<group>"; };
 		9B4806581D065817002B2175 /* qinren_guest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qinren_guest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B48065C1D065817002B2175 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B48065E1D065817002B2175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -482,6 +493,8 @@
 				9B6797391D5442E500718198 /* UserCartList.m */,
 				9B1AF50B1D59AD2D004C006F /* MyLehuoList.h */,
 				9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */,
+				9B41857E1D619DF000AD38ED /* TodayFoodList.h */,
+				9B41857F1D619DF000AD38ED /* TodayFoodList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -780,12 +793,17 @@
 				9B02533F1D2B3FE500360443 /* MealProjectViewController.m */,
 				9B1AF5081D598B23004C006F /* ExplainViewController.h */,
 				9B1AF5091D598B23004C006F /* ExplainViewController.m */,
+				9B4185761D61590300AD38ED /* TodayViewController.h */,
+				9B4185771D61590300AD38ED /* TodayViewController.m */,
 				2F213E4C1D3B68C000339496 /* ShopLeftCategoryTableViewCell.h */,
 				2F213E4D1D3B68C000339496 /* ShopLeftCategoryTableViewCell.m */,
 				2F213E4E1D3B68C000339496 /* ShopLeftCategoryTableViewCell.xib */,
 				9BE25BF31D3C60530033E3E2 /* ShopRightCategoryTableViewCell.h */,
 				9BE25BF41D3C60530033E3E2 /* ShopRightCategoryTableViewCell.m */,
 				9BE25BF51D3C60530033E3E2 /* ShopRightCategoryTableViewCell.xib */,
+				9B4185791D619BCD00AD38ED /* TodayFoodTableViewCell.h */,
+				9B41857A1D619BCD00AD38ED /* TodayFoodTableViewCell.m */,
+				9B41857B1D619BCD00AD38ED /* TodayFoodTableViewCell.xib */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
 				9B1AF5061D596215004C006F /* MyLehuo.m */,
 				9B3126D11D5D700400729E5A /* JkpdViewController.h */,
@@ -1079,6 +1097,7 @@
 				9B2FCEC51D20BD4C00687390 /* ios-social-sdk-comment-detail.html in Resources */,
 				9B2FCEAF1D20BD4C00687390 /* UMSocialLocalizable.strings in Resources */,
 				9B2FCECB1D20BD4C00687390 /* ios-social-sdk-share-detail.html in Resources */,
+				9B41857D1D619BCD00AD38ED /* TodayFoodTableViewCell.xib in Resources */,
 				9BE25BE91D3C50350033E3E2 /* cart_addBtn_highlight@2x.png in Resources */,
 				9BE25BEE1D3C50350033E3E2 /* cart_selected_btn@2x.png in Resources */,
 				9B2FCECC1D20BD4C00687390 /* ios-social-sdk-share-quick.html in Resources */,
@@ -1150,6 +1169,7 @@
 				9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9B0F9DA21D3786CF004B347A /* MJPropertyKey.m in Sources */,
 				9BE4195E1D0D09D0008C5396 /* UIImage+WebP.m in Sources */,
+				9B4185781D61590300AD38ED /* TodayViewController.m in Sources */,
 				9B0253511D2B5F5300360443 /* AFSecurityPolicy.m in Sources */,
 				9B5547BC1D1B6F480088D40E /* PersonInformationViewController.m in Sources */,
 				9B3126D31D5D700400729E5A /* JkpdViewController.m in Sources */,
@@ -1185,6 +1205,7 @@
 				9BE419571D0D09D0008C5396 /* SDWebImageDownloader.m in Sources */,
 				9B1AF5071D596215004C006F /* MyLehuo.m in Sources */,
 				9BE4195A1D0D09D0008C5396 /* SDWebImagePrefetcher.m in Sources */,
+				9B41857C1D619BCD00AD38ED /* TodayFoodTableViewCell.m in Sources */,
 				9B67973A1D5442E500718198 /* UserCartList.m in Sources */,
 				9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */,
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
@@ -1216,6 +1237,7 @@
 				9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */,
 				9B0253401D2B3FE500360443 /* MealProjectViewController.m in Sources */,
 				9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */,
+				9B4185801D619DF000AD38ED /* TodayFoodList.m in Sources */,
 				9B084E951D25F566004B7C98 /* GTMBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

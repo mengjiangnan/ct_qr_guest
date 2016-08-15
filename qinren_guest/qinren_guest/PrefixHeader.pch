@@ -38,5 +38,7 @@
 
 #define setusersignin @"set.user.signin"
 
+#define getremindlist @"get.remind.list"
+
 #endif /* PrefixHeader_pch */
 

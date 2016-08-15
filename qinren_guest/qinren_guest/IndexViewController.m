@@ -17,6 +17,7 @@
 #import "ProgressHUD.h"
 #import "JkpdViewController.h"
 #import "NoonBreakViewController.h"
+#import "TodayViewController.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -294,7 +295,7 @@
     
     today_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [today_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [today_btn addTarget:self action:@selector(today) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:today_btn];
     
@@ -671,5 +672,19 @@
     self.hidesBottomBarWhenPushed=NO;
 
 }
+
+-(void)today
+{
+
+    self.hidesBottomBarWhenPushed=YES;
+    
+    TodayViewController *todayvc = [[TodayViewController alloc]init];
+    
+    [self.navigationController pushViewController:todayvc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
+
+}
+
 
 @end
