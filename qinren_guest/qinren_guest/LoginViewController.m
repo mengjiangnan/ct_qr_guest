@@ -20,6 +20,8 @@
 
 #import "MJExtension.h"
 
+#import "MainTabBarController.h"
+
 @interface LoginViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UITextField *my_username_field;
@@ -353,6 +355,10 @@
             
             
             [self dismissViewControllerAnimated:YES completion:nil];
+            
+            MainTabBarController * mainvc = [[MainTabBarController alloc]init];
+            
+            [self presentViewController:mainvc animated:YES completion:nil];
             
         }
         

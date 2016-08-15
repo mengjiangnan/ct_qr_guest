@@ -198,7 +198,9 @@
     _isHasNavitationController = self.navigationController?YES:NO;
     
 #warning 模仿请求数据,延迟2s加载数据
-    [self performSelector:@selector(loadData) withObject:nil afterDelay:2];
+    //[self performSelector:@selector(loadData) withObject:nil afterDelay:2];
+    
+    [self performSelector:@selector(loadData) withObject:nil afterDelay:0.5];
     
     
     [self setupCustomNavigationBar];

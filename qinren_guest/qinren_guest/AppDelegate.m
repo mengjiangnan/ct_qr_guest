@@ -11,7 +11,7 @@
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaSSOHandler.h"
-
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +22,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //读取用户uid
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+
         
     //友盟appkey
     [UMSocialData setAppKey:@"57707df5e0f55a7941005441"];
@@ -39,7 +46,15 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]; //设置窗口初始化
     
+    if (myuid.length == 0) {
+        
+        self.window.rootViewController = [[LoginViewController alloc]init];
+   
+    }else{
+    
     self.window.rootViewController = [[MainTabBarController alloc]init];//设置根控制器主tabbar
+        
+    }
     
     [self.window makeKeyAndVisible];//接受主窗口和可见
 
