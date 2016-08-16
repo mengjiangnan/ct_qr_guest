@@ -675,6 +675,15 @@
 
 -(void)today
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    if (myuid.length == 0) {
+        
+        [ProgressHUD showError: @"对不起您没有权限!"];
+        
+    }else{
 
     self.hidesBottomBarWhenPushed=YES;
     
@@ -683,6 +692,8 @@
     [self.navigationController pushViewController:todayvc animated:YES];
     
     self.hidesBottomBarWhenPushed=NO;
+        
+    }
 
 }
 

@@ -40,5 +40,7 @@
 
 #define getremindlist @"get.remind.list"
 
+#define searchremindlist @"search.remind.list"
+
 #endif /* PrefixHeader_pch */
 

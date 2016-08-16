@@ -274,6 +274,8 @@ static NSString * const TodayFoodId = @"todayfood";
                                     
                                 }
                             }];
+        
+        [cell.change addTarget:self action:@selector(mychange) forControlEvents:UIControlEventTouchUpInside];
 
         
         return cell;
@@ -304,5 +306,52 @@ static NSString * const TodayFoodId = @"todayfood";
     }
 }
 
+-(void)mychange
+{
+    //换一换数据模型
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myuid = [defaults objectForKey:@"uid"];
+    
+    NSString *searchremindlistmethod = [NSString stringWithFormat:searchremindlist];
+    
+    NSArray *searchremindlistkeys = [[NSArray alloc]initWithObjects:@"uid", nil];
+    
+    NSArray *searchremindlistvalues = [[NSArray alloc]initWithObjects:myuid, nil];
+    
+    NSString *searchremindlistjosn = [NSString Key:searchremindlistkeys Value:searchremindlistvalues];
+    
+    NSString *searchremindlisturl = [NSString NOMethod:searchremindlistmethod NOParams:searchremindlistjosn];
+    
+    //换一换同步请求
+    
+    [ProgressHUD show:@"请稍等..."];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:searchremindlisturl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
+    
+    NSError *jsonerror;
+    
+    NSDictionary *searchremindlistresponderdic = [NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingAllowFragments error:&jsonerror];
+
+    if (!jsonerror) {
+        
+        [ProgressHUD dismiss];
+        
+        NSArray *searchremindlistarr = [NSArray array];
+        
+        searchremindlistarr = searchremindlistresponderdic[@"data"][0];
+        
+        self.mygetremindlist = [TodayFoodList mj_objectArrayWithKeyValuesArray:searchremindlistarr];
+        
+        [_todayfood reloadData];
+        
+    }
+
+
+
+}
 
 @end
