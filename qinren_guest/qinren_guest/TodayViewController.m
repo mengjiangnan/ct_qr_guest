@@ -12,6 +12,10 @@
 
 #import "TodayFoodList.h"
 
+#import "TodaySportTableViewCell.h"
+
+#import "TodaySportList.h"
+
 #import "NSString+toHexString.h"
 
 #import "ProgressHUD.h"
@@ -19,6 +23,8 @@
 #import "MJExtension.h"
 
 #import "SDWebImageManager.h"
+
+#import "NoMedicalList.h"
 
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -30,13 +36,22 @@
 
 @property(nonatomic,strong)NSMutableArray *mygetremindlist;
 
+@property(nonatomic,strong)NSMutableArray *mysportlist;
+
+@property(nonatomic,strong)NSMutableArray *mynomedicallist;
+
 @end
 
 @implementation TodayViewController
 
 static NSString * const TodayFoodId = @"todayfood";
 
+static NSString * const TodaySportId = @"todaysport";
+
+static NSString * const NoMedicalId = @"nomedical";
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -83,7 +98,9 @@ static NSString * const TodayFoodId = @"todayfood";
     
     _todaymotion = [[UITableView alloc]initWithFrame:CGRectMake(0 - self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     
-    _todaymotion.backgroundColor = [UIColor redColor];
+    [_todaymotion registerNib:[UINib nibWithNibName:NSStringFromClass([TodaySportTableViewCell class]) bundle:nil] forCellReuseIdentifier:TodaySportId];
+    
+    //_todaymotion.backgroundColor = [UIColor redColor];
     
     _todaymotion.tag = 3;
     
@@ -93,7 +110,7 @@ static NSString * const TodayFoodId = @"todayfood";
     
     [self.view addSubview:_todaymotion];
     
-    //今日食谱数据模型
+    //今日食谱今日运动数据模型
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -109,7 +126,7 @@ static NSString * const TodayFoodId = @"todayfood";
     
     NSString *getremindlisturl = [NSString NOMethod:getremindlistmethod NOParams:getremindlistjosn];
     
-    //今日食谱同步请求
+    //今日食谱今日运动同步请求
     
     [ProgressHUD show:@"请稍等..."];
     
@@ -127,16 +144,62 @@ static NSString * const TodayFoodId = @"todayfood";
         
         NSArray *getremindlistarr = [NSArray array];
         
+        NSArray *sportlistarr = [NSArray array];
+        
         getremindlistarr = getremindlistresponderdic[@"data"][0];
+        
+        sportlistarr = getremindlistresponderdic[@"data"][1];
         
         self.mygetremindlist = [TodayFoodList mj_objectArrayWithKeyValuesArray:getremindlistarr];
         
+        self.mysportlist = [TodaySportList mj_objectArrayWithKeyValuesArray:sportlistarr];
+        
         [_todayfood reloadData];
         
+        [_todaymotion reloadData];
+        
+    }
+    
+    //非药物疗法模型
+    
+    NSString *nomedicalmethod = [NSString stringWithFormat:getsolutiontype];
+    
+    NSArray *nomedicalkeys = [[NSArray alloc]init];
+    
+    NSArray *nomedicalvalues = [[NSArray alloc]init];
+    
+    NSString *nomedicaljosn = [NSString Key:nomedicalkeys Value:nomedicalvalues];
+    
+    NSString *nomedicalurl = [NSString NOMethod:nomedicalmethod NOParams:nomedicaljosn];
+    
+    NSLog(@"%@",nomedicalurl);
+    
+    //非药物疗法同步请求
+    
+    [ProgressHUD show:@"请稍等..."];
+    
+    NSURLRequest *nomedicalurlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:nomedicalurl] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    
+    NSData *nomedicalreceived = [NSURLConnection sendSynchronousRequest:nomedicalurlRequest returningResponse:nil error:nil];
+    
+    NSError *nomedicaljsonerror;
+    
+    NSDictionary *nomedicalresponderdic = [NSJSONSerialization JSONObjectWithData:nomedicalreceived options:NSJSONReadingAllowFragments error:&nomedicaljsonerror];
+    
+    if (!nomedicaljsonerror) {
+        
+        [ProgressHUD dismiss];
+        
+        NSArray *nomedicalarr = [NSArray array];
+        
+        nomedicalarr = nomedicalresponderdic[@"data"];
+        
+        self.mynomedicallist = [NoMedicalList mj_objectArrayWithKeyValuesArray:nomedicalarr];
+        
+        [_nomedical reloadData];
     }
 
-    
-    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -152,6 +215,7 @@ static NSString * const TodayFoodId = @"todayfood";
     // Pass the selected object to the new view controller.
 }
 */
+
 
 -(void)selected:(id)sender{
     
@@ -215,7 +279,7 @@ static NSString * const TodayFoodId = @"todayfood";
 }
 
 - (void)threeSegment
-{
+{    
     _todayfood.frame  = CGRectMake(0 + self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
     
     _nomedical.frame = CGRectMake(0 - self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
@@ -234,6 +298,11 @@ static NSString * const TodayFoodId = @"todayfood";
     if (tableView.tag == 1) {
         
         return  self.mygetremindlist.count;
+    
+    }else if (tableView.tag == 3){
+    
+        return self.mysportlist.count;
+      
     }
     
     return 0;
@@ -280,12 +349,48 @@ static NSString * const TodayFoodId = @"todayfood";
         
         return cell;
         
-    }else{
+    }else if(tableView.tag == 3){
     
-        TodayFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TodayFoodId];
-    
+        TodaySportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TodaySportId];
+        
+        TodaySportList *sportlist = self.mysportlist[indexPath.row];
+        
+        //cell.mainbackgroud.userInteractionEnabled = NO;
+        
+        cell.sporttitle.text = sportlist.parent_name;
+        
+        cell.stylecontent.text = sportlist.sport_name;
+        
+        cell.repeatcontent.text = sportlist.sport_repeat;
+        
+        cell.sportcontent.userInteractionEnabled = NO;
+        
+        cell.sportcontent.text = sportlist.sport_strength;
+        
+        cell.sportadvice.userInteractionEnabled = NO;
+        
+        cell.sportadvice.text = sportlist.sport_advice;
+        
+        //将图层的边框设置为圆脚
+        
+        cell.content.layer.cornerRadius = 5;
+        
+        cell.content.layer.masksToBounds = YES;
+        
+        //给图层添加一个有色边框
+        
+        cell.content.layer.borderWidth = 1;
+        
+        cell.content.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        
         return cell;
     
+    }else{
+        
+        TodayFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TodayFoodId];
+        
+        return cell;
+       
     }
 
 }
@@ -299,7 +404,14 @@ static NSString * const TodayFoodId = @"todayfood";
     {
         return self.view.frame.size.height;
         
-    }else{
+    }else if (tableView.tag == 3){
+    
+        
+        return 300;
+    
+    
+    }
+    else{
         
         return 44;
         
@@ -344,13 +456,19 @@ static NSString * const TodayFoodId = @"todayfood";
         
         searchremindlistarr = searchremindlistresponderdic[@"data"][0];
         
+        NSArray *sportlistarr = [NSArray array];
+        
+        sportlistarr = searchremindlistresponderdic[@"data"][1];
+        
         self.mygetremindlist = [TodayFoodList mj_objectArrayWithKeyValuesArray:searchremindlistarr];
+        
+        self.mysportlist = [TodaySportList mj_objectArrayWithKeyValuesArray:sportlistarr];
         
         [_todayfood reloadData];
         
+        [_todaymotion reloadData];
+            
     }
-
-
 
 }
 

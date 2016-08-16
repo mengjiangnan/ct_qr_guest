@@ -42,5 +42,7 @@
 
 #define searchremindlist @"search.remind.list"
 
+#define getsolutiontype @"get.solution.type"
+
 #endif /* PrefixHeader_pch */
 

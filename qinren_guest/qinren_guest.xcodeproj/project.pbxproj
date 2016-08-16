@@ -150,6 +150,10 @@
 		9BE4195F1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4194D1D0D09D0008C5396 /* UIImageView+HighlightedWebCache.m */; };
 		9BE419601D0D09D0008C5396 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4194F1D0D09D0008C5396 /* UIImageView+WebCache.m */; };
 		9BE419611D0D09D0008C5396 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE419511D0D09D0008C5396 /* UIView+WebCacheOperation.m */; };
+		9BF5A4301D62A5ED009AEED9 /* TodaySportList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5A42F1D62A5ED009AEED9 /* TodaySportList.m */; };
+		9BF5A4341D62A879009AEED9 /* TodaySportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5A4321D62A879009AEED9 /* TodaySportTableViewCell.m */; };
+		9BF5A4351D62A879009AEED9 /* TodaySportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BF5A4331D62A879009AEED9 /* TodaySportTableViewCell.xib */; };
+		9BF5A4381D631136009AEED9 /* NoMedicalList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5A4371D631136009AEED9 /* NoMedicalList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -436,6 +440,13 @@
 		9BE4194F1D0D09D0008C5396 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		9BE419501D0D09D0008C5396 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		9BE419511D0D09D0008C5396 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		9BF5A42E1D62A5ED009AEED9 /* TodaySportList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySportList.h; sourceTree = "<group>"; };
+		9BF5A42F1D62A5ED009AEED9 /* TodaySportList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySportList.m; sourceTree = "<group>"; };
+		9BF5A4311D62A879009AEED9 /* TodaySportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodaySportTableViewCell.h; sourceTree = "<group>"; };
+		9BF5A4321D62A879009AEED9 /* TodaySportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodaySportTableViewCell.m; sourceTree = "<group>"; };
+		9BF5A4331D62A879009AEED9 /* TodaySportTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodaySportTableViewCell.xib; sourceTree = "<group>"; };
+		9BF5A4361D631136009AEED9 /* NoMedicalList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoMedicalList.h; sourceTree = "<group>"; };
+		9BF5A4371D631136009AEED9 /* NoMedicalList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoMedicalList.m; sourceTree = "<group>"; };
 		9BF94D4D1D3866AF009748F4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -495,6 +506,10 @@
 				9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */,
 				9B41857E1D619DF000AD38ED /* TodayFoodList.h */,
 				9B41857F1D619DF000AD38ED /* TodayFoodList.m */,
+				9BF5A42E1D62A5ED009AEED9 /* TodaySportList.h */,
+				9BF5A42F1D62A5ED009AEED9 /* TodaySportList.m */,
+				9BF5A4361D631136009AEED9 /* NoMedicalList.h */,
+				9BF5A4371D631136009AEED9 /* NoMedicalList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -804,6 +819,9 @@
 				9B4185791D619BCD00AD38ED /* TodayFoodTableViewCell.h */,
 				9B41857A1D619BCD00AD38ED /* TodayFoodTableViewCell.m */,
 				9B41857B1D619BCD00AD38ED /* TodayFoodTableViewCell.xib */,
+				9BF5A4311D62A879009AEED9 /* TodaySportTableViewCell.h */,
+				9BF5A4321D62A879009AEED9 /* TodaySportTableViewCell.m */,
+				9BF5A4331D62A879009AEED9 /* TodaySportTableViewCell.xib */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
 				9B1AF5061D596215004C006F /* MyLehuo.m */,
 				9B3126D11D5D700400729E5A /* JkpdViewController.h */,
@@ -1098,6 +1116,7 @@
 				9B2FCEAF1D20BD4C00687390 /* UMSocialLocalizable.strings in Resources */,
 				9B2FCECB1D20BD4C00687390 /* ios-social-sdk-share-detail.html in Resources */,
 				9B41857D1D619BCD00AD38ED /* TodayFoodTableViewCell.xib in Resources */,
+				9BF5A4351D62A879009AEED9 /* TodaySportTableViewCell.xib in Resources */,
 				9BE25BE91D3C50350033E3E2 /* cart_addBtn_highlight@2x.png in Resources */,
 				9BE25BEE1D3C50350033E3E2 /* cart_selected_btn@2x.png in Resources */,
 				9B2FCECC1D20BD4C00687390 /* ios-social-sdk-share-quick.html in Resources */,
@@ -1168,6 +1187,7 @@
 				9BE25BF11D3C50350033E3E2 /* LZCartTableViewCell.m in Sources */,
 				9B39C2D41D42182B002327AE /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9B0F9DA21D3786CF004B347A /* MJPropertyKey.m in Sources */,
+				9BF5A4341D62A879009AEED9 /* TodaySportTableViewCell.m in Sources */,
 				9BE4195E1D0D09D0008C5396 /* UIImage+WebP.m in Sources */,
 				9B4185781D61590300AD38ED /* TodayViewController.m in Sources */,
 				9B0253511D2B5F5300360443 /* AFSecurityPolicy.m in Sources */,
@@ -1179,6 +1199,7 @@
 				9BE419531D0D09D0008C5396 /* NSData+ImageContentType.m in Sources */,
 				9B0F9DA61D3786CF004B347A /* NSObject+MJKeyValue.m in Sources */,
 				9B0F9DA71D3786CF004B347A /* NSObject+MJProperty.m in Sources */,
+				9BF5A4381D631136009AEED9 /* NoMedicalList.m in Sources */,
 				9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */,
 				2FFC003B1D154FA800616FC8 /* TAAnimatedDotView.m in Sources */,
 				9BE419561D0D09D0008C5396 /* SDWebImageDecoder.m in Sources */,
@@ -1208,6 +1229,7 @@
 				9B41857C1D619BCD00AD38ED /* TodayFoodTableViewCell.m in Sources */,
 				9B67973A1D5442E500718198 /* UserCartList.m in Sources */,
 				9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */,
+				9BF5A4301D62A5ED009AEED9 /* TodaySportList.m in Sources */,
 				9B4806601D065817002B2175 /* AppDelegate.m in Sources */,
 				9BE419541D0D09D0008C5396 /* SDImageCache.m in Sources */,
 				9BE419581D0D09D0008C5396 /* SDWebImageDownloaderOperation.m in Sources */,
