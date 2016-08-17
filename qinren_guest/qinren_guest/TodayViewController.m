@@ -26,6 +26,10 @@
 
 #import "NoMedicalList.h"
 
+#import "NoMedicalTableViewCell.h"
+
+#import "RecuperateSchemeViewController.h"
+
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UITableView *todayfood;
@@ -86,7 +90,9 @@ static NSString * const NoMedicalId = @"nomedical";
     
     _nomedical = [[UITableView alloc]initWithFrame:CGRectMake(0 + self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     
-    _nomedical.backgroundColor = [UIColor blueColor];
+    [_nomedical registerNib:[UINib nibWithNibName:NSStringFromClass([NoMedicalTableViewCell class]) bundle:nil] forCellReuseIdentifier:NoMedicalId];
+    
+    //_nomedical.backgroundColor = [UIColor blueColor];
     
     _nomedical.tag = 2;
     
@@ -172,8 +178,6 @@ static NSString * const NoMedicalId = @"nomedical";
     
     NSString *nomedicalurl = [NSString NOMethod:nomedicalmethod NOParams:nomedicaljosn];
     
-    NSLog(@"%@",nomedicalurl);
-    
     //非药物疗法同步请求
     
     [ProgressHUD show:@"请稍等..."];
@@ -250,6 +254,8 @@ static NSString * const NoMedicalId = @"nomedical";
 
 - (void)firstSegment
 {
+    [_todayfood reloadData];
+    
     _todayfood.frame  = CGRectMake(0, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
     
     _nomedical.frame = CGRectMake(0 + self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
@@ -265,6 +271,8 @@ static NSString * const NoMedicalId = @"nomedical";
 
 - (void)secondSegment
 {
+    [_nomedical reloadData];
+    
     _todayfood.frame  = CGRectMake(0 - self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
     
     _nomedical.frame = CGRectMake(0, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
@@ -279,7 +287,9 @@ static NSString * const NoMedicalId = @"nomedical";
 }
 
 - (void)threeSegment
-{    
+{
+    [_todaymotion reloadData];
+    
     _todayfood.frame  = CGRectMake(0 + self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
     
     _nomedical.frame = CGRectMake(0 - self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height);
@@ -305,7 +315,7 @@ static NSString * const NoMedicalId = @"nomedical";
       
     }
     
-    return 0;
+    return self.mynomedicallist.count;
 
 }
 
@@ -316,6 +326,8 @@ static NSString * const NoMedicalId = @"nomedical";
         TodayFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TodayFoodId];
         
         TodayFoodList *foodlist = self.mygetremindlist[indexPath.row];
+        
+        cell.backgroudtext.editable = NO;
                 
         cell.foodname.text = foodlist.meal_name;
         
@@ -345,7 +357,8 @@ static NSString * const NoMedicalId = @"nomedical";
                             }];
         
         [cell.change addTarget:self action:@selector(mychange) forControlEvents:UIControlEventTouchUpInside];
-
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
         
@@ -355,20 +368,22 @@ static NSString * const NoMedicalId = @"nomedical";
         
         TodaySportList *sportlist = self.mysportlist[indexPath.row];
         
-        //cell.mainbackgroud.userInteractionEnabled = NO;
+        cell.mainbackgroud.editable = NO;
         
         cell.sporttitle.text = sportlist.parent_name;
         
         cell.stylecontent.text = sportlist.sport_name;
         
+        cell.content.editable = NO;
+        
         cell.repeatcontent.text = sportlist.sport_repeat;
         
-        cell.sportcontent.userInteractionEnabled = NO;
+        cell.sportcontent.editable = NO;
         
         cell.sportcontent.text = sportlist.sport_strength;
         
-        cell.sportadvice.userInteractionEnabled = NO;
-        
+        cell.sportadvice.editable = NO;
+                
         cell.sportadvice.text = sportlist.sport_advice;
         
         //将图层的边框设置为圆脚
@@ -383,11 +398,41 @@ static NSString * const NoMedicalId = @"nomedical";
         
         cell.content.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
     
     }else{
         
-        TodayFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TodayFoodId];
+        NoMedicalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NoMedicalId];
+        
+        NoMedicalList *medicallist = self.mynomedicallist[indexPath.row];
+        
+        cell.textLabel.text = medicallist.st_name;
+        
+        NSURL *no_medical_img_url = [[NSURL alloc]initWithString:medicallist.st_img];
+        
+        SDWebImageManager *nomedicalmanager = [SDWebImageManager sharedManager];
+        
+        [nomedicalmanager downloadImageWithURL:no_medical_img_url
+        
+        options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            // progression tracking code
+        }
+        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if (image) {
+            
+            // do something with image
+            
+            cell.imageView.image =image;
+            
+        }else{
+            
+            cell.imageView.image = [UIImage imageNamed:@"smallplacehold"];
+            
+        }
+    }];
+
         
         return cell;
        
@@ -413,10 +458,40 @@ static NSString * const NoMedicalId = @"nomedical";
     }
     else{
         
-        return 44;
+        return 60;
         
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (tableView.tag == 2) {
+        
+        NSArray *solutionarr = [NSArray arrayWithObjects:@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100001",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100002",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100003",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100004",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100005",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100006",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100007",@"http://www.qrgs360.com:8087/app/solution.aspx?sid=null&st_id=ST2014061100008", nil];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [solutionarr objectAtIndex:indexPath.row];
+        
+        NSString *solutionstr = [NSString stringWithFormat:@"%@",solutionarr[indexPath.row]];
+        
+        [defaults setObject:solutionstr forKey:@"solutioninfo"];
+        
+        self.hidesBottomBarWhenPushed=YES;
+        
+        RecuperateSchemeViewController *rs_vc = [[RecuperateSchemeViewController alloc]init];
+        
+        [self.navigationController pushViewController:rs_vc animated:YES];
+        
+        self.hidesBottomBarWhenPushed=NO;
+        
+    }
+
+
+
+}
+
 
 -(void)mychange
 {

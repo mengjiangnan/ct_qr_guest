@@ -41,6 +41,9 @@
 		9B0F9DA81D3786CF004B347A /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F9D9D1D3786CF004B347A /* NSString+MJExtension.m */; };
 		9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */; };
 		9B1087221D23560A006023B8 /* AdministratorExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */; };
+		9B12C6521D63E75400DF9B8C /* NoMedicalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B12C6501D63E75400DF9B8C /* NoMedicalTableViewCell.m */; };
+		9B12C6531D63E75400DF9B8C /* NoMedicalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B12C6511D63E75400DF9B8C /* NoMedicalTableViewCell.xib */; };
+		9B12C6561D63FA3C00DF9B8C /* RecuperateSchemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B12C6551D63FA3C00DF9B8C /* RecuperateSchemeViewController.m */; };
 		9B1AF5071D596215004C006F /* MyLehuo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF5061D596215004C006F /* MyLehuo.m */; };
 		9B1AF50A1D598B23004C006F /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF5091D598B23004C006F /* ExplainViewController.m */; };
 		9B1AF50D1D59AD2D004C006F /* MyLehuoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF50C1D59AD2D004C006F /* MyLehuoList.m */; };
@@ -242,6 +245,11 @@
 		9B10871E1D235586006023B8 /* HousekeeperExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousekeeperExchangeViewController.m; sourceTree = "<group>"; };
 		9B1087201D23560A006023B8 /* AdministratorExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdministratorExchangeViewController.h; sourceTree = "<group>"; };
 		9B1087211D23560A006023B8 /* AdministratorExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdministratorExchangeViewController.m; sourceTree = "<group>"; };
+		9B12C64F1D63E75400DF9B8C /* NoMedicalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoMedicalTableViewCell.h; sourceTree = "<group>"; };
+		9B12C6501D63E75400DF9B8C /* NoMedicalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoMedicalTableViewCell.m; sourceTree = "<group>"; };
+		9B12C6511D63E75400DF9B8C /* NoMedicalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMedicalTableViewCell.xib; sourceTree = "<group>"; };
+		9B12C6541D63FA3C00DF9B8C /* RecuperateSchemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecuperateSchemeViewController.h; sourceTree = "<group>"; };
+		9B12C6551D63FA3C00DF9B8C /* RecuperateSchemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecuperateSchemeViewController.m; sourceTree = "<group>"; };
 		9B1AF5051D596215004C006F /* MyLehuo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLehuo.h; sourceTree = "<group>"; };
 		9B1AF5061D596215004C006F /* MyLehuo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLehuo.m; sourceTree = "<group>"; };
 		9B1AF5081D598B23004C006F /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
@@ -822,12 +830,17 @@
 				9BF5A4311D62A879009AEED9 /* TodaySportTableViewCell.h */,
 				9BF5A4321D62A879009AEED9 /* TodaySportTableViewCell.m */,
 				9BF5A4331D62A879009AEED9 /* TodaySportTableViewCell.xib */,
+				9B12C64F1D63E75400DF9B8C /* NoMedicalTableViewCell.h */,
+				9B12C6501D63E75400DF9B8C /* NoMedicalTableViewCell.m */,
+				9B12C6511D63E75400DF9B8C /* NoMedicalTableViewCell.xib */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
 				9B1AF5061D596215004C006F /* MyLehuo.m */,
 				9B3126D11D5D700400729E5A /* JkpdViewController.h */,
 				9B3126D21D5D700400729E5A /* JkpdViewController.m */,
 				9B3126D41D5D741C00729E5A /* NoonBreakViewController.h */,
 				9B3126D51D5D741C00729E5A /* NoonBreakViewController.m */,
+				9B12C6541D63FA3C00DF9B8C /* RecuperateSchemeViewController.h */,
+				9B12C6551D63FA3C00DF9B8C /* RecuperateSchemeViewController.m */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -1110,6 +1123,7 @@
 			files = (
 				9B2FCEC91D20BD4C00687390 /* ios-social-sdk-login-quick.html in Resources */,
 				9BE25BEA1D3C50350033E3E2 /* cart_addBtn_nomal@2x.png in Resources */,
+				9B12C6531D63E75400DF9B8C /* NoMedicalTableViewCell.xib in Resources */,
 				9B2FCEB61D20BD4C00687390 /* UMSLoginViewController.xib in Resources */,
 				9B2FCEB11D20BD4C00687390 /* UMSCommentDetailController.xib in Resources */,
 				9B2FCEC51D20BD4C00687390 /* ios-social-sdk-comment-detail.html in Resources */,
@@ -1208,6 +1222,7 @@
 				9B0253521D2B5F5300360443 /* AFURLRequestSerialization.m in Sources */,
 				9B8E9F051D364EDF0096F04E /* NSString+toHexString.m in Sources */,
 				2FFC003D1D154FA800616FC8 /* TAPageControl.m in Sources */,
+				9B12C6521D63E75400DF9B8C /* NoMedicalTableViewCell.m in Sources */,
 				9BE25BF61D3C60530033E3E2 /* ShopRightCategoryTableViewCell.m in Sources */,
 				9B4806691D065817002B2175 /* qinren_guest.xcdatamodeld in Sources */,
 				9BE4195B1D0D09D0008C5396 /* UIButton+WebCache.m in Sources */,
@@ -1252,6 +1267,7 @@
 				9B39C2D61D42182B002327AE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				9B0F9DA81D3786CF004B347A /* NSString+MJExtension.m in Sources */,
 				9B02534F1D2B5F5300360443 /* AFHTTPSessionManager.m in Sources */,
+				9B12C6561D63FA3C00DF9B8C /* RecuperateSchemeViewController.m in Sources */,
 				9BE419551D0D09D0008C5396 /* SDWebImageCompat.m in Sources */,
 				9B48065D1D065817002B2175 /* main.m in Sources */,
 				9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */,

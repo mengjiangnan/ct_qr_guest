@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="width" constant="90" id="PGz-Dx-ojs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nm-og-ZMV">
@@ -99,6 +99,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backgroudtext" destination="vn8-Z7-VwM" id="qUg-sU-pub"/>
                 <outlet property="change" destination="0nm-og-ZMV" id="kK0-s4-gpO"/>
                 <outlet property="content" destination="vn8-Z7-VwM" id="ylp-K7-gwh"/>
                 <outlet property="foodimg" destination="kip-Tp-dkZ" id="zhn-Iy-qtP"/>

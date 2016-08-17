@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *content;
 
+@property (weak, nonatomic) IBOutlet UITextView *backgroudtext;
 
 @end
