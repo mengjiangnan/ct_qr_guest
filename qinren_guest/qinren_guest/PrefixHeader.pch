@@ -44,5 +44,7 @@
 
 #define getsolutiontype @"get.solution.type"
 
+#define getresttypelist @"get.resttype.list"
+
 #endif /* PrefixHeader_pch */
 

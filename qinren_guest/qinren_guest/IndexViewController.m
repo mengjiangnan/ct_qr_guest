@@ -18,6 +18,7 @@
 #import "JkpdViewController.h"
 #import "NoonBreakViewController.h"
 #import "TodayViewController.h"
+#import "TravelViewController.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -432,7 +433,7 @@
     [mainview addSubview:health_shop_btn];
     
     
-    //社区团购按钮
+    //候鸟旅游按钮
     
     UIButton *group_shopping_btn;
     
@@ -450,7 +451,7 @@
     
     group_shopping_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, group_shopping_btn.frame.size.width * 0.2);
     
-    [group_shopping_btn setTitle:@"社区团购" forState:UIControlStateNormal];
+    [group_shopping_btn setTitle:@"候鸟旅游" forState:UIControlStateNormal];
     
     group_shopping_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -460,7 +461,7 @@
     
     group_shopping_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [group_shopping_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [group_shopping_btn addTarget:self action:@selector(travel) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:group_shopping_btn];
     
@@ -697,5 +698,15 @@
 
 }
 
+-(void)travel
+{
+    self.hidesBottomBarWhenPushed=YES;
+    
+    TravelViewController *travel_vc = [[TravelViewController alloc]init];
+    
+    [self.navigationController pushViewController:travel_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
 
+}
 @end
