@@ -119,6 +119,7 @@
     
     rem.text = @"";
     
+    
     [reservationview addSubview:rem];
 
 }
