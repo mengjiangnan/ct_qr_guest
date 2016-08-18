@@ -30,6 +30,8 @@
 
 @property(nonatomic,strong)NSMutableArray *mygetresttypelist;
 
+@property(nonatomic,strong)NSString *myreservationtext;
+
 @end
 
 @implementation TravelViewController
@@ -218,6 +220,8 @@ static NSString * const BirdId = @"bird";
         
         cell.travelname.text = tlist.name;
         
+        self.myreservationtext = cell.travelname.text;
+        
         cell.traveldes.text = tlist.simpledesc;
         
         [cell.reservationbtn addTarget:self action:@selector(reservation) forControlEvents:UIControlEventTouchUpInside];
@@ -248,8 +252,17 @@ static NSString * const BirdId = @"bird";
     }
 }
 
+
+
 -(void)reservation
 {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *myreservationtext = self.myreservationtext;
+    
+    [defaults setObject:myreservationtext forKey:@"myreservationtext"];
+        
     self.hidesBottomBarWhenPushed=YES;
     
     MyReservationViewController *reservationvc = [[MyReservationViewController alloc]init];

@@ -10,6 +10,8 @@
 
 #import "SDWebImageManager.h"
 
+#import "ProgressHUD.h"
+
 @interface MyReservationViewController ()
 
 @property (nonatomic,weak) UIDatePicker *mydatepicker;
@@ -28,9 +30,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //个人信息获取
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *realname = [defaults objectForKey:@"realname"];
+    
+    NSString *mysex = [defaults objectForKey:@"sex"];
+    
     self.navigationItem.title = @"我要预约";
     
     self.view.backgroundColor = [UIColor colorWithRed:238.0/255 green:238.0/255 blue:238.0/255 alpha:1.0];
+    
+    //获取旅游点名称
+    
+    NSUserDefaults *traveldefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *travelname = [traveldefaults objectForKey:@"myreservationtext"];
+
     
     //初始化开始时间UIDatePicker
     
@@ -116,7 +133,7 @@
     
     UILabel *name = [[UILabel alloc]initWithFrame:CGRectMake(165, 20, 80, 18)];
     
-    name.text = @"";
+    name.text = realname;
     
     [reservationview addSubview:name];
     
@@ -132,7 +149,23 @@
     
     UILabel *sex = [[UILabel alloc]initWithFrame:CGRectMake(165, 48, 20, 18)];
     
-    sex.text = @"";
+    NSString *sexinfo = [[NSString alloc]init];
+    
+    if ([mysex isEqualToString:@"1"]) {
+        
+       sexinfo = [NSString stringWithFormat:@"男"];
+    
+    }else if([mysex isEqualToString:@"2"]){
+        
+       sexinfo = [NSString stringWithFormat:@"女"];
+    
+    }else{
+    
+       sexinfo = [NSString stringWithFormat:@""];
+      
+    }
+    
+    sex.text = sexinfo;
     
     [reservationview addSubview:sex];
     
@@ -184,7 +217,7 @@
     
     UILabel *recuperatename = [[UILabel alloc]initWithFrame:CGRectMake(105, 20, 190, 18)];
     
-    recuperatename.text = @"盛夏避暑胜地－羊楼洞";
+    recuperatename.text = travelname;
     
     [secondview addSubview:recuperatename];
     
@@ -252,6 +285,8 @@
     
     submitbtn.backgroundColor = [UIColor greenColor];
     
+    [submitbtn addTarget:self action:@selector(mysubmit) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:submitbtn];
 
 }
@@ -307,6 +342,14 @@
 
 }
 
+-(void)mysubmit
+
+{
+    
+    [ProgressHUD showSuccess:@"提交成功"];
+    
+
+}
 
 /*
 #pragma mark - Navigation

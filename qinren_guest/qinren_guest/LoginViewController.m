@@ -330,6 +330,10 @@
         
         NSString *housekeeper_phone = user.housekeeper_phone;
         
+        NSString *realname = user.realname;
+        
+        NSString *sex = user.sex;
+        
         [defaults setObject:uid forKey:@"uid"];
         
         [defaults setObject:nickname forKey:@"nickname"];
@@ -338,7 +342,11 @@
         
         [defaults setObject:emissary_phone forKey:@"emissary_phone"];
         
-        [defaults setObject:emissary_phone forKey:@"housekeeper_phone"];
+        [defaults setObject:housekeeper_phone forKey:@"housekeeper_phone"];
+        
+        [defaults setObject:realname forKey:@"realname"];
+        
+        [defaults setObject:sex forKey:@"sex"];
         
     }
     

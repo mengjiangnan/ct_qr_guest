@@ -238,7 +238,11 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"emissary_phone"];
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"housekeeper_phone"];
-     
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"realname"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"sex"];
+      
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
