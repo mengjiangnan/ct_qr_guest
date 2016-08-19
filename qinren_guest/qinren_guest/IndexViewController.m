@@ -301,7 +301,7 @@
     [mainview addSubview:today_btn];
     
     
-    //服务预约按钮
+    //健康频道按钮
     
     UIButton *service_btn;
     
@@ -319,7 +319,7 @@
     
     service_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, service_btn.frame.size.width * 0.2);
     
-    [service_btn setTitle:@"服务预约" forState:UIControlStateNormal];
+    [service_btn setTitle:@"健康频道" forState:UIControlStateNormal];
     
     service_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -329,7 +329,7 @@
     
     service_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [service_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [service_btn addTarget:self action:@selector(jkpd) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:service_btn];
     
@@ -367,7 +367,7 @@
     [mainview addSubview:health_check_btn];
     
     
-    //我的方案按钮
+    //健康商城按钮
     
     UIButton *my_scheme_btn;
     
@@ -385,7 +385,7 @@
     
     my_scheme_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, my_scheme_btn.frame.size.width * 0.2);
     
-    [my_scheme_btn setTitle:@"方案按钮" forState:UIControlStateNormal];
+    [my_scheme_btn setTitle:@"健康商城" forState:UIControlStateNormal];
     
     my_scheme_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -395,12 +395,12 @@
     
     my_scheme_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [my_scheme_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [my_scheme_btn addTarget:self action:@selector(myshop) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:my_scheme_btn];
     
     
-    //健康商城按钮
+    //我的红包按钮
     
     UIButton *health_shop_btn;
     
@@ -418,7 +418,7 @@
     
     health_shop_btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, health_shop_btn.frame.size.width * 0.2);
     
-    [health_shop_btn setTitle:@"健康商城" forState:UIControlStateNormal];
+    [health_shop_btn setTitle:@"我的红包" forState:UIControlStateNormal];
     
     health_shop_btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
     
@@ -428,7 +428,7 @@
     
     health_shop_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [health_shop_btn addTarget:self action:@selector(myshop) forControlEvents:UIControlEventTouchUpInside];
+    [health_shop_btn addTarget:self action:@selector(mylehuo) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:health_shop_btn];
     
@@ -496,7 +496,7 @@
     
     [my_ntegral_btn addTarget:self action:@selector(mylehuo) forControlEvents:UIControlEventTouchUpInside];
     
-    [mainview addSubview:my_ntegral_btn];
+    //[mainview addSubview:my_ntegral_btn];
     
     
     //健康频道按钮
@@ -529,7 +529,7 @@
     
     [my_join_btn addTarget:self action:@selector(jkpd) forControlEvents:UIControlEventTouchUpInside];
     
-    [mainview addSubview:my_join_btn];
+    //[mainview addSubview:my_join_btn];
     
 }
 

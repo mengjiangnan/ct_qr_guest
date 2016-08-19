@@ -126,6 +126,9 @@
 		9B7BF4EB1D3CAC63005DB822 /* NSDictionary+toDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BF4EA1D3CAC63005DB822 /* NSDictionary+toDic.m */; };
 		9B8E9F041D364EDF0096F04E /* NSData+dataToHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E9F011D364EDF0096F04E /* NSData+dataToHexString.m */; };
 		9B8E9F051D364EDF0096F04E /* NSString+toHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E9F031D364EDF0096F04E /* NSString+toHexString.m */; };
+		9B987C501D669238003E9E02 /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B987C4F1D669238003E9E02 /* Address.plist */; };
+		9B987C541D66945A003E9E02 /* BirdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B987C521D66945A003E9E02 /* BirdTableViewCell.m */; };
+		9B987C551D66945A003E9E02 /* BirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B987C531D66945A003E9E02 /* BirdTableViewCell.xib */; };
 		9BE25BE61D3C50350033E3E2 /* aaa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BE25BD01D3C50350033E3E2 /* aaa.jpg */; };
 		9BE25BE71D3C50350033E3E2 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE25BD41D3C50350033E3E2 /* UIViewExt.m */; };
 		9BE25BE81D3C50350033E3E2 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE25BD61D3C50350033E3E2 /* back_button@2x.png */; };
@@ -406,6 +409,10 @@
 		9B8E9F011D364EDF0096F04E /* NSData+dataToHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+dataToHexString.m"; sourceTree = "<group>"; };
 		9B8E9F021D364EDF0096F04E /* NSString+toHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+toHexString.h"; sourceTree = "<group>"; };
 		9B8E9F031D364EDF0096F04E /* NSString+toHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+toHexString.m"; sourceTree = "<group>"; };
+		9B987C4F1D669238003E9E02 /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
+		9B987C511D66945A003E9E02 /* BirdTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdTableViewCell.h; sourceTree = "<group>"; };
+		9B987C521D66945A003E9E02 /* BirdTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirdTableViewCell.m; sourceTree = "<group>"; };
+		9B987C531D66945A003E9E02 /* BirdTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BirdTableViewCell.xib; sourceTree = "<group>"; };
 		9BE25BD01D3C50350033E3E2 /* aaa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aaa.jpg; sourceTree = "<group>"; };
 		9BE25BD21D3C50350033E3E2 /* LZConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZConfigFile.h; sourceTree = "<group>"; };
 		9BE25BD31D3C50350033E3E2 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
@@ -852,6 +859,9 @@
 				9B12C65A1D643EF700DF9B8C /* RecureTableViewCell.h */,
 				9B12C65B1D643EF700DF9B8C /* RecureTableViewCell.m */,
 				9B12C65C1D643EF700DF9B8C /* RecureTableViewCell.xib */,
+				9B987C511D66945A003E9E02 /* BirdTableViewCell.h */,
+				9B987C521D66945A003E9E02 /* BirdTableViewCell.m */,
+				9B987C531D66945A003E9E02 /* BirdTableViewCell.xib */,
 				9B12C6571D6414E400DF9B8C /* TravelViewController.h */,
 				9B12C6581D6414E400DF9B8C /* TravelViewController.m */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
@@ -864,6 +874,7 @@
 				9B12C6551D63FA3C00DF9B8C /* RecuperateSchemeViewController.m */,
 				9B12C6621D6458F100DF9B8C /* MyReservationViewController.h */,
 				9B12C6631D6458F100DF9B8C /* MyReservationViewController.m */,
+				9B987C4F1D669238003E9E02 /* Address.plist */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
 				9B4806671D065817002B2175 /* qinren_guest.xcdatamodeld */,
@@ -1163,6 +1174,7 @@
 				9BE25BEB1D3C50350033E3E2 /* cart_cutBtn_highlight@2x.png in Resources */,
 				9B2FCECA1D20BD4C00687390 /* ios-social-sdk-shake.html in Resources */,
 				9B2FCEC41D20BD4C00687390 /* iOS-social-releasenote.html in Resources */,
+				9B987C551D66945A003E9E02 /* BirdTableViewCell.xib in Resources */,
 				9B2FCEB81D20BD4C00687390 /* UMSShareListController.xib in Resources */,
 				9B2FCEC31D20BD4C00687390 /* iOS-social-analytics-releasenote.html in Resources */,
 				9B0F9D9E1D3786CF004B347A /* Info.plist in Resources */,
@@ -1177,6 +1189,7 @@
 				9BE25BED1D3C50350033E3E2 /* cart_default_bg.png in Resources */,
 				9B2FCEB51D20BD4C00687390 /* UMShareEditViewControlleriPad.xib in Resources */,
 				9B2FCEC21D20BD4C00687390 /* README.txt in Resources */,
+				9B987C501D669238003E9E02 /* Address.plist in Resources */,
 				9BE25BEC1D3C50350033E3E2 /* cart_cutBtn_nomal@2x.png in Resources */,
 				2F213E501D3B68C000339496 /* ShopLeftCategoryTableViewCell.xib in Resources */,
 				9B2FCEBC1D20BD4C00687390 /* WeiboSDK.bundle in Resources */,
@@ -1243,6 +1256,7 @@
 				9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */,
 				2FFC003B1D154FA800616FC8 /* TAAnimatedDotView.m in Sources */,
 				9BE419561D0D09D0008C5396 /* SDWebImageDecoder.m in Sources */,
+				9B987C541D66945A003E9E02 /* BirdTableViewCell.m in Sources */,
 				2F213E4F1D3B68C000339496 /* ShopLeftCategoryTableViewCell.m in Sources */,
 				9BE25BE71D3C50350033E3E2 /* UIViewExt.m in Sources */,
 				9B0253521D2B5F5300360443 /* AFURLRequestSerialization.m in Sources */,

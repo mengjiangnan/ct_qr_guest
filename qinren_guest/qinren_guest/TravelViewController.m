@@ -22,7 +22,9 @@
 
 #import "MyReservationViewController.h"
 
-@interface TravelViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "BirdTableViewCell.h"
+
+@interface TravelViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property(nonatomic,strong)UITableView *recure;
 
@@ -31,6 +33,12 @@
 @property(nonatomic,strong)NSMutableArray *mygetresttypelist;
 
 @property(nonatomic,strong)NSString *myreservationtext;
+
+@property(nonatomic,strong)UIPickerView *citymore;
+
+@property(nonatomic,strong)UIDatePicker *mydatepick;
+
+@property(nonatomic,strong)UITextField *mystarttime;
 
 @end
 
@@ -72,6 +80,22 @@ static NSString * const BirdId = @"bird";
     _recure.delegate = self;
     
     [self.view addSubview:_recure];
+    
+    _bird = [[UITableView alloc]initWithFrame:CGRectMake(0 + self.view.frame.size.width, 64 + self.view.frame.size.height * 0.05 + 1, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    
+    [_bird registerNib:[UINib nibWithNibName:NSStringFromClass([BirdTableViewCell class]) bundle:nil] forCellReuseIdentifier:BirdId];
+    
+    //_nomedical.backgroundColor = [UIColor blueColor];
+    
+    _bird.tag = 2;
+    
+    _bird.dataSource = self;
+    
+    _bird.delegate = self;
+    
+    [self.view addSubview:_bird];
+
+    
     
     //康复疗养模型
     
@@ -180,10 +204,12 @@ static NSString * const BirdId = @"bird";
     if (tableView.tag == 1) {
         
         return self.mygetresttypelist.count;
+     
+    }else{
+    
+        return 1;
+    
     }
- 
-    return 0;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -230,10 +256,23 @@ static NSString * const BirdId = @"bird";
         
     }
     
-    RecureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecureId];
-
+    BirdTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BirdId];
+    
+//    cell.citythree.text = @"";
+    
+//    self.mystarttime = cell.starttime;
+//    
+//    self.mydatepick = cell.mypickdate;
+//    
+//    self.mydatepick.datePickerMode = UIDatePickerModeDate;
+//    
+//    [self.mydatepick addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
+    
+    [cell.checkbtn addTarget:self action:@selector(check) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 
+    
 }
 
 //设置Cell高度
@@ -247,7 +286,7 @@ static NSString * const BirdId = @"bird";
         
     }else{
         
-        return 60;
+        return self.view.frame.size.height;
         
     }
 }
@@ -271,6 +310,42 @@ static NSString * const BirdId = @"bird";
 
 }
 
+///*点击日期控件时，将选中的日期填写到文本框中*/
+//
+//-(void)dateChanged:(id)sender
+//
+//{
+//    self.mydatepick = (UIDatePicker*)sender;
+//    
+//    NSDate* date = self.mydatepick.date;
+//    
+//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+//    
+//    [df setDateFormat:@"yyyy-MM-dd"];
+//    
+//    NSString* str = [df stringFromDate:date];
+//    
+//    self.mystarttime.text = str;
+//    
+//}
+
+//-(void)enddateChanged:(id)sender
+//
+//{
+//    self.myenddatepicker = (UIDatePicker*)sender;
+//    
+//    NSDate* date = self.myenddatepicker.date;
+//    
+//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+//    
+//    [df setDateFormat:@"yyyy-MM-dd"];
+//    
+//    NSString* str = [df stringFromDate:date];
+//    
+//    self.myendtime.text = str;
+//    
+//}
+
 
 /*
 #pragma mark - Navigation
@@ -281,5 +356,14 @@ static NSString * const BirdId = @"bird";
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)check
+{
+
+    [ProgressHUD showError:@"查询内容不存在！"];
+
+
+}
+
 
 @end

@@ -12,6 +12,8 @@
 
 #import "AdministratorExchangeViewController.h"
 
+#import "ProgressHUD.h"
+
 @interface ExchangeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -70,10 +72,10 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"张力及健康管理师群";
+        cell.textLabel.text = @"健康管理师群";
     }else if (indexPath.row == 1){
     
-        cell.textLabel.text = @"陈思波健康管家群";
+        cell.textLabel.text = @"健康管家群";
     }
     
     
@@ -89,24 +91,28 @@
 {
     if (indexPath.row == 0) {
         
-        self.hidesBottomBarWhenPushed=YES;
+//        self.hidesBottomBarWhenPushed=YES;
+//        
+//        UIViewController *administrator_exchange_vc = [[AdministratorExchangeViewController alloc]init];
+//        
+//        [self.navigationController pushViewController:administrator_exchange_vc animated:YES];
+//        
+//        self.hidesBottomBarWhenPushed=NO;
         
-        UIViewController *administrator_exchange_vc = [[AdministratorExchangeViewController alloc]init];
-        
-        [self.navigationController pushViewController:administrator_exchange_vc animated:YES];
-        
-        self.hidesBottomBarWhenPushed=NO;
+        [ProgressHUD showError: @"对不起您没有交流群的权限！"];
         
     
     }else if (indexPath.row == 1){
         
-        self.hidesBottomBarWhenPushed=YES;
+//        self.hidesBottomBarWhenPushed=YES;
+//        
+//        UIViewController *housekeeper_exchange_vc = [[HousekeeperExchangeViewController alloc]init];
+//        
+//        [self.navigationController pushViewController:housekeeper_exchange_vc animated:YES];
+//        
+//        self.hidesBottomBarWhenPushed=NO;
         
-        UIViewController *housekeeper_exchange_vc = [[HousekeeperExchangeViewController alloc]init];
-        
-        [self.navigationController pushViewController:housekeeper_exchange_vc animated:YES];
-        
-        self.hidesBottomBarWhenPushed=NO;
+        [ProgressHUD showError: @"对不起您没有交流群的权限！"];
     
     
     }
