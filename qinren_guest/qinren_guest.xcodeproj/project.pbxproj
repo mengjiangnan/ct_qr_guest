@@ -119,6 +119,10 @@
 		9B5A1BA71D2A285E004F0E21 /* HealthShopIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A1BA61D2A285E004F0E21 /* HealthShopIndexViewController.m */; };
 		9B5C48011D18C9E4006E50D5 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5C48001D18C9E4006E50D5 /* MyViewController.m */; };
 		9B5D3E9E1D122F79007DC3F4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */; };
+		9B6408671D6A86C600BFED3D /* HealthCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6408661D6A86C600BFED3D /* HealthCheckViewController.m */; };
+		9B64086B1D6A8A4900BFED3D /* HealthCheckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6408691D6A8A4900BFED3D /* HealthCheckTableViewCell.m */; };
+		9B64086C1D6A8A4900BFED3D /* HealthCheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B64086A1D6A8A4900BFED3D /* HealthCheckTableViewCell.xib */; };
+		9B64086F1D6A942200BFED3D /* HealthCheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B64086E1D6A942200BFED3D /* HealthCheckList.m */; };
 		9B67973A1D5442E500718198 /* UserCartList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6797391D5442E500718198 /* UserCartList.m */; };
 		9B68D4581D07B8D300BCD0ED /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D4571D07B8D300BCD0ED /* ExchangeViewController.m */; };
 		9B68D45B1D07BA8200BCD0ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B68D45A1D07BA8200BCD0ED /* LoginViewController.m */; };
@@ -395,6 +399,13 @@
 		9B5C48001D18C9E4006E50D5 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		9B5D3E9C1D122F79007DC3F4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		9B5D3E9D1D122F79007DC3F4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		9B6408651D6A86C600BFED3D /* HealthCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCheckViewController.h; sourceTree = "<group>"; };
+		9B6408661D6A86C600BFED3D /* HealthCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCheckViewController.m; sourceTree = "<group>"; };
+		9B6408681D6A8A4900BFED3D /* HealthCheckTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCheckTableViewCell.h; sourceTree = "<group>"; };
+		9B6408691D6A8A4900BFED3D /* HealthCheckTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCheckTableViewCell.m; sourceTree = "<group>"; };
+		9B64086A1D6A8A4900BFED3D /* HealthCheckTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthCheckTableViewCell.xib; sourceTree = "<group>"; };
+		9B64086D1D6A942200BFED3D /* HealthCheckList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCheckList.h; sourceTree = "<group>"; };
+		9B64086E1D6A942200BFED3D /* HealthCheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCheckList.m; sourceTree = "<group>"; };
 		9B6797381D5442E500718198 /* UserCartList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCartList.h; sourceTree = "<group>"; };
 		9B6797391D5442E500718198 /* UserCartList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCartList.m; sourceTree = "<group>"; };
 		9B68D4561D07B8D300BCD0ED /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
@@ -541,6 +552,8 @@
 				9BF5A4371D631136009AEED9 /* NoMedicalList.m */,
 				9B12C65F1D64467F00DF9B8C /* TravelList.h */,
 				9B12C6601D64467F00DF9B8C /* TravelList.m */,
+				9B64086D1D6A942200BFED3D /* HealthCheckList.h */,
+				9B64086E1D6A942200BFED3D /* HealthCheckList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -862,6 +875,9 @@
 				9B987C511D66945A003E9E02 /* BirdTableViewCell.h */,
 				9B987C521D66945A003E9E02 /* BirdTableViewCell.m */,
 				9B987C531D66945A003E9E02 /* BirdTableViewCell.xib */,
+				9B6408681D6A8A4900BFED3D /* HealthCheckTableViewCell.h */,
+				9B6408691D6A8A4900BFED3D /* HealthCheckTableViewCell.m */,
+				9B64086A1D6A8A4900BFED3D /* HealthCheckTableViewCell.xib */,
 				9B12C6571D6414E400DF9B8C /* TravelViewController.h */,
 				9B12C6581D6414E400DF9B8C /* TravelViewController.m */,
 				9B1AF5051D596215004C006F /* MyLehuo.h */,
@@ -874,6 +890,8 @@
 				9B12C6551D63FA3C00DF9B8C /* RecuperateSchemeViewController.m */,
 				9B12C6621D6458F100DF9B8C /* MyReservationViewController.h */,
 				9B12C6631D6458F100DF9B8C /* MyReservationViewController.m */,
+				9B6408651D6A86C600BFED3D /* HealthCheckViewController.h */,
+				9B6408661D6A86C600BFED3D /* HealthCheckViewController.m */,
 				9B987C4F1D669238003E9E02 /* Address.plist */,
 				9B48066F1D065817002B2175 /* Info.plist */,
 				9B48066A1D065817002B2175 /* Assets.xcassets */,
@@ -1197,6 +1215,7 @@
 				9B0F9D851D376993004B347A /* ProgressHUD.bundle in Resources */,
 				9BE25BE61D3C50350033E3E2 /* aaa.jpg in Resources */,
 				9B2FCEC81D20BD4C00687390 /* ios-social-sdk-login-detail.html in Resources */,
+				9B64086C1D6A8A4900BFED3D /* HealthCheckTableViewCell.xib in Resources */,
 				9BE25BE81D3C50350033E3E2 /* back_button@2x.png in Resources */,
 				9B12C65E1D643EF700DF9B8C /* RecureTableViewCell.xib in Resources */,
 				9B2FCEC71D20BD4C00687390 /* ios-social-sdk-like.html in Resources */,
@@ -1256,6 +1275,7 @@
 				9B48069A1D066DC3002B2175 /* MainTabBarController.m in Sources */,
 				2FFC003B1D154FA800616FC8 /* TAAnimatedDotView.m in Sources */,
 				9BE419561D0D09D0008C5396 /* SDWebImageDecoder.m in Sources */,
+				9B64086F1D6A942200BFED3D /* HealthCheckList.m in Sources */,
 				9B987C541D66945A003E9E02 /* BirdTableViewCell.m in Sources */,
 				2F213E4F1D3B68C000339496 /* ShopLeftCategoryTableViewCell.m in Sources */,
 				9BE25BE71D3C50350033E3E2 /* UIViewExt.m in Sources */,
@@ -1265,6 +1285,7 @@
 				9B12C6521D63E75400DF9B8C /* NoMedicalTableViewCell.m in Sources */,
 				9BE25BF61D3C60530033E3E2 /* ShopRightCategoryTableViewCell.m in Sources */,
 				9B12C65D1D643EF700DF9B8C /* RecureTableViewCell.m in Sources */,
+				9B6408671D6A86C600BFED3D /* HealthCheckViewController.m in Sources */,
 				9B4806691D065817002B2175 /* qinren_guest.xcdatamodeld in Sources */,
 				9BE4195B1D0D09D0008C5396 /* UIButton+WebCache.m in Sources */,
 				9BE419591D0D09D0008C5396 /* SDWebImageManager.m in Sources */,
@@ -1273,6 +1294,7 @@
 				9B3126D61D5D741C00729E5A /* NoonBreakViewController.m in Sources */,
 				9BE419601D0D09D0008C5396 /* UIImageView+WebCache.m in Sources */,
 				9B0F9DA01D3786CF004B347A /* MJFoundation.m in Sources */,
+				9B64086B1D6A8A4900BFED3D /* HealthCheckTableViewCell.m in Sources */,
 				2F213E481D3AE90900339496 /* LeftCategoryList.m in Sources */,
 				2FFC002F1D154F6D00616FC8 /* SDCollectionViewCell.m in Sources */,
 				9B10871F1D235586006023B8 /* HousekeeperExchangeViewController.m in Sources */,

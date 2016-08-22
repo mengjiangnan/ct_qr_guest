@@ -19,6 +19,7 @@
 #import "NoonBreakViewController.h"
 #import "TodayViewController.h"
 #import "TravelViewController.h"
+#import "HealthCheckViewController.h"
 
 @interface IndexViewController ()<SDCycleScrollViewDelegate>
 
@@ -362,7 +363,7 @@
     
     health_check_btn.titleLabel.textAlignment = NSTextAlignmentRight;
     
-    [health_check_btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [health_check_btn addTarget:self action:@selector(healthcheck) forControlEvents:UIControlEventTouchUpInside];
     
     [mainview addSubview:health_check_btn];
     
@@ -705,6 +706,18 @@
     TravelViewController *travel_vc = [[TravelViewController alloc]init];
     
     [self.navigationController pushViewController:travel_vc animated:YES];
+    
+    self.hidesBottomBarWhenPushed=NO;
+
+}
+
+-(void)healthcheck
+{
+    self.hidesBottomBarWhenPushed=YES;
+    
+    HealthCheckViewController *health_vc = [[HealthCheckViewController alloc]init];
+    
+    [self.navigationController pushViewController:health_vc animated:YES];
     
     self.hidesBottomBarWhenPushed=NO;
 
