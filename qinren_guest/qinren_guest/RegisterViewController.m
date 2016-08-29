@@ -461,11 +461,33 @@
     
     self.myanswer = security_answer_textfield;
     
+    //提示标签（以下内容为选填内容，可以以后补填！）
+    
+    CGFloat selectfilllab_label_x = label_x;
+    
+    CGFloat selectfilllab_label_y = security_answer_label_y + security_answer_label.frame.size.height + space_height;
+    
+    CGFloat selectfilllab_label_width = 0;
+    
+    CGFloat selectfilllab_label_height = 0;
+    
+    UILabel *selectfilllab = [[UILabel alloc]initWithFrame:CGRectMake(selectfilllab_label_x, selectfilllab_label_y, selectfilllab_label_width, selectfilllab_label_height)];
+    
+    selectfilllab.text = @"(以下内容为选填内容，可以以后补填！)";
+    
+    selectfilllab.textColor = [UIColor redColor];
+    
+    selectfilllab.numberOfLines = 0;
+    
+    [selectfilllab sizeToFit];
+    
+    [mainview addSubview:selectfilllab];
+    
     //出生日期标签
     
     CGFloat birthday_label_x = label_x;
     
-    CGFloat birthday_label_y = security_answer_label_y + security_answer_label.frame.size.height + space_height;
+    CGFloat birthday_label_y = selectfilllab_label_y + selectfilllab.frame.size.height + space_height;
     
     CGFloat birthday_label_width = 0;
     
@@ -506,7 +528,7 @@
     self.my_birthday_textfield = birthday_textfield;
     
     [mainview addSubview:birthday_textfield];
-    
+
     //真实姓名标签
     
     CGFloat real_name_label_x = label_x;
